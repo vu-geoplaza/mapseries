@@ -4,8 +4,8 @@ namespace :db do
     task :admin => :environment do
       u = User.new({
                        email: 'pjmvos@gmail.com',
-                       password: '!T0ps3cr3t',
-                       password_confirmation: '!T0ps3cr3t'
+                       password: '*',
+                       password_confirmation: '*'
                    })
 
       l = Library.find('ubvu')
