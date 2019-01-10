@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class="crumb">Kaartbladen van <%= @base_series.name %></div>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Titel</th>
+    <th>Regio</th>
+    <th>Polygon</th>
+    <th>Edities</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @base_sheets.sort_by {|i| i[:title]}.each do |sheet| %>
+    <tr>
+      <td><%= sheet.title %></td>
+      <td><%= sheet.region.name %></td>
+      <td><%= sheet.region.polygon %></td>
+      <td><%= link_to sheet.sheets.count, base_sheet_sheets_path(sheet) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+

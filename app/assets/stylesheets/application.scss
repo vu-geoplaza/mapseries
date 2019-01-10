@@ -1,0 +1,289 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'jquery-ui/core.css';
+@import 'jquery-ui/datepicker.css';
+@import 'jquery-ui/slider.css';
+@import 'jquery-ui/theme.css';
+@import 'font-awesome.css';
+
+
+body {
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.container {
+    width: 95%;
+}
+
+#header-navbar {
+    .navbar-brand { /* The main logo image for the Blacklight instance */
+        background: transparent url(image-path('VUlogo_RGB_UBVU_NL_wit_tcm253-850633.svg')) no-repeat top left;
+
+        background-size: contain;
+        width: 400px;
+        height: 75px;
+        margin-top: 10px;
+        margin-left: 40px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    height: 170px;
+    background-color: white;
+    border: none;
+}
+
+.header-title {
+    margin-top: 30px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 400;
+    padding-left: 5px;
+    min-width: 800px;
+    color: rgb(0, 126, 204);
+}
+
+#search-navbar .search-query-form {
+    max-width: 1200px;
+}
+
+@media(max-width: 480px) {
+    #header-navbar .navbar-brand {
+        font-size: 24px;
+        width: 220px;
+    }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: whitesmoke;
+}
+
+.jumbotron {
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: rgb(221, 75, 57);
+    border-color: rgb(204, 204, 204);
+}
+
+.category-block {
+    min-height: 300px;
+}
+
+.category-block .category-icon .glyphicon {
+    color: #565347;
+}
+
+
+
+.site-footer {
+    border-top: 1px solid lightgrey;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.site-footer .footer-links {
+    float: left;
+}
+
+.site-footer .footer-links ul {
+    list-style: none;
+}
+.site-footer .attribution {
+    float: right;
+}
+
+
+.highlight td, span.highlight {
+    background-color: chartreuse !important;
+}
+
+.highlight2 td, span.highlight2 {
+    background-color: aquamarine !important;
+}
+
+.highlight3 td, span.highlight3 {
+    background-color: #B00100 !important;
+}
+
+table.sortable thead {
+    background-color: #eee;
+    color: #666666;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table.sortable th .asc:after{
+    content: " \25B4"
+}
+
+table.sortable th .desc:after{
+    content: " \25BE"
+}
+
+#recordTable {
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#recordTable .fit {
+    min-width: 140px;
+}
+
+table .absorbing-column {
+    width: 100%;
+}
+
+.field {
+    margin-left: 5px;
+    margin-right: 5px;
+    /*background-color: #eaf8fb;*/
+    margin-bottom: 5px;
+    border: 1px dotted lightblue;
+}
+
+.field label {
+    position: relative;
+    cursor: pointer;
+    color: #666;
+    font-size: 12px;
+}
+
+.field input[type="checkbox"], input[type="radio"] {
+    position: absolute;
+    right: 9000px;
+}
+
+/*Check box
+ *= require 'blacklight_advanced_search'
+
+*/
+.field input[type="checkbox"] + .label-text:before {
+    content: "\f096";
+    font-family: "FontAwesome";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    width: 1em;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.field input[type="checkbox"]:checked + .label-text:before {
+    content: "\f14a";
+    color: #2980b9;
+    animation: effect 250ms ease-in;
+}
+
+.field input[type="checkbox"]:disabled + .label-text {
+    color: #aaa;
+}
+
+.field input[type="checkbox"]:disabled + .label-text:before {
+    content: "\f0c8";
+    color: #ccc;
+}
+
+@media (min-width: 768px) {
+    #document .dl-horizontal dt {
+        width: 220px;
+    }
+    #document .dl-horizontal dd {
+        margin-left: 240px;
+    }
+}
+
+#filter {
+    margin-bottom: 10px
+}
+
+.facet-values {
+    margin-bottom: 0px;
+}
+.panel-body {
+    padding: 5px 15px 5px 15px;
+}
+
+
+.advanced_search {
+    float: left;
+}
+
+#header-navbar {
+    height: 70px;
+}
+
+#search-navbar .search-query-form {
+    max-width: 1200px;
+}
+
+
+.form_note {
+    font-size: 0.7em;
+    font-style: italic;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 0.85em;
+}
+
+th {
+    background-color: rgb(0, 126, 204);
+    color: white;
+    border: 1px solid black !important;
+
+}
+
+.ed_titel, .ed_nummer {
+    display: none;
+}
+
+.crumb {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+.copies_met {
+    margin-left: 20px;
+}
+.ev_met {
+    margin-left: 20px;
+}
+
+#content {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}

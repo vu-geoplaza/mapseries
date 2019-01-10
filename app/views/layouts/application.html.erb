@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mapseries</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= render :partial => 'shared/header_navbar' %>
+  <div id="main-container" class="container">
+    <%= content_tag :h1, 'geoplaza kaartseries', class: 'sr-only application-heading' %>
+
+    <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
+
+    <div class="row">
+      <%= yield %>
+    </div>
+    <%= render :partial => 'shared/footer' %>
+  </div>
+  </body>
+
+</html>

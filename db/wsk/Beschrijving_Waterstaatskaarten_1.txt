@@ -1,0 +1,1014 @@
+1 TERSCHELLING
+Min. v. Oorl. Top. Bur. 
+Bewerkt 1868
+Schaal van 10000 Ellen
+
+1 AMELAND
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+2 SCHIERMONNIKOOG 1
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+2 SCHIERMONNIKOOG 2
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+3 UITHUIZEN 1
+Top. Inrichting
+Verkend 1888
+Bewerkt 1889
+Schaal van 10000 Meters
+
+3 UITHUIZEN 2
+Top. inrichting
+Verkend 1887
+Bewerkt 1888
+Schaal van 10000 Meters
+
+3 UITHUIZEN 3
+Top. Inrichting
+Verkend 1887
+Bewerkt 1888
+Schaal van 10000 Meters
+
+4 VLIELAND 1
+Min. v. Oorl. Top. Bur. 
+Bewerkt 1868
+Schaal van 10000 Ellen
+
+4 VLIELAND 2
+Min. v. Oorl. Top. Bur. 
+Bewerkt 1868
+Schaal van 10000 Ellen
+
+5 HARLINGEN 1
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+
+5 HARLINGEN 2
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+5 HARLINGEN 3
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+6 LEEUWARDEN 1
+Top. Bur. 
+Bewerkt 1874
+Schaal van 10000 Meters
+
+6 LEEUWARDEN 2
+Top. Bur. 
+Bewerkt 1874
+Schaal van 10000 Meters
+
+6 LEEUWARDEN 3
+Top. Bur. 
+Bewerkt 1874
+Schaal van 10000 Meters
+
+6 LEEUWARDEN 4
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+7 GRONINGEN 1
+Top. Inrichting
+Verkend 1887
+Bewerkt 1888
+Schaal van 10000 Meters
+
+7 GRONINGEN 2
+Top. Inrichting
+Verkend 1886
+Bewerkt 1888
+Schaal van 10000 Meters
+
+7 GRONINGEN 3
+Top. Inrichting
+Verkend 1886
+Bewerkt 1887
+Schaal van 10000 Meters
+
+7 GRONINGEN 4
+Top. Inrichting
+Verkend 1886
+Bewerkt 1887 
+Schaal van 10000 Meters
+
+8 NIEUWESCHANS 1
+Top. Inrichting
+Verkend 1886
+Bewerkt 1888
+Schaal van 10000 Meters
+
+8 NIEUWESCHANS 2
+Top. Inrichting
+Verkend 1886
+Bewerkt 1887
+Schaal van 10000 Meters
+
+9 HELDER 1
+Min. v. Oorl. Top.Bur. 
+Bewerkt 1867
+Schaal van 10000 Ellen
+
+9 HELDER 2
+Min. v. Oorl. Top.Bur. 
+Bewerkt 1867
+Schaal van 10000 Ellen
+
+10 SNEEK 1
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+10 SNEEK 2
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+10 SNEEK 3
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+10 SNEEK 4
+Top. Bur. 
+Bewerkt 1873
+Schaal van 10000 Meters
+
+11 HEERENVEEN 1
+Top. Inrigting
+Bewerkt in 1876
+Schaal van 10000 Meters
+
+
+
+
+11 HEERENVEEN 2
+Top. Inrigting
+Bewerkt in 1877
+Verkend in 1875
+Schaal van 10000 Meters
+
+11 HEERENVEEN 3
+Top. Inrigting
+Bewerkt in 1877
+Verkend in 1875
+Schaal van 10000 Meters
+
+12 ASSEN 1
+Top. Inrichting
+Verkend in 1885
+Bewerkt in 1887
+Schaal van 10000 Meters
+
+12 ASSEN 2
+Top. Inrichting
+Verkend in 1885
+Bewerkt in 1887
+Schaal van 10000 Meters
+
+12 ASSEN 3
+Top. Inrichting
+Verkend in 1885
+Bewerkt in 1886
+Schaal van 10000 Meters
+
+12 ASSEN 4
+Top. Inrichting
+Verkend in 1885
+Bewerkt in 1886
+Schaal van 10000 Meters
+
+13 BOURTANGE 1
+Top. Inrichting
+Verkend 1886
+Bewerkt 1887
+Schaal van 10000 Meters
+
+13 BOURTANGE 2
+Top. Inrichting
+Verkend in 1886
+Bewerkt in 1887
+Schaal van 10000 Meters
+
+14 MEDEMBLIK 1
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1867
+Schaal van 10000 Ellen
+
+14 MEDEMBLIK 2
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1867
+Schaal van 10000 Ellen
+
+14 MEDEMBLIK 3
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1867
+Schaal van 10000 Ellen
+
+14 MEDEMBLIK 4
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1867
+Schaal van 10000 Ellen
+
+15 STAVOREN 1
+Top. Bur.
+Bewerkt in 1873
+Schaal van 10000 Meters
+
+15 STAVOREN 2
+Top. Bur.
+Bewerkt in 1873
+Schaal van 10000 Meters
+
+15 STAVOREN 3
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1867
+Schaal van 10000 Ellen
+
+16 STEENWIJK 1
+Top. Inrigting
+Bewerkt in 1877
+Verkend in 1875
+Schaal van 10000 Meters
+
+16 STEENWIJK 2
+Top. Inrigting
+Bewerkt in 1877
+Verkend in 1875
+Schaal van 10000 Meters
+
+16 STEENWIJK 3
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+16 STEENWIJK 4
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+
+
+17 BEILEN 1
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1886
+Schaal van 10000 Meters
+
+17 BEILEN 2
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+17 BEILEN 3
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1886
+Schaal van 10000 Meters
+
+17 BEILEN 4
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1886
+Schaal van 10000 Meters
+
+18 ROSWINKEL 1
+Top. Inrichting
+Verkend in 1886
+Bewerkt in 1887
+Schaal van 10000 Meters
+
+18 ROSWINKEL 2
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+19 ALKMAAR 2
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1866
+Schaal van 10000 Ellen
+
+19 ALKMAAR 3
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1866
+Schaal van 10000 Ellen
+
+19 ALKMAAR 4
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1866
+Schaal van 10,000 Ellen
+
+20 ENKHUIZEN 1
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1867
+Schaal van 10000 Ellen
+
+20 ENKHUIZEN 2
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+21 ZWOLLE 1
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+21 ZWOLLE 2
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+21 ZWOLLE 3
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+21 ZWOLLE 4
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+22 COEVORDEN 1
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+22 COEVORDEN 2
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+22 COEVORDEN 3
+Top. Inrichting
+Verkend in 1883
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+22 COEVORDEN 4
+Top. Inrichting
+Verkend in 1883
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+
+
+23 NIEUW-SCHOONEBEEK
+Top. Inrichting
+Verkend in 1884
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+24 HILLEGOM 1
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1866
+Schaal van 10,000 Ellen
+
+24 HILLEGOM 2
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1867
+Schaal van 10000 Ellen
+
+25 AMSTERDAM 1
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1879
+Schaal van 10000 Meters
+
+25 AMSTERDAM 2
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1878
+
+25 AMSTERDAM 3
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1879
+Schaal van 10000 Meters
+
+25 AMSTERDAM 4
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1878
+Schaal van 10000 Meters
+
+26 HARDERWIJK 1
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+26 HARDERWIJK 2
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+27 HATTEM 1
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1882
+Schaal van 10000 Meters
+27 HATTEM 2
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+27 HATTEM 3
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+27 HATTEM 4
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+28 ALMELO 1
+Top. Inrichting
+Verkend in 1883
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+28 ALMELO 2
+Top. Inrichting
+Verkend in 1883
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+28 ALMELO 3
+Top. Inrichting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+28 ALMELO 4
+Top. Inrichting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+29 DENEKAMP 1
+Top. Inrichting
+Verkend in 1883
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+29 DENEKAMP 2
+Top. Inrichting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+
+
+30 'S GRAVENHAGE 1
+Top. Inrichting
+Bijgewerkt in 1885
+Schaal van 10000 Meters
+
+30 'S GRAVENHAGE 2
+Min. v. Oorl. Top. Bur.
+Bewerkt in 1868
+Schaal van 10000 Ellen
+
+30 'S GRAVENHAGE 3
+Top. Inrichting
+Bijgewerkt in 1885
+Schaal van 10000 Meters
+
+31 UTRECHT 1
+Top. Bur. 
+Bewerkt in 1869
+Schaal van 10000 Ellen
+
+31 UTRECHT 2
+Top. Bureau
+Bewerkt in 1869
+Schaal van 10000 Ellen
+
+31 UTRECHT 3
+Top. Bur. 
+Bewerkt in 1869
+Schaal van 10000 Ellen
+
+31 UTRECHT 4
+Top. Bur. 
+Bewerkt in 1869
+Schaal van 10000 Ellen
+
+32 AMERSFOORT 1
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+32 AMERSFOORT 2
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+32 AMERSFOORT 3
+Top. Inrigting
+Verkend in 1879
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+32 AMERSFOORT 4
+Top. Inrigting
+Verkend in 1879
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+33 ZUTPHEN 1
+Top. Inrigting
+Verkend in 1880
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+33 ZUTPHEN 2
+Top. Inrigting 
+Verkend in 1880
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+33 ZUTPHEN 3
+Top. Inrigting
+Verkend in 1879
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+33 ZUTPHEN 4
+Top.Inrigting
+Verkend in 1879
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+34 GROENLO 1
+Top. Inrigting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+34 GROENLO 2
+Top. Inrigting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+34 GROENLO 3
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+34 GROENLO 4
+[1881]
+Schaal van 10000 Meters
+
+36 GOEDEREEDE
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Ellen
+
+37 ROTTERDAM 1
+Top. Inrigting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+37 ROTTERDAM 2
+Top. Inrigting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+37 ROTTERDAM 3
+Top. Inrigting
+Verkend in 1883
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+37 ROTTERDAM 4
+Top. Inrigting
+Verkend in 1882
+Bewerkt in 1884
+Schaal van 10000 Meters
+
+38 GORINCHEM 1
+Top. Bur. 
+Bewerkt in 1870
+Schaal van 10000 Ellen
+
+38 GORINCHEM 2
+Top. Bur. 
+Bewerkt in 1870
+Schaal van 10000 Ellen
+
+38 GORINCHEM 3
+Top. Bur. 
+Bewerkt in 1870
+Schaal van 10000 Ellen
+
+38 GORINCHEM 4
+Top. Bur. 
+Bewerkt in 1870
+Schaal van 10000 Ellen
+
+39 RHENEN 1
+Top. Bur. 
+Bewerkt in 1871
+Schaal van 10000 Ellen
+
+39 RHENEN 2
+Top. Inrigting
+Bewerkt in 1879
+Verkend in 1881
+Schaal van 10000 Meters
+
+39 RHENEN 3
+Top. Bur.
+Bewerkt in 1871
+Schaal van 10000 Ellen
+
+39 RHENEN 4
+Top. Bur. 
+Bewerkt in 1871
+Schaal van 10000 Ellen
+
+40 ARNHEM 1
+Top. Inrigting
+Verkend in 1879
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+40 ARNHEM 2
+Top. Inrigting 
+Verkend in 1879
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+40 ARNHEM 3
+Top. Inrigting
+Verkend in 1879
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+40 ARNHEM 4
+Top. Inrigting
+Verkend in 1879
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+41 AALTEN 1
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+41 AALTEN 2
+Top. Inr.
+Verkend in 1881
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+41 AALTEN 3
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1883
+Schaal van 10000 Meters
+
+42 ZIERIKZEE 1
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Ellen
+42 ZIERIKZEE 2
+Top. Bureau 
+Bewerkt in 1871
+Schaal van 10000 Ellen
+
+43 WILLEMSTAD 1
+Top. Bureau
+Bewerkt in 1871
+Schaal van 10000 Ellen
+
+43 WILLEMSTAD 3
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Ellen
+
+43 WILLEMSTAD 4
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Ellen
+
+44 GEERTRUIDENBERG 1
+Top. Inrigting
+Verkend in 1878
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+44 GEERTRUIDENBERG 2
+Top. Inrigting
+Verkend in 1874
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+44 GEERTRUIDENBERG 3
+Top. Bur. 
+Bewerkt in 1875
+Schaal van 10000 Meters
+
+44 GEERTRUIDENBERG 4
+Top. Bur. 
+Bewerkt in 1875
+Schaal van 10000 Meters
+
+45 'S HERTOGENBOSCH 1
+Top. Inrigting
+Verkend in 1876
+Bewerkt in 1878
+Schaal van 10000 Meters
+
+45 'S HERTOGENBOSCH 2
+Top. Inrigting
+Verkend in 1877
+Bewerkt in 1879
+Schaal van 10000 Meters
+
+45 'S HERTOGENBOSCH 3
+Top. Inrigting
+Verkend in 1876
+Bewerkt in 1878
+Schaal van 10000 Meters
+
+45 'S HERTOGENBOSCH 4
+Top. Inrigting
+Verkend in 1877
+Bewerkt in 1879
+Schaal van 10000 Meters
+
+46 VIERLINGSBEEK 1
+Top. Inrichting
+Verkend in 1878
+Bewerkt in 1881
+Schaal van 10000 Meters
+
+46 VIERLINGSBEEK 2
+Top. Inrichting
+Verkend in 1887
+Bewerkt in 1889
+Schaal van 10000 Meters
+
+46 VIERLINGSBEEK 3
+Top. Inrichting
+Verkend in 1887
+Bewerkt in 1888
+Schaal van 10000 Meters
+
+48 MIDDELBURG 1
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Meters
+
+48 MIDDELBURG 2
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Ellen
+
+48 MIDDELBURG 3
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Ellen
+
+48 MIDDELBURG 4
+Top. Bureau
+Bewerkt in 1872
+Schaal van 10000 Ellen
+
+49 BERGEN OP ZOOM 1
+Top. Bur. 
+Bewerkt in 1875
+Schaal van 10000 Meters
+
+
+49 BERGEN OP ZOOM 2
+Top. Bur. 
+Bewerkt in 1875
+Schaal van 10000 Meters
+
+49 BERGEN OP ZOOM 3
+Top. Bur. 
+Bewerkt in 1875
+Schaal van 10000 Meters
+
+49 BERGEN OP ZOOM 4
+Top. Bur. 
+Bewerkt in 1875
+Schaal van 10000 Meters
+
+50 BREDA 1
+Top. Bur.  
+Bewerkt in 1876
+Schaal van 10000 Meters
+
+50 BREDA 2
+Top. Bur. 
+Bewerkt in 1876
+Schaal van 10000 Meters
+
+50 BREDA 3
+Top. Bur. 
+Bewerkt in 1876
+Schaal van 10000 Meters
+
+50 BREDA 4
+Top. Bur. 
+Bewerkt in 1876
+Schaal van 10000 Meters
+
+51 EINDHOVEN 1
+Top. Inrigting
+Verkend in 1876
+Bewerkt in 1878
+Schaal van 10000 Meters
+
+51 EINDHOVEN 2
+Top. Inrigting
+Verkend in 1877
+Bewerkt in 1878
+Schaal van 10000 Meters
+
+51 EINDHOVEN 3
+Top. Inrigting
+Verkend in 1876
+Bewerkt in 1877
+Schaal van 10000 Meters
+
+51 EINDHOVEN 4
+Top. Inrigting
+Verkend in 1877
+Bewerkt in 1878
+Schaal van 10000 Meters
+
+52 VENLO 1
+Top. Inrichting
+Verkend in 1888
+Bewerkt in 1889
+Schaal van 10000 Meters
+
+52 VENLO 2
+Top. Inrichting
+Verkend in 1888
+Bewerkt in 1889
+Schaal van 10000 Meters
+
+52 VENLO 3
+Top. Inrichting
+Verkend in 1888
+Bewerkt in 1889
+Schaal van 10000 Meters
+
+52 VENLO 4
+Top. Inrichting
+Verkend in 1888
+Bewerkt in 1889
+Schaal van 10000 Meters
+
+47 / 53 SLUIS
+Top. Bur. 
+Bewerkt in 1874
+Schaal van 10000 Meters
+
+54 NEUZEN 1
+Top. Bur. 
+Bewerkt in 1874
+Schaal van 10000 Meters
+
+54 NEUZEN 2
+Top. Bur. 
+Bewerkt in 1874
+Schaal van 10000 Meters
+
+54 NEUZEN 3
+Top. Bur. 
+Bewerkt in 1874
+Schaal van 10000 Meters
+
+55 HULST
+Top. Bur. 
+Bewerkt in 1874
+Schaal van 10000 Meters
+
+
+57 VALKENSWAARD 1
+Top. Inrigting
+Verkend in 1877
+Bewerkt in 1879
+Schaal van 10000 Meters
+
+57 VALKENSWAARD 2
+Top. Inrigting
+Verkend in 1877
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+57 VALKENSWAARD 3
+Top. Inrigting
+Verkend in 1877
+Bewerkt in 1880
+Schaal van 10000 Meters
+
+58 ROERMOND 1
+Top. Inrichting
+Verkend in 1889
+Bewerkt in 1890
+Schaal van 10000 Meters
+
+58 ROERMOND 2
+Top. Inrichting
+Verkend in 1888
+Bewerkt in 1889
+Schaal van 10000 Meters
+
+58 ROERMOND 3
+Top. Inrichting
+Verkend in 1889
+Bewerkt in 1890
+Schaal van 10000 Meters
+
+58 ROERMOND 4
+Top. Inrichting
+Verkend in 1889
+Bewerkt in 1890
+Schaal van 10000 Meters
+
+60 SITTARD 1
+Top. Inrichting
+Verkend in 1889
+Bewerkt in 1891
+Schaal van 10000 Meters
+
+60 SITTARD 2
+Top. Inrichting
+Verkend in 1889
+Bewerkt in 1890
+Schaal van 10000 Meters
+
+60 SITTARD 3
+Top. Inrichting
+Verkend in 1890
+Bewerkt in 1891
+Schaal van 10000 Meters
+
+61 MAASTRICHT
+Top. Inrichting
+Verkend in 1890
+Bewerkt in 1891
+Schaal van 10000 Meters
+
+62 HEERLEN 1
+Top. Inrichting
+Verkend in 1890
+Bewerkt in 1891
+Schaal van 10000 Meters
+
+62 HEERLEN 2
+Top. Inrichting
+Verkend in 1890
+Bewerkt in 1891
+Schaal van 10000 Meters
+
+62 HEERLEN 3
+Top. Inrichting
+Verkend in 1890
+Bewerkt in 1891
+Schaal van 10000 Meters

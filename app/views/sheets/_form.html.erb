@@ -1,0 +1,71 @@
+<%= form_for(sheet) do |f| %>
+  <% if sheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sheet.errors.count, "error") %> prohibited this sheet from being saved:</h2>
+
+      <ul>
+        <% sheet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field row">
+    <div class="col-sm-12 form-group">
+      <!-- Dropdown with base sheets? -->
+
+      <div class="field row">
+        <div class="col-sm-12 form-group">
+          <%= f.label 'Base Sheet' %>
+          <%=  @sheet.base_sheet_id %>
+          <% sheet_array = @base_series.base_sheets.all.map {|s| [s.title,s.id]} %>
+          <%= f.select 'base_sheet_id', options_for_select(sheet_array, @sheet.base_sheet_id), :class => "form-control" %>
+        </div>
+      </div>
+
+
+      <div class="field row">
+        <div class="col-sm-12 form-group">
+          <%= f.label :titel %>
+          <%= f.text_field :titel, :class => "form-control" %>
+        </div>
+      </div>
+
+      <div class="field row">
+        <div class="col-sm-12 form-group">
+          <%= f.label :pubdate %>
+          <%= f.date_field :pubdate, :class => "form-control" %>
+        </div>
+        <div class="col-sm-12 form-group">
+          <%= f.label :pubdate_exact %>
+          <%= f.check_box :pubdate_exact, :class => "form-control" %>
+        </div>
+      </div>
+
+      <% @base_series.metadata_fields.each do |field| %>
+        <div class="field row">
+          <div class="col-sm-12 form-group">
+            <%= f.label field %>
+            <% if @sheet[field].in? [true, false] %>
+              <%= f.check_box field, :class => "form-check" %>
+            <% else %>
+              <%= f.text_field field, :class => "form-control" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <div class="field row">
+        <div class="col-sm-12 form-group">
+          <%= f.label :opmerkingen %>
+          <%= f.text_area :opmerkingen, :class => "form-control" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

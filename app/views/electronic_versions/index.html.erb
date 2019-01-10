@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="crumb">
+<%= link_to @sheet.base_sheet.base_series.name, base_series_base_sets_path(@sheet.base_sheet.base_series) %>
+&gt; <%= link_to @sheet.base_set.display_title, base_set_sheets_path(@sheet.base_set)  %>
+&gt; <%= link_to @sheet.display_title, base_sheet_sheets_path(@sheet.base_sheet) %>
+&gt; <%= link_to @copy.shelfmark.shelfmark  + '(' + @copy.shelfmark.library_abbr + ')' , sheet_copies_path(@sheet) %>
+&gt; Digitale versies
+</div>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Repository url</th>
+    <th>Service type</th>
+    <th>Map viewer</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @electronic_versions.sort_by {|i| i[:name]}.each do |e| %>
+    <tr>
+      <td><%= link_to e.repository_url, e.repository_url %></td>
+      <td><%= e.service_type %></td>
+      <td>
+        <%= e.ogc_web_service.nil? ? '':e.ogc_web_service.viewer_url %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

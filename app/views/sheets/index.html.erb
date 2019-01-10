@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<% show_edit = can_edit %>
+
+<div class="crumb">
+  <%= link_to @base_series.name, base_series_base_sets_path(@base_series) %>
+  <% if @base_set %>
+    &gt; <%= @base_set.display_title %>
+  <% end %>
+  <% if @base_sheet %>
+    &gt; <%= link_to @base_sheet.title, base_series_base_sheets_path(@base_series) %>
+  <% end %>
+  &gt; <%= @sheets.count %> bladen
+</div>
+
+<% header, table, filled, highlight = table_helper %>
+
+<p>
+  <span class="highlight">alleen bij VU</span>&nbsp;<span class="highlight2">niet bij VU</span>&nbsp;<span class="highlight3">wel in lijst RWS, geen exemplaar</span>
+</p>
+
+<div class="col-md-10">
+  <% if @base_set %>
+    <%= link_to 'Download', base_set_sheets_path(@base_set, format: :csv, params: request.query_parameters), :class => "btn btn-default pull-right" %>
+  <% elsif @base_sheet %>
+    <%= link_to 'Download', base_sheet_sheets_path(@base_sheet, format: :csv, params: request.query_parameters), :class => "btn btn-default pull-right" %>
+  <% else %>
+    <%= link_to 'Download', base_series_sheets_path(@base_series, format: :csv, params: request.query_parameters), :class => "btn btn-default pull-right" %>
+  <% end %>
+</div>
+
+<div class="col-md-12">
+  <table class="table table-striped table-bordered fixed-headers">
+    <thead>
+    <tr>
+      <% header.each_with_index do |value, colnum| %>
+        <% if filled[colnum] %>
+          <th><%= value %></th>
+        <% end %>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% table.each_key do |sheet_id| %>
+      <tr class="<%= highlight[sheet_id] %>">
+        <% table[sheet_id].each_with_index do |value, colnum| %>
+          <% if filled[colnum] %>
+            <td>
+              <%= value %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+

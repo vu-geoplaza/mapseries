@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titel: MyString
+  nummer: 1
+  verkend: 2018-09-06
+  herzien: 2018-09-06
+  bewerkt: 2018-09-06
+  uitgave: 2018-09-06
+  editie: MyString
+  waterstaatskaart: false
+  bijkaart_we: false
+  bijkaart_hw: false
+  opmerkingen: MyString
+
+two:
+  titel: MyString
+  nummer: 1
+  verkend: 2018-09-06
+  herzien: 2018-09-06
+  bewerkt: 2018-09-06
+  uitgave: 2018-09-06
+  editie: MyString
+  waterstaatskaart: false
+  bijkaart_we: false
+  bijkaart_hw: false
+  opmerkingen: MyString

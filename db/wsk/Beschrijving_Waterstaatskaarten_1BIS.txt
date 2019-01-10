@@ -1,0 +1,122 @@
+14 MEDEMBLIK 1
+Top. Inrichting
+Herzien in 1901
+Bewerkt in 1903
+Schaal van 10000 Meters
+
+14 MEDEMBLIK 2
+Top. Inrichting
+Herzien in 1901
+Bewerkt in 1903
+Schaal van 10000 Meters
+
+14 MEDEMBLIK 3
+Top. Inrichting
+Herzien in 1900
+Bewerkt in 1901
+Schaal van 10000 Meters
+
+14 MEDEMBLIK 4
+Top. Inrichting
+Herzien in 1904
+Bewerkt in 1905
+Schaal van 10000 Meters
+
+15 STAVOREN 3
+Top. Inrichting
+Herzien in 1904
+Bewerkt in 1905
+Schaal van 10000 Meters
+
+19 ALKMAAR 1
+Top. Inrichting
+Herzien in 1883
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+19 ALKMAAR 2
+Top. Inrichting
+Herzien in 1883
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+19 ALKMAAR 3
+Top. Inrichting
+Herzien in 1883
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+
+
+
+
+
+19 ALKMAAR 4
+Top. Inrichting
+Herzien in 1883
+Bewerkt in 1885
+Schaal van 10000 Meters
+
+20 ENKHUIZEN 1
+Top. Inrichting
+Herzien in 1904
+Bewerkt in 1905
+Schaal van 10000 Meters
+
+28 ALMELO 4
+Top. Inrichtng
+Herzien in 1924
+Schaal van 10000 Meter
+
+30 'S GRAVENHAGE 2
+Top. Inrichting
+Bijgewerkt in 1885
+Schaal van 10000 Meters
+
+31 UTRECHT 1
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+31 UTRECHT 2
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+31 UTRECHT 3
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+31 UTRECHT 4
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+38 GORINCHEM 2
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+38 GORINCHEM 4
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+39 RHENEN 1
+Top. Inrichting
+Verkend in 1894
+Bewerkt in 1897
+Schaal van 10000 Meters
+
+39 RHENEN 3
+Top. Inrichting
+Verkend in 1895
+Bewerkt in 1898
+Schaal van 10000 Meters

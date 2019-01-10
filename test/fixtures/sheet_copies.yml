@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phys_char: MyString
+  description: MyString
+  stamps: MyString
+
+two:
+  phys_char: MyString
+  description: MyString
+  stamps: MyString

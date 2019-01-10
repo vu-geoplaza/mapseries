@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Back', :back, class: 'btn btn-default' %>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Bladtitel</th>
+    <th>Set</th>
+    <th>Uitgave</th>
+    <th>Fys.Kenm.</th>
+    <th>Opmerkingen</th>
+    <th>Stempels</th>
+    <th>Uit bestand</th>
+    <th>provenance</th>
+    <th>plaatskenmerk</th>
+    <th>oclcnr</th>
+    <th>eigenaar</th>
+    <th>e-versions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @copies.sort_by {|i| i.sheet[:display_title]}.each do |c| %>
+    <tr>
+      <td><%= link_to c.sheet.display_title, base_sheet_sheets_path(c.sheet.base_sheet), :title => 'view all sheets with this title' %></td>
+      <td><%= link_to c.sheet.base_set.display_title, base_set_sheets_path(c.sheet.base_set), :title => 'view all sheets in this set' %></td>
+      <td>
+      <% unless c.sheet.pubdate.nil? %>
+        <%= c.sheet.pubdate_exact ? '' : '[' %><%= c.sheet.pubdate.year %><%= c.sheet.pubdate_exact ? '' : ']' %>
+      <% end %>
+      </td>
+      <td><%= c.phys_char %></td>
+      <td><%= c.description %></td>
+      <td><%= c.stamps %></td>
+      <td><%= c.csv_row %></td>
+      <td><%= c.provenance.name %></td>
+      <td><%= link_to c.shelfmark.shelfmark, base_series_copies_path(:base_series_id => @base_series.abbr, :shelfmark_id => c.shelfmark.id), :title => 'view all copies with this shelfmark' %></td>
+      <td><a href="https://vu.on.worldcat.org/oclc/<%= c.shelfmark.oclcnr %>" target="_blank" title="associated worldcat record"><%= c.shelfmark.oclcnr %></a></td>
+      <td><%= link_to c.provenance.library.name, base_series_copies_path(:base_series_id => @base_series.abbr, :library_id => c.provenance.library.abbr), :title => 'view all copies held by this organization' %></td>
+      <td>
+        <% if c.electronic_versions.count > 0 %>
+          <%= link_to c.electronic_versions.count, copy_electronic_versions_path(c), :title => 'view all digital versions of this copy' %>
+        <% else %>
+          0
+        <% end %>
+      </td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

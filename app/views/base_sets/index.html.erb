@@ -1,0 +1,38 @@
+<div class="crumb">
+
+  <%= link_to @base_series.name, base_series_base_sets_path(@base_series) %>
+  &gt; Sets
+</div>
+
+<div class="col-md-12">
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>display_title</th>
+      <% @base_series.set_metadata_fields.each do |field| %>
+        <th class="set_<%= field %>"><%= field %></th>
+      <% end %>
+      <th>periode</th>
+      <th>unieke bladen</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @base_sets.each do |set| %>
+      <tr>
+      <td>
+        <%= set.display_title %>
+      </td>
+
+      <% @base_series.set_metadata_fields.each do |field| %>
+        <td class="set_<%= field %>"><%= set[field] %></td>
+      <% end %>
+        <td>
+        <%=  @periods[set.id][0] %> - <%=  @periods[set.id][1] %>
+        </td>
+      <td><%= link_to set.sheets.count, base_set_sheets_path(set) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

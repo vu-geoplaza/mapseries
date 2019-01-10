@@ -1,0 +1,869 @@
+1 / 5 TERSCHELLING
+Top. Inrichting
+Herzien in 1916
+Bewerkt in 1917
+Schaal van 10000 Meter
+
+1 AMELAND
+Top. Inrichting
+Herzien in 1915
+Bewerkt in 1916
+Schaal van 10000 Meter
+
+2 SCHIERMONNIKOOG 1
+Top. Inrichting
+Herzien in 1915
+Bewerkt in 1916
+Schaal van 10000 Meter
+
+2 SCHIERMONNIKOOG 2
+Top. Inrichting
+Herzien in 1916
+Bewerkt in 1917
+Schaal van 10000 Meter
+
+3 UITHUIZEN 1
+Top. Inrichting
+Herzien in 1916
+Bewerkt in 1917
+Schaal van 10000 Meter
+
+3 UITHUIZEN 2
+Top. Inrichting
+Herzien in 1916
+Bewerkt in 1917
+Schaal van 10000 Meter
+
+3 UITHUIZEN 3
+Top. Inrichting
+Herzien in 1916
+Bewerkt in 1917
+Schaal van 10000 Meter
+
+4 VLIELAND 1
+Top. Inrichting
+Herzien in 1916
+Bewerkt in 1917
+Schaal van 10000 Meter
+
+4 VLIELAND 2
+Top. Inrichting
+Herzien in 1916
+Bewerkt in 1917
+Schaal van 10000 Meter
+
+5 HARLINGEN 1
+Top. Inrichting
+Herzien in 1914
+Bewerkt in 1915
+Schaal van 10000 Meter
+
+5 HARLINGEN 2
+Top. Inrichting
+Herzien in 1914
+Bewerkt in 1915
+Schaal van 10000 Meter
+
+5 HARLINGEN 3
+Top. Inrichting
+Herzien in 1914
+Bewerkt in 1915
+Schaal van 10000 Meter
+
+6 LEEUWARDEN 1
+Top. Inrichting
+Herzien in 1913
+Bewerkt in 1916
+Schaal van 10000 Meter
+
+6 LEEUWARDEN 2
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+6 LEEUWARDEN 3
+Top. Inrichting
+Herzien in 1912
+Bewerkt in 1914
+Schaal van 10000 Meter
+
+6 LEEUWARDEN 4
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+9 HELDER 1
+Top. Inrichting
+Bewerkt in 1867
+Gedeeltelijk bijgewerkt in 1909
+Schaal van 10000 Meter
+
+10 SNEEK 1
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+10 SNEEK 2
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+10 SNEEK 3
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+10 SNEEK 4
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+11 HEERENVEEN 1
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+11 HEERENVEEN 2
+Top. Inrichting
+Herzien in 1921
+Schaal van 10000 Meter
+
+11 HEERENVEEN 3
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+11 HEERENVEEN 4
+Top. Inrichting
+Herzien in 1921
+Schaal van 10000 Meter
+
+12 ASSEN 1
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+12 ASSEN 2
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+12 ASSEN 3
+Top. Inrichting
+Herzien in 1917
+Bewerkt in 1920
+Schaal van 10000 Meter
+
+12 ASSEN 4
+Top. Inrichting
+Herzien in 1921
+Schaal van 10000 Meter
+
+13 BOURTANGE 1
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+13 BOURTANGE 2
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+14 MEDEMBLIK 1
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+14 MEDEMBLIK 2
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+14 MEDEMBLIK 3
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+14 MEDEMBLIK 4
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+15 STAVOREN 1
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+15 STAVOREN 2
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+15 STAVOREN 3
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+16 STEENWIJK 1
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+16 STEENWIJK 2
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+16 STEENWIJK 3
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+16 STEENWIJK 4
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+17 BEILEN 1
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+17 BEILEN 2
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+17 BEILEN 3
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+17 BEILEN 4
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+18 ROSWINKEL 1
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+18 ROSWINKEL 2
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+19 ALKMAAR 1
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+19 ALKMAAR 2
+Top. Inrichting
+Herzien in 1922
+Schaal van 10000 Meter
+
+19 ALKMAAR 3
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+
+19 ALKMAAR 4
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+20 ENKHUIZEN 1
+Top. Inrichting
+Herzien in 1924
+Schaal van 10000 Meter
+
+21 ZWOLLE 4
+Top. Inrichting
+Herzien in 1923
+Schaal van 10000 Meter
+
+22 COEVORDEN 1
+Top.-Dienst
+Herzien in 1929
+Schaal van 10000 Meter
+
+22 COEVORDEN 3
+Top. Dienst
+Herzien in 1929
+Schaal van 10000 Meter
+
+22 COEVORDEN (OOST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1938
+Ged. bijgewerkt tot 1941
+Schaal 1:50000
+
+23 NIEUW-SCHOONEBEEK
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1941
+Schaal 1:50000
+
+24 HILLEGOM 1
+Top. Inrichting
+Verkend in 1898
+Bewerkt in 1899
+Schaal van 10000 Meters
+
+24 HILLEGOM 2
+Top. Inrichting
+Verkend in 1898
+Bewerkt in 1899
+Schaal van 10000 Meters
+
+25 AMSTERDAM 1
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+25 AMSTERDAM 2
+Top. Inrichting
+Herzien in 1924
+Schaal van 10000 Meter
+
+25 AMSTERDAM 3
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+25 AMSTERDAM 4
+Top. Inrichting
+Herzien in 1919
+Bewerkt in 1920
+Schaal van 10000 Meter
+
+26 HARDERWIJK 1
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+27 HATTEM (WEST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Verkend in 1942
+Schaal 1:50000
+
+27 HATTEM (OOST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1936
+Schaal 1:50000
+
+28 ALMELO (WEST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1937
+Schaal 1:50000
+
+28 ALMELO (OOST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1937
+Schaal 1:50000
+
+29 DENEKAMP 1
+Top.-Dienst
+Herzien in 1928
+Schaal van 10000 Meter
+
+29 DENEKAMP 2
+Top.-Dienst
+Herzien in 1928
+Schaal van 10000 Meter
+
+
+30 'S-GRAVENHAGE 1
+Top. Inrichting
+Herzien in 1917
+Bewerkt in 1918
+Schaal van 10000 Meter
+
+30 'S-GRAVENHAGE 2
+Top. Inrichting
+Herzien in 1917
+Bewerkt in 1918
+Schaal van 10000 Meter
+
+30 'S-GRAVENHAGE 3
+Top. Inrichting
+Herzien in 1917
+Bewerkt in 1918
+Schaal van 10000 Meter
+
+31 UTRECHT (WEST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1937
+Ged. bijgewerkt tot 1940
+Schaal 1:50000
+
+31 UTRECHT 2
+Top. Inrichting
+Herzien in 1919
+Schaal van 10000 Meter
+
+31 UTRECHT 4
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+32 AMERSFOORT 1
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+32 AMERSFOORT 2
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+32 AMERSFOORT 3
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+32 AMERSFOORT 4
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+33 ZUTPHEN (WEST)
+Bewerkt bij den Algemenen Dienst van den Rijkswaterstaat
+Top. Dienst 1935
+Herzien 1930
+Ged. bijgewerkt tot 1935
+Schaal 1:50000
+
+33 ZUTPHEN (OOST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Verkend in 1929
+Ged. bijgewerkt tot 1935
+
+34 GROENLO 1
+Top. Inrichting
+Herzien  in 1929
+Schaal van 10000 Meter
+
+34 GROENLO 2
+Top. Inrichting
+Herzien  in 1929
+Schaal van 10000 Meter
+
+34 GROENLO 3
+Top. Inrichting
+Herzien  in 1929
+Schaal van 10000 Meter
+
+34 GROENLO 4
+Top.-Dienst
+Herzien  in 1929
+Schaal van 10000 Meter
+
+36 GOEDEREEDE
+Top. Inrichting
+Herzien in 1910
+Bewerkt in 1911
+
+37 ROTTERDAM (WEST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1935
+Schaal 1:50000
+
+37 ROTTERDAM (OOST)
+Bewerking: Alg. Dienst Rijkswaterstaat
+Reproductie: Top. Dienst
+Herzien in 1936
+Schaal 1:50000
+
+38 GORINCHEM 1
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+38 GORINCHEM 2
+Top. Inrichting
+Herzien in 1920
+Schaal van 10000 Meter
+
+38 GORINCHEM 3
+Top. Inrigting
+Verkend in 1881
+Bewerkt in 1882
+Schaal van 10000 Meters
+
+38 GORINCHEM 4
+Top. Inrichting
+Herzien in 1921
+Schaal van 10000 Meter
+
+39 RHENEN 1
+Bewerkt bij den Algemenen Dienst van den Rijkswaterstaat
+Top. Dienst
+Herzien in 1930
+Ged. bijgewerkt tot 1934
+Schaal van 10000 Meter
+
+39 RHENEN 2
+Bewerkt bij den Algemenen Dienst van den Rijkswaterstaat
+Top. Dienst
+Herzien in 1930
+Ged. bijgewerkt tot 1934
+Schaal 1:50000
+
+39 RHENEN 3
+Bewerkt bij den Algemenen Dienst van den Rijkswaterstaat
+Top. Dienst
+Herzien in 1930
+Ged. bijgewerkt tot 1934
+Schaal van 10000 Meter
+
+39 RHENEN 4
+Bewerkt bij den Algemenen Dienst van den Rijkswaterstaat
+Top. Dienst
+Herzien in 1930
+Ged. bijgewerkt tot 1934
+Schaal 1:50000
+
+40 ARNHEM 1
+Top. Dienst
+Herzien in 1929
+Ged. bijgewerkt tot 1934
+Schaal van 10000 Meter
+
+40 ARNHEM 2
+Top.-Dienst
+Herzien in 1929
+Schaal van 10000 Meter
+
+40 ARNHEM 3
+Top. Dienst
+Herzien in 1929
+Ged. bijgewerkt tot 1934
+Schaal van 10000 Meter
+
+40 ARNHEM 4
+Top.-Dienst
+Herzien in 1929
+Schaal van 10000 Meter
+
+41 AALTEN 1
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+41 AALTEN 2
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+41 AALTEN 3
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+42 ZIERIKZEE 1
+Top. Inrichting
+Herzien in 1912
+Bewerkt in 1913
+Schaal van 10000 Meter
+
+42 ZIERIKZEE 2
+Top. Inrichting
+Herzien in 1913
+Bewerkt in 1914
+Schaal van 10000 Meter
+
+43 WILLEMSTAD 1
+Top. Inrichting
+Herzien in 1910
+Bewerkt in 1911
+Schaal van 10000 Meter
+
+43 WILLEMSTAD 2
+Top. Inrichting
+Herzien in 1909 en 1910
+Bewerkt in 1911
+Schaal van 10000 Meter
+
+
+43 WILLEMSTAD 3
+Top. Inrichting
+Herzien in 1911
+Bewerkt in 1912
+Schaal van 10000 Meter
+
+43 WILLEMSTAD 4
+Top. Inrichting
+Herzien in 1910 en 1911
+Bewerkt in 1912
+Schaal van 10000 Meter
+
+44 GEERTRUIDENBERG 1
+Top. Inrichting
+Herzien in 1908 en 1909
+Bewerkt in 1910
+Schaal van 10000 Meter
+
+44 GEERTRUIDENBERG 2
+Top. Inrichting
+Herzien in 1905
+Bewerkt in 1906
+Schaal van 10000 Meters
+
+44 GEERTRUIDENBERG 3
+Top. Inrichting
+Verkend in 1906 en 1907
+Bewerkt in 1908
+Schaal van 10000 Meters
+
+44 GEERTRUIDENBERG 4
+Top. Inrichting
+Herzien in 1906-1908
+Bewerkt in 1909
+Schaal van 10000 Meter
+
+45 'S-HERTOGENBOSCH 1
+Top. Inrichting
+Herzien in 1909 en 1910
+Bewerkt in 1911 en 1912
+Schaal van 10000 Meter
+
+45 'S-HERTOGENBOSCH 2
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+45 'S-HERTOGENBOSCH 3
+Top. Inrichting
+Herzien in 1909 en 1910
+Bewerkt in 1911
+Schaal van 10000 Meter
+
+45 'S-HERTOGENBOSCH 4
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+46 VIERLINGSBEEK 1
+Top.-Dienst
+Herzien in 1930
+Schaal van 10000 Meter
+
+46 VIERLINGSBEEK 2
+Top.-Dienst
+Herzien in 1929
+Schaal van 10000 Meter
+
+46 VIERLINGSBEEK 3
+Top.-Dienst
+Herzien in 1927
+Schaal van 10000 Meter
+
+48 MIDDELBURG 1
+Top. Inrichting
+Herzien in 1913
+Bewerkt in 1915
+Schaal van 10000 Meter
+
+48 MIDDELBURG 2
+Top. Inrichting
+Herzien in 1913
+Bewerkt in 1915
+Schaal van 10000 Meter
+
+48 MIDDELBURG 3
+Top. Inrichting
+Herzien in 1913
+Bewerkt in 1915
+Schaal van 10000 Meter
+
+48 MIDDELBURG 4
+Top. Inrichting
+Herzien in 1912
+Bewerkt in 1914
+Schaal van 10000 Meter
+
+49 BERGEN OP ZOOM 1
+Top. Inrichting
+Herzien in 1911
+Bewerkt in 1914
+Schaal van 10000 Meter
+
+49 BERGEN OP ZOOM 2
+Top. Inrichting
+Herzien in 1929
+Schaal van 10000 Meter
+
+
+49 BERGEN OP ZOOM 3
+Top. Inrichting
+Herzien in 1912
+Bewerkt in 1913
+Schaal van 10000 Meter
+
+49 BERGEN OP ZOOM 4
+Top. Inrichting
+Herzien in 1929
+Schaal van 10000 Meter
+
+50 BREDA 1
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+50 BREDA 2
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+50 BREDA 3
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+50 BREDA 4
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+51 EINDHOVEN 1
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+51 EINDHOVEN 2
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+51 EINDHOVEN 3
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+51 EINDHOVEN 4
+Top. Inrichting
+Herzien in 1925
+Schaal van 10000 Meter
+
+52 VENLO 1
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+52 VENLO 2
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+52 VENLO 3
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+52 VENLO 4
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+53 SLUIS
+Top. Inrichting
+Verkend in 1892
+Bewerkt in 1894
+Schaal van 10000 Meters
+
+54 NEUZEN 1
+Top. Inrichting
+Verkend in 1892
+Bewerkt in 1894
+Schaal van 10000 Meters
+
+54 NEUZEN 2
+Top. Inrichting
+Verkend in 1891
+Bewerkt in 1892
+Schaal van 10000 Meter
+
+54 NEUZEN 3
+Top. Inrichting
+Verkend in 1891
+Bewerkt in 1892
+Schaal van 10000 Meters
+
+55 HULST
+Top. Inrichting
+Verkend in 1892
+Bewerkt in 1892
+Schaal van 10000 Meters
+
+57 VALKENSWAARD 1
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+57 VALKENSWAARD 2
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+
+57 VALKENSWAARD 3
+Top. Inrichting
+Herzien in 1926
+Schaal van 10000 Meter
+
+58 ROERMOND 1
+Top. Dienst
+Herzien in 1932
+Schaal 1:50000
+
+58 ROERMOND 3
+Top. Dienst
+Herzien in 1932
+Schaal 1:50000
+
+60 SITTARD 1
+Top. Inrichting
+Herzien in 1927
+Schaal van 10000 Meter
+
+60 SITTARD 2
+Top. Inrichting
+Herzien in 1927
+Schaal van 10000 Meter
+
+60 SITTARD 3
+Top. Inrichting
+Herzien in 1927
+Schaal van 10000 Meter
+
+61 MAASTRICHT
+Top. Dienst
+Herzien in 1933
+Schaal van 10000 Meter
+
+62 HEERLEN 1
+Top. Inrichting
+Herzien in 1928
+Schaal van 10000 Meter
+
+62 HEERLEN 2
+Top. Inrichting
+Herzien in 1930
+Schaal van 10000 Meter
+
+62 HEERLEN 3
+Top.-Dienst
+Herzien in 1930
+Schaal van 10000 Meter

@@ -1,0 +1,181 @@
+<%= form_tag search_path, :id => 'form', :method => :get do %>
+  <div class="field row">
+    <div class="col-sm-3">
+      <label>
+        <h5>Kaartserie:</h5>
+        <% selected = params[:fs][:base_series] %>
+        <%= select_tag 'fs[base_series]', options_for_select(select_vals(:base_series).collect {|d| [d[0], d[1]]}) %>
+      </label>
+    </div>
+  </div>
+
+  <div class="field row">
+    <div class="col-md-6">
+      <label>
+        <h5>Zoek op alle woorden:</h5>
+      <%= text_field :fs, :q, :value => params[:fs][:q] %>
+      <%= submit_tag "Search", :name => nil %>
+      </label>
+    </div>
+
+  </div>
+
+  <div class="field row">
+    <div class="col-sm-5">
+      <!--
+      <label>
+        <h5>Bladtitel:</h5>
+        <% selected = params[:fs][:base_title] %>
+        <%= select_tag 'fs[base_title]', options_for_select(select_vals(:base_title).collect {|d| [d[0], d[1]]}, :selected => selected), :include_blank => true %>
+      </label>
+      -->
+      <h5>Uitgegeven van-tot en met: <span id="from"></span>-<span id="to"></span></h5>
+      <div id="the_slider"></div>
+      <%= hidden_field :fs, :from %>
+      <%= hidden_field :fs, :to %>
+      <p></p>
+    </div>
+  </div>
+  <div class="field row">
+    <h5>Bladen behorende bij set:</h5>
+    <% i = 0 %>
+    <% select_vals(:base_sets).each do |d| %>
+      <% if i % 4 == 0
+           if i > 0 %>
+          </div>
+        <% end %>
+        <div class="col-md-2 ">
+      <% end
+         i = i + 1 %>
+      <div class="form-check">
+        <label>
+          <% checked = params[:fs][:base_set].include? d[1] %>
+          <%= check_box('fs', :base_set, {:multiple => true, :checked => checked}, d[1], nil) %>
+          <span class="label-text"><%= d[0] %></span>
+        </label>
+      </div>
+    <% end %>
+    </div>
+    </div>
+
+
+    <div class="field row">
+      <h4>Exemplaargegevens</h4>
+      <div class="col-md-3">
+        <h5>Inclusief bladen in bezit van:</h5>
+        <% select_vals(:libraries).each do |d| %>
+          <div class="form-check">
+            <label>
+              <% checked = params[:fs][:library].include? d[1] %>
+              <%= check_box('fs', :library, {:multiple => true, :checked => checked}, d[1], nil) %>
+              <span class="label-text"><%= d[0] %></span>
+            </label>
+          </div>
+        <% end %>
+        <h5>Exclusief bladen in bezit van:</h5>
+        <% select_vals(:libraries).each do |d| %>
+          <div class="form-check">
+            <label>
+              <% checked = params[:fs][:library_ex].include? d[1] %>
+              <%= check_box('fs', :library_ex, {:multiple => true, :checked => checked}, d[1], nil) %>
+              <span class="label-text"><%= d[0] %></span>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <h5>Bladen behorende bij signatuur:</h5>
+        <% lib_select_vals(:shelfmarks).each do |lib,val| %>
+          <h6><%= lib  %>:</h6>
+          <% val.each do |d| %>
+            <div class="form-check">
+              <label>
+                <% checked = params[:fs][:shelfmark].include? d[1] %>
+                <%= check_box('fs', :shelfmark, {:multiple => true, :checked => checked}, d[1], nil) %>
+                <span class="label-text"><%= d[0] %></span>
+              </label>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <h5>Bladen met provenance:</h5>
+        <% lib_select_vals(:provenances).each do |lib,val| %>
+          <h6><%= lib  %>:</h6>
+          <% val.each do |d| %>
+          <div class="form-check">
+            <label>
+              <% checked = params[:fs][:provenance].include? d[1] %>
+              <%= check_box('fs', :provenance, {:multiple => true, :checked => checked}, d[1], nil) %>
+              <span class="label-text"><%= d[0] %></span>
+            </label>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <h5>Digitale versie aanwezig in repository van:</h5>
+        <% select_vals(:repositories).each do |d| %>
+          <div class="form-check">
+            <label>
+              <% checked = params[:fs][:repository].include? d[1] %>
+              <%= check_box('fs', :repository, {:multiple => true, :checked => checked}, d[1], nil) %>
+              <span class="label-text"><%= d[0] %></span>
+            </label>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="field row">
+      <div class="col-sm-5">
+        <label>
+          <h5>Sorteer op:</h5>
+
+          <%= select_tag 'sort', options_for_select([['bladtitel (oplopend)]', 'display_title asc'],
+                                                     ['bladtitel (aflopend)', 'display_title desc'],
+                                                     ['jaar (oplopend)]', 'pubdate,display_title asc'],
+                                                     ['jaar (aflopend)', 'pubdate,display_title desc'],
+                                                     ['nummer, set (oplopend)', 'sort_number,set asc'],
+                                                     ['set, bladtitel (oplopend)]', 'set,display_title asc'],
+                                                     ['set, bladtitel (aflopend)', 'set,display_title desc']],
+                                                    params[:sort]) %>
+        </label>
+      </div>
+    </div>
+
+
+
+<% end %>
+
+<script>
+    $(function () {
+        $('select').on('change', function () {
+            $('#form').submit();
+        });
+        $(':checkbox').on('change', function () {
+            $('#form').submit();
+        });
+    });
+
+    $(document).ready(function () {
+        var slider = $("#the_slider").slider({
+            range: true,
+            min: <%= @first %>,
+            max: <%= @last %>,
+            values: [<%= params[:fs][:from] %>, <%= params[:fs][:to] %>],
+            slide: function (event, ui) {
+                $("#fs_from").val(ui.values[0]);
+                $("#fs_to").val(ui.values[1]);
+                $("#from").html(ui.values[0]);
+                $("#to").html(ui.values[1]);
+            },
+            stop: function (event, ui) {
+                $('#form').submit()
+            }
+        });
+        $("#fs_from").val(slider.slider("values")[0]);
+        $("#fs_to").val(slider.slider("values")[1]);
+        $("#from").html(slider.slider("values")[0]);
+        $("#to").html(slider.slider("values")[1]);
+    });
+</script>

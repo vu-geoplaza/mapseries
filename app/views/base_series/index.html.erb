@@ -1,0 +1,30 @@
+<div class="crumb">Kaartseries in deze database</div>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Naam</th>
+    <th>Periode</th>
+    <th>Sets</th>
+<th>Unieke bladen</th>
+<th>Exemplaren</th>
+</tr>
+</thead>
+
+<tbody>
+<% @base_series.sort_by {|i| i[:name]}.each do |serie| %>
+  <tr>
+    <td><%= serie.name %></td>
+    <td><%= @periods[serie.abbr][0] %> - <%= @periods[serie.abbr][1] %></td>
+    <td><%= link_to serie.base_sets.count, base_series_base_sets_path(serie) %></td>
+    <td><%= link_to serie.sheets.count, base_series_sheets_path(serie) %></td>
+    <td>
+        <%= serie.copies.count %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br>
+

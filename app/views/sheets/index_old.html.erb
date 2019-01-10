@@ -1,0 +1,117 @@
+<p id="notice"><%= notice %></p>
+<% show_edit=can_edit %>
+
+<div class="crumb">
+  <%= link_to @base_series.name, base_series_base_sets_path(@base_series) %>
+  <% if @base_set %>
+    &gt; <%= @base_set.display_title %>
+  <% end %>
+  <% if @base_sheet %>
+    &gt; <%= link_to @base_sheet.title, base_series_base_sheets_path(@base_series) %>
+    <% end %>
+  &gt; <%= @sheets.count %> bladen
+</div>
+
+<p><span class="highlight">alleen bij VU</span>&nbsp;<span class="highlight2">niet bij VU</span>&nbsp;<span class="highlight3">wel in lijst RWS, geen exemplaar</span></p>
+
+<div class="col-md-10">
+  <%= link_to 'Export all',  base_series_sheets_path(@base_series, format: :csv, params: request.query_parameters), :class => "btn btn-default pull-right" %>
+</div>
+<div class="col-md-12">
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>jaar van uitgave</th>
+    <th>set</th>
+    <th>display_title</th>
+    <th>urls</th>
+    <% @base_series.metadata_fields.each do |field| %>
+      <th class="ed_<%= field %>"><%= field %></th>
+    <% end %>
+    <th>exemplaren</th>
+  </tr>
+  </thead>
+<% show_fields=[] %>
+  <tbody>
+  <% @sheets.each do |ed| %>
+    <% if ed.copies.count == 0 %>
+      <tr class="highlight3">
+    <% else %>
+      <% unless ed.copies.exists?(:provenance_id => 1) %>
+        <tr class="highlight">
+      <% else %>
+        <% unless ed.copies.exists?(:provenance_id => [2, 3, 4, 5]) %>
+          <tr class="highlight2">
+        <% else %>
+          <tr>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <td>
+      <% unless ed.pubdate.nil? %>
+        <%= ed.pubdate_exact ? '' : '[' %><%= ed.pubdate.year %><%= ed.pubdate_exact ? '' : ']' %>
+      <% end %>
+    </td>
+    <td>
+      <%= ed.base_set.display_title %>
+    </td>
+    <td>
+      <%= link_to ed.display_title, base_sheet_sheets_path(ed.base_sheet), :title => 'view all sheets with this title' %>
+    </td>
+    <td>
+      <% ed.electronic_versions.each do |ev| %>
+        <% if ev.service_type=='image_url' %>
+          <%= link_to 'image', ev.repository_url, :target => 'blank' %>
+        <% end %>
+        <% if ev.service_type=='ows' %>
+          <%= link_to 'viewer', ev.ogc_web_service.viewer_url, :target => 'blank' %>
+        <% end %>
+      <% end %>
+    </td>
+
+    <% @base_series.metadata_fields.each do |field| %>
+      <td class="ed_<%= field %>"><%= ed[field] %></td>
+    <% end %>
+    <td><%= link_to ed.copies.count, sheet_copies_path(ed), :title => 'view all copies of this sheet' %></td>
+    <% if show_edit %>
+      <td><%= link_to 'Edit', edit_base_series_sheet_path(@base_series,ed), :class => 'btn btn-primary' %></td>
+    <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+<script>
+    $('select').change(function () {
+        var val = $(this).val();
+        location.href = URL_add_parameter(location.href, 'base_set_id', val);
+    });
+
+    function URL_add_parameter(url, param, value){
+        var hash       = {};
+        var parser     = document.createElement('a');
+
+        parser.href    = url;
+
+        var parameters = parser.search.split(/\?|&/);
+
+        for(var i=0; i < parameters.length; i++) {
+            if(!parameters[i])
+                continue;
+
+            var ary      = parameters[i].split('=');
+            hash[ary[0]] = ary[1];
+        }
+
+        hash[param] = value;
+
+        var list = [];
+        Object.keys(hash).forEach(function (key) {
+            list.push(key + '=' + hash[key]);
+        });
+
+        parser.search = '?' + list.join('&');
+        return parser.href;
+    }
+</script>
