@@ -58,10 +58,6 @@ class Sheet < ApplicationRecord
 
   def validate_pubdate
     d,e = build_pubdate
-    logger.debug 'build date'
-    logger.debug d
-    logger.debug 'pubdate'
-    logger.debug self.pubdate
     errors.add(:pubdate, "This pubdate can't be right.") unless self.pubdate==d && self.pubdate_exact==e
   end
 
@@ -95,7 +91,9 @@ class Sheet < ApplicationRecord
   end
 
   def build_display_title
+    # Specific case of waterstaatskaarten
     if self.base_sheet.base_series_abbr=='wsk'
+      # Clean nummer and titel
       base_title = self.nummer
                        .tr('[]', '')
                        .gsub(/^(\d)$/, '0\1')
@@ -111,6 +109,5 @@ class Sheet < ApplicationRecord
       self.display_title=base_title
     end
   end
-
 
 end
