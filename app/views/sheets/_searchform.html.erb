@@ -12,137 +12,162 @@
   <div class="field row">
     <div class="col-md-6">
       <label>
-        <h5>Zoek op alle woorden:</h5>
-      <%= text_field :fs, :q, :value => params[:fs][:q] %>
-      <%= submit_tag "Search", :name => nil %>
+        <h5>Zoek op álle woorden:</h5>
+        <%= text_field :fs, :q, :value => params[:fs][:q] %>
+        <%= submit_tag "Search", :name => nil %>
       </label>
     </div>
 
   </div>
 
-  <div class="field row">
-    <div class="col-sm-5">
-      <!--
-      <label>
-        <h5>Bladtitel:</h5>
-        <% selected = params[:fs][:base_title] %>
-        <%= select_tag 'fs[base_title]', options_for_select(select_vals(:base_title).collect {|d| [d[0], d[1]]}, :selected => selected), :include_blank => true %>
-      </label>
-      -->
-      <h5>Uitgegeven van-tot en met: <span id="from"></span>-<span id="to"></span></h5>
-      <div id="the_slider"></div>
-      <%= hidden_field :fs, :from %>
-      <%= hidden_field :fs, :to %>
-      <p></p>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse-jaar">Jaar</a>
+        </h4>
+      </div>
+      <div id="collapse-jaar" class="panel-collapse collapse <%= params[:fs][:from] == @first.to_s && params[:fs][:to] == @last.to_s ? '' : 'in' %>">
+        <div class="panel-body">
+          <div class="col-sm-5">
+            <h5>Uitgegeven van - tot en met: <span id="from"></span>-<span id="to"></span></h5>
+            <div id="the_slider"></div>
+            <%= hidden_field :fs, :from %>
+            <%= hidden_field :fs, :to %>
+            <p></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="field row">
-    <h5>Bladen behorende bij set:</h5>
-    <% i = 0 %>
-    <% select_vals(:base_sets).each do |d| %>
-      <% if i % 4 == 0
-           if i > 0 %>
-          </div>
-        <% end %>
-        <div class="col-md-2 ">
-      <% end
-         i = i + 1 %>
-      <div class="form-check">
-        <label>
-          <% checked = params[:fs][:base_set].include? d[1] %>
-          <%= check_box('fs', :base_set, {:multiple => true, :checked => checked}, d[1], nil) %>
-          <span class="label-text"><%= d[0] %></span>
-        </label>
-      </div>
-    <% end %>
-    </div>
-    </div>
 
-
-    <div class="field row">
-      <h4>Exemplaargegevens</h4>
-      <div class="col-md-3">
-        <h5>Inclusief bladen in bezit van:</h5>
-        <% select_vals(:libraries).each do |d| %>
-          <div class="form-check">
-            <label>
-              <% checked = params[:fs][:library].include? d[1] %>
-              <%= check_box('fs', :library, {:multiple => true, :checked => checked}, d[1], nil) %>
-              <span class="label-text"><%= d[0] %></span>
-            </label>
-          </div>
-        <% end %>
-        <h5>Exclusief bladen in bezit van:</h5>
-        <% select_vals(:libraries).each do |d| %>
-          <div class="form-check">
-            <label>
-              <% checked = params[:fs][:library_ex].include? d[1] %>
-              <%= check_box('fs', :library_ex, {:multiple => true, :checked => checked}, d[1], nil) %>
-              <span class="label-text"><%= d[0] %></span>
-            </label>
-          </div>
-        <% end %>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse-set">Set</a>
+        </h4>
       </div>
-      <div class="col-md-3">
-        <h5>Bladen behorende bij signatuur:</h5>
-        <% lib_select_vals(:shelfmarks).each do |lib,val| %>
-          <h6><%= lib  %>:</h6>
-          <% val.each do |d| %>
+      <div id="collapse-set" class="panel-collapse collapse <%= params[:fs][:base_set] == [] ? '' : 'in' %>">
+        <div class="panel-body">
+          <h5>Bladen behorende bij set:</h5>
+          <% i = 0 %>
+          <% select_vals(:base_sets).each do |d| %>
+            <% if i % 4 == 0
+                 if i > 0 %>
+                </div>
+              <% end %>
+              <div class="col-md-2 ">
+            <% end
+               i = i + 1 %>
             <div class="form-check">
               <label>
-                <% checked = params[:fs][:shelfmark].include? d[1] %>
-                <%= check_box('fs', :shelfmark, {:multiple => true, :checked => checked}, d[1], nil) %>
+                <% checked = params[:fs][:base_set].include? d[1] %>
+                <%= check_box('fs', :base_set, {:multiple => true, :checked => checked}, d[1], nil) %>
                 <span class="label-text"><%= d[0] %></span>
               </label>
             </div>
           <% end %>
-        <% end %>
+          </div>
+          </div>
+
+    </div>
+  </div>
+  </div>
+
+
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse-ex">Exemplaargegevens</a>
+        </h4>
       </div>
-      <div class="col-md-3">
-        <h5>Bladen met provenance:</h5>
-        <% lib_select_vals(:provenances).each do |lib,val| %>
-          <h6><%= lib  %>:</h6>
-          <% val.each do |d| %>
-          <div class="form-check">
+      <div id="collapse-ex" class="panel-collapse collapse <%= params[:fs][:library] == [] && params[:fs][:library_ex] == [] && params[:fs][:shelfmark] == [] && params[:fs][:provenance] == [] && params[:fs][:repository] == [] ? '' : 'in' %>">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <h5>Inclusief bladen in bezit van:</h5>
+            <% select_vals(:libraries).each do |d| %>
+              <div class="form-check">
+                <label>
+                  <% checked = params[:fs][:library].include? d[1] %>
+                  <%= check_box('fs', :library, {:multiple => true, :checked => checked}, d[1], nil) %>
+                  <span class="label-text"><%= d[0] %></span>
+                </label>
+              </div>
+            <% end %>
+            <h5>Exclusief bladen in bezit van:</h5>
+            <% select_vals(:libraries).each do |d| %>
+              <div class="form-check">
+                <label>
+                  <% checked = params[:fs][:library_ex].include? d[1] %>
+                  <%= check_box('fs', :library_ex, {:multiple => true, :checked => checked}, d[1], nil) %>
+                  <span class="label-text"><%= d[0] %></span>
+                </label>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-3">
+            <h5>Bladen behorende bij signatuur:</h5>
+            <% lib_select_vals(:shelfmarks).each do |lib, val| %>
+              <h6><%= lib %>:</h6>
+              <% val.each do |d| %>
+                <div class="form-check">
+                  <label>
+                    <% checked = params[:fs][:shelfmark].include? d[1] %>
+                    <%= check_box('fs', :shelfmark, {:multiple => true, :checked => checked}, d[1], nil) %>
+                    <span class="label-text"><%= d[0] %></span>
+                  </label>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-md-3">
+            <h5>Bladen met provenance:</h5>
+            <% lib_select_vals(:provenances).each do |lib, val| %>
+              <h6><%= lib %>:</h6>
+              <% val.each do |d| %>
+                <div class="form-check">
+                  <label>
+                    <% checked = params[:fs][:provenance].include? d[1] %>
+                    <%= check_box('fs', :provenance, {:multiple => true, :checked => checked}, d[1], nil) %>
+                    <span class="label-text"><%= d[0] %></span>
+                  </label>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-md-3">
+            <h5>Digitale versie aanwezig in repository van:</h5>
+            <% select_vals(:repositories).each do |d| %>
+              <div class="form-check">
+                <label>
+                  <% checked = params[:fs][:repository].include? d[1] %>
+                  <%= check_box('fs', :repository, {:multiple => true, :checked => checked}, d[1], nil) %>
+                  <span class="label-text"><%= d[0] %></span>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="field row">
+          <div class="col-sm-5">
             <label>
-              <% checked = params[:fs][:provenance].include? d[1] %>
-              <%= check_box('fs', :provenance, {:multiple => true, :checked => checked}, d[1], nil) %>
-              <span class="label-text"><%= d[0] %></span>
+              <h5>Sorteer op:</h5>
+              <%= select_tag 'sort', options_for_select([['bladtitel (oplopend)]', 'display_title asc'],
+                                                         ['bladtitel (aflopend)', 'display_title desc'],
+                                                         ['jaar (oplopend)]', 'pubdate,display_title asc'],
+                                                         ['jaar (aflopend)', 'pubdate,display_title desc'],
+                                                         ['nummer, set (oplopend)', 'sort_number,set asc'],
+                                                         ['set, bladtitel (oplopend)]', 'set,display_title asc'],
+                                                         ['set, bladtitel (aflopend)', 'set,display_title desc']],
+                                                        params[:sort]) %>
             </label>
           </div>
-        <% end %>
-        <% end %>
-      </div>
-      <div class="col-md-3">
-        <h5>Digitale versie aanwezig in repository van:</h5>
-        <% select_vals(:repositories).each do |d| %>
-          <div class="form-check">
-            <label>
-              <% checked = params[:fs][:repository].include? d[1] %>
-              <%= check_box('fs', :repository, {:multiple => true, :checked => checked}, d[1], nil) %>
-              <span class="label-text"><%= d[0] %></span>
-            </label>
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
-    <div class="field row">
-      <div class="col-sm-5">
-        <label>
-          <h5>Sorteer op:</h5>
-
-          <%= select_tag 'sort', options_for_select([['bladtitel (oplopend)]', 'display_title asc'],
-                                                     ['bladtitel (aflopend)', 'display_title desc'],
-                                                     ['jaar (oplopend)]', 'pubdate,display_title asc'],
-                                                     ['jaar (aflopend)', 'pubdate,display_title desc'],
-                                                     ['nummer, set (oplopend)', 'sort_number,set asc'],
-                                                     ['set, bladtitel (oplopend)]', 'set,display_title asc'],
-                                                     ['set, bladtitel (aflopend)', 'set,display_title desc']],
-                                                    params[:sort]) %>
-        </label>
-      </div>
-    </div>
-
+  </div>
 
 
 <% end %>
