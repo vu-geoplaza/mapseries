@@ -153,21 +153,21 @@
       </div>
     </div>
   </div>
-        <div class="field row">
-          <div class="col-sm-5">
-            <label>
-              <h5>Sorteer op:</h5>
-              <%= select_tag 'sort', options_for_select([['bladtitel (oplopend)]', 'display_title asc'],
-                                                         ['bladtitel (aflopend)', 'display_title desc'],
-                                                         ['jaar (oplopend)]', 'pubdate,display_title asc'],
-                                                         ['jaar (aflopend)', 'pubdate,display_title desc'],
-                                                         ['nummer, set (oplopend)', 'sort_number,set asc'],
-                                                         ['set, bladtitel (oplopend)]', 'set,display_title asc'],
-                                                         ['set, bladtitel (aflopend)', 'set,display_title desc']],
-                                                        params[:sort]) %>
-            </label>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-sm-5">
+      <label>
+        <h5>Sorteer op:</h5>
+        <%= select_tag 'sort', options_for_select([['bladtitel (oplopend)]', 'display_title asc'],
+                                                   ['bladtitel (aflopend)', 'display_title desc'],
+                                                   ['jaar (oplopend)]', 'pubdate,display_title asc'],
+                                                   ['jaar (aflopend)', 'pubdate,display_title desc'],
+                                                   ['nummer, set (oplopend)', 'sort_number,set asc'],
+                                                   ['set, bladtitel (oplopend)]', 'set,display_title asc'],
+                                                   ['set, bladtitel (aflopend)', 'set,display_title desc']],
+                                                  params[:sort]) %>
+      </label>
+    </div>
+  </div>
 
 
 
