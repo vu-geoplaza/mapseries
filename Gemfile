@@ -70,7 +70,7 @@ gem 'devise'
 gem 'pundit'
 
 gem 'sunspot_rails'
-gem 'sunspot_solr'
+#gem 'sunspot_solr'
 
 gem 'csv'
 
