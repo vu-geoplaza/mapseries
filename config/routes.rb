@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # TODO:"clean up, only keep used routes. Remember to delete views."
   devise_for :users
   resources :base_series do
     resources :base_sheets

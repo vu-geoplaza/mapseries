@@ -7,7 +7,8 @@ class Sheet < ApplicationRecord
 
   validates :titel, presence: true
   validates_associated :copies
-  validate :validate_base_sheet_name, :validate_uniqueness, :validate_pubdate
+  #validate :validate_base_sheet_name, :validate_uniqueness, :validate_pubdate
+  validate :validate_uniqueness, :validate_pubdate
 
   validate :associated_copies, :on => :destroy
 
@@ -58,10 +59,6 @@ class Sheet < ApplicationRecord
 
   def validate_pubdate
     d,e = build_pubdate
-    logger.debug 'build date'
-    logger.debug d
-    logger.debug 'pubdate'
-    logger.debug self.pubdate
     errors.add(:pubdate, "This pubdate can't be right.") unless self.pubdate==d && self.pubdate_exact==e
   end
 
@@ -92,10 +89,16 @@ class Sheet < ApplicationRecord
 
       return Date.strptime(pubyear, '%Y'), exact
     end
+    if self.base_sheet.base_series_abbr == 'rvr'
+      pubyear = self.uitgave
+      return Date.strptime(pubyear, '%Y'), self.pubdate_exact
+    end
   end
 
   def build_display_title
+    # Specific case of waterstaatskaarten
     if self.base_sheet.base_series_abbr=='wsk'
+      # Clean nummer and titel
       base_title = self.nummer
                        .tr('[]', '')
                        .gsub(/^(\d)$/, '0\1')
@@ -111,6 +114,5 @@ class Sheet < ApplicationRecord
       self.display_title=base_title
     end
   end
-
 
 end
