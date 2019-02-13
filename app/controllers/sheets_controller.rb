@@ -133,7 +133,7 @@ class SheetsController < ApplicationController
     params[:fs][:repository] ||= []
     params[:fs][:shelfmark] ||= []
     params[:fs][:provenance] ||= []
-    params[:fs][:base_series] ||= 'Waterstaatskaarten'
+    params[:fs][:base_series] ||= 'Rivierkaarten'
     params[:fs][:base_title] ||= ''
     params[:fs][:base_set] ||= []
     params[:sort] ||= 'set,display_title asc'
@@ -145,6 +145,9 @@ class SheetsController < ApplicationController
 
     params[:fs][:from] ||= 1000
     params[:fs][:to] ||= 3000
+
+    params[:fs][:from] = params[:fs][:from] == '' ? 1000 : params[:fs][:from]
+    params[:fs][:to] = params[:fs][:to] == '' ? 3000 : params[:fs][:to]
 
     # store params in session
     session[:search_params] = params
@@ -193,18 +196,22 @@ class SheetsController < ApplicationController
 
 
   def select_vals(f)
+    vals = []
     @search.facet(f).rows.map do |row|
-      if row.value.split('^').count > 1
+      logger.debug(row.value)
+      logger.debug(@base_series.abbr)
+      if row.value.split('^').count > 1 # effe uit
         #  PV: do not return values for facets belonging to a different series
         # Allows us to show 0-count facets whilst hiding irrelevant facets
         if row.value.split('^')[0] == @base_series.abbr
           # no base_series in displayed value
-          [row.value.split('^')[1] + ' (' + row.count.to_s + ')', row.value]
+          vals.append([row.value.split('^')[1] + ' (' + row.count.to_s + ')', row.value])
         end
       else
-        [row.value + ' (' + row.count.to_s + ')', row.value]
+        vals.append([row.value + ' (' + row.count.to_s + ')', row.value])
       end
-    end.sort
+    end
+    vals.sort
   end
 
   private
@@ -256,6 +263,10 @@ class SheetsController < ApplicationController
       fulltext params['fs']['q']
       unless params['fs'].nil?
         logger.debug 'hee'
+        unless params['fs']['base_series'].empty?
+          with(:base_series, params['fs']['base_series'])
+          logger.debug 'ho'
+        end
         unless params['fs']['library'].empty?
           with(:libraries, params['fs']['library'])
           logger.debug 'ho'
@@ -271,7 +282,6 @@ class SheetsController < ApplicationController
           with(:provenances, params['fs']['provenance'])
         end
         unless params['fs']['base_set'].empty?
-          logger.debug '***************************hopenhee'
           with(:base_sets, params['fs']['base_set'])
         end
         unless params['fs']['repository'].empty?

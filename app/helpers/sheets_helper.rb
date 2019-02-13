@@ -91,16 +91,26 @@ module SheetsHelper
     end
 
     mdiv = {}
+    mdiv['kaartserie'] = @sheet.base_sheet.base_series.name
+    unless @sheet.base_set.titel.nil?
+      mdiv['serietitel'] = @sheet.base_set.titel
+    end
+    unless @sheet.base_set.editie.nil?
+      mdiv['serie editie'] = @sheet.base_set.editie
+    end
+    unless @sheet.base_set.serie.nil?
+      mdiv['serie'] = @sheet.base_set.serie
+    end
+
 
     #'Jaar van Uitgave' => year
-    metadata_fields = ["titel", "nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "editie"]
+    metadata_fields = ["titel", "nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "editie", "auteurs", "metingen"]
     #@base_series.metadata_fields.each do |field|
     metadata_fields.each do |field|
       unless @sheet[field].nil?
         mdiv[field] = @sheet[field]
       end
     end
-    mdiv['kaartserie'] = @sheet.base_sheet.base_series.name
     return mdiv
   end
 

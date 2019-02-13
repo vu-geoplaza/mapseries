@@ -4,7 +4,7 @@
       <label>
         <h5>Kaartserie:</h5>
         <% selected = params[:fs][:base_series] %>
-        <%= select_tag 'fs[base_series]', options_for_select(select_vals(:base_series).collect {|d| [d[0], d[1]]}) %>
+        <%= select_tag 'fs[base_series]', options_for_select(select_vals(:base_series).collect {|d| [d[0], d[1]]}, selected) %>
       </label>
     </div>
   </div>
@@ -175,7 +175,14 @@
 
 <script>
     $(function () {
-        $('select').on('change', function () {
+        $('select').on('change', function (e) {
+            if (e.target.id = 'fs_base_series') {
+                $(':input', '#form')
+                    .not(':button, :submit, :reset, #fs_base_series')
+                    .val('')
+                    .prop('checked', false);
+                //.prop('selected', false);
+            }
             $('#form').submit();
         });
         $(':checkbox').on('change', function () {

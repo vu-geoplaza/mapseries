@@ -7,7 +7,8 @@ class Sheet < ApplicationRecord
 
   validates :titel, presence: true
   validates_associated :copies
-  validate :validate_base_sheet_name, :validate_uniqueness, :validate_pubdate
+  #validate :validate_base_sheet_name, :validate_uniqueness, :validate_pubdate
+  validate :validate_uniqueness, :validate_pubdate
 
   validate :associated_copies, :on => :destroy
 
@@ -87,6 +88,10 @@ class Sheet < ApplicationRecord
       end
 
       return Date.strptime(pubyear, '%Y'), exact
+    end
+    if self.base_sheet.base_series_abbr == 'rvr'
+      pubyear = self.uitgave
+      return Date.strptime(pubyear, '%Y'), self.pubdate_exact
     end
   end
 
