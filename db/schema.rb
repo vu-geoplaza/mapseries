@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181107111603) do
+ActiveRecord::Schema.define(version: 20190211161146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,8 @@ ActiveRecord::Schema.define(version: 20181107111603) do
     t.boolean  "bijkaart_we"
     t.boolean  "bijkaart_hw"
     t.text     "opmerkingen"
+    t.text "auteurs"
+    t.text "metingen"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["base_set_id"], name: "index_sheets_on_base_set_id", using: :btree

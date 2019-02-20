@@ -66,7 +66,7 @@ module SheetsHelper
       #custom fields and headers
       col = 5
       #metadata_fields=["nummer","uitgever","verkend","herzien","bewerkt","uitgave","bijgewerkt","opname_jaar","basis_jaar","basis","schaal","bewerker","reproductie","editie","waterstaatskaart","bijkaart_we","bijkaart_hw"]
-      metadata_fields = ["nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "editie", "opmerkingen"]
+      metadata_fields = ["nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie", "opmerkingen"]
       #@base_series.metadata_fields.each do |field|
       metadata_fields.each do |field|
         column[col] = ed[field]
@@ -102,9 +102,8 @@ module SheetsHelper
       mdiv['serie'] = @sheet.base_set.serie
     end
 
-
     #'Jaar van Uitgave' => year
-    metadata_fields = ["titel", "nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "editie", "auteurs", "metingen"]
+    metadata_fields = ["titel", "nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie"]
     #@base_series.metadata_fields.each do |field|
     metadata_fields.each do |field|
       unless @sheet[field].nil?
@@ -139,6 +138,7 @@ module SheetsHelper
         te['type'] = e.service_type
         unless e.repository_url.nil?
           te['url'] = link_to e.repository.name, e.repository_url
+          # TO DO: image direct tonen als type == image_url
         end
         unless e.ogc_web_service.nil?
           te['url'] =  link_to e.ogc_web_service.url, e.ogc_web_service.url
