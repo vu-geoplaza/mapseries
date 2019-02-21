@@ -16,6 +16,9 @@
       <% end %>
     </dl>
   </div>
+  <div class="osviewer">
+    <%= openseadragon_picture_tag sheet_picture_tags_helper, {data: {openseadragon: {sequenceMode: true, preserveViewport: true}}} %>
+  </div>
   <h2>Exemplaren</h2>
   <dl class="dl-horizontal  dl-invert copies_met">
     <% sheet_copy_helper.each do |k, v| %>
@@ -32,7 +35,11 @@
                 <% val.each do |ev| %>
                   <% ev.each do |ef, eval| %>
                     <dt><%= ef %>:</dt>
-                    <dd><%= eval.html_safe %></dd>
+                    <% if ef == 'viewer' %>
+                      <dd class="osviewer"><%= eval.html_safe %></dd>
+                    <% else %>
+                      <dd><%= eval.html_safe %></dd>
+                    <% end %>
                   <% end %>
 
                 <% end %>

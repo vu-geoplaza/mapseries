@@ -100,11 +100,12 @@ namespace :db do
           exact = false
         end
 
-        unless pubyear == '0' || pubyear.nil?
+        unless pubyear == '0' || pubyear.nil? || pubyear == ''
           pubyear = pubyear[-4..-1]
         else
           pubyear = "1000"
         end
+        puts pubyear
         unless bsh.sheets.exists?({display_title: bsh.title, pubdate: Date.strptime(pubyear, '%Y'), edition: row['editie']})
           sheet = bsh.sheets.create({pubdate: Date.strptime(pubyear, '%Y'),
                                      edition: row['editie'],

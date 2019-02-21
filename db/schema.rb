@@ -159,10 +159,10 @@ ActiveRecord::Schema.define(version: 20190211161146) do
     t.boolean  "bijkaart_we"
     t.boolean  "bijkaart_hw"
     t.text     "opmerkingen"
-    t.text "auteurs"
-    t.text "metingen"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.text "auteurs"
+    t.text "metingen"
     t.index ["base_set_id"], name: "index_sheets_on_base_set_id", using: :btree
     t.index ["base_sheet_id"], name: "index_sheets_on_base_sheet_id", using: :btree
   end
