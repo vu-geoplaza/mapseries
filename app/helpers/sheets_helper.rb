@@ -170,13 +170,12 @@ module SheetsHelper
     @sheet.copies.each do |c|
       c.electronic_versions.each do |e|
         if e.service_type == 'image_url'
+          # TODO: move this conversion to a config file
           local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
           picture_tags.append([e.id => {type: 'image', url: local_url}])
         end
       end
     end
-    #picture_tags.append({ class: 'osd-image'})
-    #picture_tags.append({ data: { openseadragon: { sequenceMode: true }}})
     return picture_tags
   end
 
