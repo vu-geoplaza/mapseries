@@ -16,9 +16,6 @@
       <% end %>
     </dl>
   </div>
-  <div class="osviewer">
-    <%= openseadragon_picture_tag sheet_picture_tags_helper, {data: {openseadragon: {sequenceMode: true, preserveViewport: true}}} %>
-  </div>
   <h2>Exemplaren</h2>
   <dl class="dl-horizontal  dl-invert copies_met">
     <% sheet_copy_helper.each do |k, v| %>
@@ -35,13 +32,8 @@
                 <% val.each do |ev| %>
                   <% ev.each do |ef, eval| %>
                     <dt><%= ef %>:</dt>
-                    <% if ef == 'viewer' %>
-                      <dd class="osviewer"><%= eval.html_safe %></dd>
-                    <% else %>
-                      <dd><%= eval.html_safe %></dd>
-                    <% end %>
+                    <dd><%= eval.html_safe %></dd>
                   <% end %>
-
                 <% end %>
               </dl>
             <% end %>
@@ -51,4 +43,41 @@
       <% end %>
     <% end %>
   </dl>
+  <div class="osviewer">
+    <% picture_tags, picture_data = sheet_picture_tags_helper %>
+    <%= openseadragon_picture_tag picture_tags, {data: {openseadragon: {sequenceMode: true, preserveViewport: true}}} %>
+  </div>
+  <div id="picture_data"></div>
 </div>
+<script>
+
+    var handler = 'ready';
+    (function ($) {
+        function initOpenSeadragonData() {
+            const viewer = $('picture[data-openseadragon]').data('osdViewer');
+            const picture_data = <%= picture_data.to_json.html_safe %>;
+            const data = picture_data[0];
+            const html = data.url + '<br>' + data.library + ' (' + data.shelfmark + ')';
+
+            $('#picture_data').html(html);
+            viewer.addHandler('page', function (event) {
+                const data = picture_data[event.page];
+                const html = data.url + '<br>' + data.library + ' (' + data.shelfmark + ')';
+                $('#picture_data').html(html);
+            });
+        }
+
+        var handler = 'ready';
+        if (typeof Turbolinks !== 'undefined' && Turbolinks.supported) {
+            // Turbolinks 5
+            if (Turbolinks.BrowserAdapter) {
+                handler = 'turbolinks:load';
+            } else {
+                // Turbolinks < 5
+                handler = 'page:load ready';
+            }
+        }
+        $(document).on(handler, initOpenSeadragonData);
+    })(jQuery);
+
+</script>

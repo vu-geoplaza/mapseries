@@ -136,13 +136,10 @@ module SheetsHelper
       c.electronic_versions.each do |e|
         te = {}
         te['type'] = e.service_type
+        #te['id'] = e.id
+        te['repository'] = e.repository.name
         unless e.repository_url.nil?
-          te['url'] = link_to e.repository.name, e.repository_url
-          # http://orbison.ubvu.vu.nl/rws/rvr/geogegevens/eerste_druk/Serie_1/05%20Dodewaard_1831.jpg
-          # https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/rivierkaart/geogegevens/eerste_druk/Serie_1/05%20Dodewaard_1831.jpg
-          local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
-          #picture_tags.append(e.id => {type: 'image', url: local_url})
-          #te['viewer'] = openseadragon_picture_tag([ ] )
+          te['url'] = link_to e.repository_url, e.repository_url
         end
         unless e.ogc_web_service.nil?
           te['url'] = link_to e.ogc_web_service.url, e.ogc_web_service.url
@@ -167,16 +164,22 @@ module SheetsHelper
 
   def sheet_picture_tags_helper
     picture_tags = []
+    picture_data = []
     @sheet.copies.each do |c|
       c.electronic_versions.each do |e|
         if e.service_type == 'image_url'
           # TODO: move this conversion to a config file
           local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
           picture_tags.append([e.id => {type: 'image', url: local_url}])
+          data = {}
+          data['shelfmark'] = c.shelfmark.shelfmark
+          data['library'] = c.shelfmark.library.name
+          data['url'] = e.repository_url
+          picture_data.append(data)
         end
       end
     end
-    return picture_tags
+    return picture_tags, picture_data
   end
 
 
