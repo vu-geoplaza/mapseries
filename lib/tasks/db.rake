@@ -44,7 +44,13 @@ namespace :db do
       end
       n = 0
 
-      CSV.foreach('db/wsk/Beschrijving_Waterstaatskaarten.csv', encoding: "bom|utf-8", headers: :first_row, col_sep: ',') do |row|
+      CSV.foreach('db/wsk/Beschrijving_Waterstaatskaarten.csv',
+                  encoding: "bom|utf-8",
+                  headers: :first_row,
+                  col_sep: ',',
+                  :header_converters => lambda {|f| f.strip},
+                  :converters => lambda {|f| f ? f.strip : nil}
+      ) do |row|
 
         regio = [row['nr'].tr('[]', '').gsub(/^(\d)$/, '0\1').gsub(/^(\d)-(\d)$/, '0\1-0\2'), row['titel'].downcase.tr('-', ' ')].join('-')
 
@@ -246,7 +252,13 @@ namespace :db do
 
       n = 0
       invfile = 'Inventarisatie Waterstaatskaart WerkbestandLRMP.csv'
-      CSV.foreach('db/wsk/' + invfile, encoding: "bom|utf-8", headers: :first_row, col_sep: ',') do |row|
+      CSV.foreach('db/wsk/' + invfile,
+                  encoding: "bom|utf-8",
+                  headers: :first_row,
+                  col_sep: ',',
+                  :header_converters => lambda {|f| f.strip},
+                  :converters => lambda {|f| f ? f.strip : nil}
+      ) do |row|
         unless row['Bewaard'] == 'kan weg'
           regio = [row['Nr'].gsub(/^(\d)$/, '0\1').gsub(/^(\d)-(\d)$/, '0\1-0\2').gsub(' / ', '-'), row['Titel'].downcase.tr('-', ' ')].join('-')
           regio = regio.tr('()', '')
