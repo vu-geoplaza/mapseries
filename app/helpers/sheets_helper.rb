@@ -6,8 +6,8 @@ module SheetsHelper
     # if false for column it can be hidden
     is_filled = []
 
-    header[1], header[2], header[3], header[4], header[99] = 'jaar van uitgave', 'set', 'bladtitel', 'urls', 'exemplaren'
-    is_filled[1], is_filled[2], is_filled[3], is_filled[4], is_filled[99] = true, true, true, true, true
+    header[1], header[2], header[3], header[99] = 'jaar van uitgave', 'set', 'bladtitel', 'exemplaren'
+    is_filled[1], is_filled[2], is_filled[3], is_filled[99] = true, true, true, true, true
 
     if policy(Sheet).update?
       header[100] = ''
@@ -46,16 +46,6 @@ module SheetsHelper
       #link_to ed.display_title, base_sheet_sheets_path(ed.base_sheet), :title => 'view all sheets with this title'
       urls = []
 
-      ed.electronic_versions.each do |ev|
-        if ev.service_type == 'image_url'
-          urls.push(link_to 'image', ev.repository_url, :target => 'blank')
-        end
-        if ev.service_type == 'ows'
-          urls.push(link_to 'viewer', ev.ogc_web_service.viewer_url, :target => 'blank')
-        end
-      end
-
-      column[4] = urls.join('<br>').html_safe
       #column[99] = link_to ed.copies.count, sheet_copies_path(ed), :title => 'view all copies of this sheet',  data: { popup: "copy" }
       column[99] = ed.copies.count
       #column[99] = link_to ed.copies.count, sheet_copies_path(ed), :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal"

@@ -50,20 +50,19 @@
   <div id="picture_data"></div>
 </div>
 <script>
-
-    var handler = 'ready';
     (function ($) {
-        function initOpenSeadragonData() {
-            const viewer = $('picture[data-openseadragon]').data('osdViewer');
+        function show(num) {
             const picture_data = <%= picture_data.to_json.html_safe %>;
-            const data = picture_data[0];
+            const data = picture_data[num];
             const html = data.url + '<br>' + data.library + ' (' + data.shelfmark + ')';
-
             $('#picture_data').html(html);
+        }
+
+        function initPictureData() {
+            show(0);
+            const viewer = $('picture[data-openseadragon]').data('osdViewer');
             viewer.addHandler('page', function (event) {
-                const data = picture_data[event.page];
-                const html = data.url + '<br>' + data.library + ' (' + data.shelfmark + ')';
-                $('#picture_data').html(html);
+                show(event.page)
             });
         }
 
@@ -77,7 +76,7 @@
                 handler = 'page:load ready';
             }
         }
-        $(document).on(handler, initOpenSeadragonData);
+        $(document).on(handler, initPictureData);
     })(jQuery);
 
 </script>

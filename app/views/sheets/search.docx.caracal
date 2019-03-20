@@ -1,0 +1,54 @@
+base_series = @sheets[0].base_sheet.base_series.name
+docx.h1 base_series
+
+# should be defined somewhere (model?)
+metadata_fields = ["uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen"]
+
+sets = {}
+@sheets.each do |sheet|
+  if sets[sheet.base_set.id].nil?
+    #sets.append(sheet.base_set.id)
+    sets[sheet.base_set.id] = []
+  end
+  sets[sheet.base_set.id].append(sheet.id)
+end
+logger.debug(sets)
+sets.each do |k, v|
+  bs = BaseSet.find(k)
+  docx.h2 'EDITIE ' + bs.editie
+  unless bs.titel.nil?
+    docx.h3 bs.titel
+  end
+
+  logger.debug(v)
+  v.each do |id|
+    sheet = Sheet.find(id)
+
+    if sheet.pubdate_exact
+      year = sheet.pubdate.year.to_s
+    else
+      year = '[' + sheet.pubdate.year.to_s + ']'
+    end
+
+    docx.h5 sheet.display_title + ' ' + year + ''
+    metadata_fields.each do |field|
+      unless sheet[field].nil?
+        docx.p field + ': ' + sheet[field]
+      end
+    end
+    unless sheet.copies.nil?
+      sheet.copies.each do |c|
+        lib = c.shelfmark.library.abbr
+        sm = c.shelfmark.shelfmark
+        unless sm == 'NA'
+          docx.p lib + ' ' + sm
+        end
+      end
+    end
+    docx.p
+  end
+  docx.page
+end
+
+
+

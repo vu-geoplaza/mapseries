@@ -164,6 +164,13 @@ class SheetsController < ApplicationController
         @sheets = @search.results
         send_data to_csv, filename: "sheets-#{Date.today}.csv"
       end
+      format.docx do
+        params[:per_page] = 5000
+        params[:sort] = 'set,display_title asc'
+        @search = do_search(params)
+        @sheets = @search.results
+        render :search
+      end
     end
   end
 
