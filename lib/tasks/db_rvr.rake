@@ -1,6 +1,6 @@
 namespace :db do
   namespace :seed do
-    desc "Fill tables with rivierkaarten "
+    desc "Fill tables with rivierkaarten"
     task :process_rvr => :environment do
       require 'csv'
 
@@ -22,6 +22,28 @@ namespace :db do
       ]
 
       set_metadata_fields = ['serie', 'editie', 'titel']
+      shelfmark = {}
+      shelfmark['eerste druk, serie 1'] = 'LL.10991gk'
+      shelfmark['eerste druk, serie 2'] = 'LL.10992gk'
+      shelfmark['eerste druk, serie 3'] = 'LL.10993gk'
+      shelfmark['eerste druk, serie 4'] = 'LL.10994gk'
+      shelfmark['eerste druk, serie 5'] = 'LL.10995gk'
+      shelfmark['eerste druk, serie 6'] = 'LL.10996gk'
+      shelfmark['eerste herziening, serie 1'] = 'LL.10997gk'
+      shelfmark['eerste herziening, serie 2'] = 'LL.10998gk'
+      shelfmark['eerste herziening, serie 3'] = 'LL.10999gk'
+      shelfmark['eerste herziening, serie 4 en 5'] = 'LL.11000gk'
+      shelfmark['eerste herziening, serie 6'] = 'LL.11001gk'
+      shelfmark['eerste herziening, serie 7'] = 'LL.11002gk'
+      shelfmark['eerste herziening, serie 8'] = 'LL.11003gk'
+      shelfmark['vassen-herziening, serie 1'] = 'LL.11004gk'
+      shelfmark['vassen-herziening, serie 2'] = 'LL.11005gk'
+      shelfmark['tweede herziening, serie 1'] = 'LL.11006gk'
+      shelfmark['tweede herziening, serie 2'] = 'LL.11007gk'
+      shelfmark['tweede herziening, serie 2a'] = 'LL.11008gk'
+      shelfmark['tweede herziening, serie 3'] = 'LL.11009gk'
+      shelfmark['tweede herziening, serie 4'] = 'LL.11010gk'
+
 
 =begin
       titel: row['titel'],
@@ -78,17 +100,28 @@ namespace :db do
       rws_images = []
 
       n = 0
-      file = 'db/rvr/paul/rivierkaart_db_met_rws_filenames.csv'
+      file = 'db/rvr/paul/rivierkaart_db_met_rws_filenames2.csv'
       CSV.foreach(file, encoding: "bom|utf-8", headers: :first_row, col_sep: ',') do |row|
         # volgens mij is elk blad uniek, behalve die met een "uitgave"
         # er zijn bboxen, later doen
 
-        row['editie'] = row['editie'].nil? ? '' : row['editie']
+        editie_col = row['editie'].nil? ? '' : row['editie']
         row['jaar van uitgave'] = row['jaar van uitgave'].nil? ? '' : row['jaar van uitgave']
         row['serie'] = row['serie'].nil? ? '' : row['serie']
         row['titel'] = row['titel'].nil? ? ' - ' : row['titel']
+        row['nr'] = row['nr'].nil? ? '00' : row['nr']
+        row.each do |key, val|
+          unless val.nil?
+            val = val.gsub('"', '')
+            row[key] = val.strip
+          end
+        end
 
-        regio = row['serie_editie'] + '-' + row['serie'] + '-' + row['nr'] + '-' + row['titel']
+        regio = '%{se}-%{s}-%{nr}-%{ti}' % {:se => row['serie_editie'],
+                                            :s => row['serie'],
+                                            :nr => row['nr'],
+                                            :ti => row['titel']}
+        #regio = row['serie_editie'] + '-' + row['serie'] + '-' + row['nr'] + '-' + row['titel']
         regio = regio.downcase
         unless Region.exists?({name: regio})
           region = Region.create({name: regio})
@@ -102,10 +135,14 @@ namespace :db do
           nr = row['nr'].to_s
         end
 
+
+        puts 'jaar'
+        puts row['jaar van uitgave']
         pubyear = row['jaar van uitgave'].to_s[0..3]
         exact = false; # waar kan ik dit aan zien?
+
         base_title = nr + ' - ' + row['titel']
-        unless row['editie'] == ''
+        unless row['editie'].nil?
           base_title = base_title + ' (' + row['editie'] + ')'
         end
         base_title = base_title + '. ' + pubyear
@@ -114,8 +151,8 @@ namespace :db do
         else
           bsh = BaseSheet.find_by({title: base_title, base_series: bs})
         end
-
-        set_display_title = row['serie_editie'] + ', serie ' + row['serie']
+        set_display_title = '%{se}, serie %{s}' % {:se => row['serie_editie'], :s => row['serie']}
+        #set_display_title = row['serie_editie'] + ', serie ' + row['serie']
         unless bs.base_sets.exists?({display_title: set_display_title})
           set = bs.base_sets.create({display_title: set_display_title,
                                      base_series_abbr: bs.abbr,
@@ -179,10 +216,14 @@ namespace :db do
         else
           shelfmarkrws = Shelfmark.find_by({shelfmark: sm, library_abbr: librws.abbr})
         end
-        unless Shelfmark.exists?(shelfmark: sm, library_abbr: libub.abbr)
-          shelfmarkub = Shelfmark.create({shelfmark: sm, library_abbr: libub.abbr})
+        pk = shelfmark[set_display_title.downcase]
+        if pk.nil?
+          pk = 'NA'
+        end
+        unless Shelfmark.exists?(shelfmark: pk, library_abbr: libub.abbr)
+          shelfmarkub = Shelfmark.create({shelfmark: pk, library_abbr: libub.abbr})
         else
-          shelfmarkub = Shelfmark.find_by({shelfmark: sm, library_abbr: libub.abbr})
+          shelfmarkub = Shelfmark.find_by({shelfmark: pk, library_abbr: libub.abbr})
         end
 
         unless Provenance.exists?(name: 'NA', library_abbr: librws.abbr)

@@ -44,8 +44,13 @@ namespace :db do
       end
       n = 0
 
-      CSV.foreach('db/wsk/Beschrijving_Waterstaatskaarten.csv', encoding: "bom|utf-8", headers: :first_row, col_sep: ',') do |row|
-
+      CSV.foreach('db/wsk/Beschrijving_Waterstaatskaarten.csv',
+                  encoding: "bom|utf-8",
+                  headers: :first_row,
+                  col_sep: ',',
+                  :header_converters => lambda {|f| f.strip},
+                  :converters => lambda {|f| f ? f.strip : nil}
+      ) do |row|
         regio = [row['nr'].tr('[]', '').gsub(/^(\d)$/, '0\1').gsub(/^(\d)-(\d)$/, '0\1-0\2'), row['titel'].downcase.tr('-', ' ')].join('-')
 
         regio = regio.tr('()', '')
@@ -95,15 +100,15 @@ namespace :db do
 
         pubyear = row['uitgave']
         exact = true
-        if pubyear == 'ND' || pubyear.nil?
+        if pubyear == 'ND' || pubyear.nil? || pubyear == ''
           pubyear = [row['bewerkt'].to_s.last(4).to_i, row['verkend'].to_s.last(4).to_i, row['bijgewerkt'].to_s.last(4).to_s.to_i, row['herzien'].to_s.last(4).to_i, row['opname_jaar'].to_s.last(4).to_i, row['basis_jaar'].to_s.last(4).to_i].max.to_s
           exact = false
         end
 
-        unless pubyear == '0' || pubyear.nil?
+        unless pubyear == '0' || pubyear.nil? || pubyear == ''
           pubyear = pubyear[-4..-1]
         else
-          pubyear = "1000"
+          pubyear = "1867"
         end
         unless bsh.sheets.exists?({display_title: bsh.title, pubdate: Date.strptime(pubyear, '%Y'), edition: row['editie']})
           sheet = bsh.sheets.create({pubdate: Date.strptime(pubyear, '%Y'),
@@ -245,7 +250,13 @@ namespace :db do
 
       n = 0
       invfile = 'Inventarisatie Waterstaatskaart WerkbestandLRMP.csv'
-      CSV.foreach('db/wsk/' + invfile, encoding: "bom|utf-8", headers: :first_row, col_sep: ',') do |row|
+      CSV.foreach('db/wsk/' + invfile,
+                  encoding: "bom|utf-8",
+                  headers: :first_row,
+                  col_sep: ',',
+                  :header_converters => lambda {|f| f.strip},
+                  :converters => lambda {|f| f ? f.strip : nil}
+      ) do |row|
         unless row['Bewaard'] == 'kan weg'
           regio = [row['Nr'].gsub(/^(\d)$/, '0\1').gsub(/^(\d)-(\d)$/, '0\1-0\2').gsub(' / ', '-'), row['Titel'].downcase.tr('-', ' ')].join('-')
           regio = regio.tr('()', '')
@@ -325,6 +336,7 @@ namespace :db do
 
 
           pubyear = pubyear[-4..-1]
+          puts pubyear
 
           unless bsh.sheets.exists?({pubdate: Date.strptime(pubyear, '%Y'), edition: set_editie})
             sheet = bsh.sheets.create({pubdate: Date.strptime(pubyear, '%Y'),

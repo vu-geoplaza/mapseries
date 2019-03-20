@@ -77,3 +77,10 @@ gem 'csv'
 gem 'will_paginate'
 
 gem "font-awesome-rails"
+
+#gem 'mirador_rails'
+gem 'openseadragon'
+
+# generate docx
+gem 'caracal'
+gem 'caracal-rails'
