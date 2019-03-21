@@ -9,3 +9,4 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.scss, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( jquery-ui/core.css jquery-ui/datepicker.css jquery-ui/slider.css jquery-ui/theme.css font-awesome.css )
