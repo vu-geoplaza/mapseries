@@ -61,7 +61,7 @@ module SheetsHelper
       metadata_fields.each do |field|
         column[col] = ed[field]
         header[col] = field
-        unless ed[field].nil? || !ed[field]
+        unless ed[field].nil? || !ed[field] || ed[field] == ''
           is_filled[col] = true
         end
         col = col + 1

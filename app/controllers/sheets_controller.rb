@@ -133,7 +133,7 @@ class SheetsController < ApplicationController
     params[:fs][:repository] ||= []
     params[:fs][:shelfmark] ||= []
     params[:fs][:provenance] ||= []
-    params[:fs][:base_series] ||= 'Rivierkaarten'
+    params[:fs][:base_series] ||= 'Waterstaatskaarten'
     params[:fs][:base_title] ||= ''
     params[:fs][:base_set] ||= []
     params[:sort] ||= 'set,display_title asc'
