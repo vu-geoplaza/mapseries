@@ -32,7 +32,7 @@ sets.each do |k, v|
 
     docx.h5 sheet.display_title + ' ' + year + ''
     metadata_fields.each do |field|
-      unless sheet[field].nil?
+      unless sheet[field].nil? || sheet[field] == ''
         docx.p field + ': ' + sheet[field]
       end
     end

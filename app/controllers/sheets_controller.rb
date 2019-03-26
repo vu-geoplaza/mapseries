@@ -171,6 +171,12 @@ class SheetsController < ApplicationController
         @sheets = @search.results
         render :search
       end
+      format.json do
+        params[:per_page] = 5000
+        @search = do_search(params)
+        @sheets = @search.results
+        render json: @sheets.to_json(include: [{copies: {include: [:electronic_versions, :provenance, :shelfmark]}}, :base_set])
+      end
     end
   end
 
