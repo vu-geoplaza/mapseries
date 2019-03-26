@@ -41,7 +41,7 @@ body {
 
 #header-navbar {
     .navbar-brand { /* The main logo image for the Blacklight instance */
-        background: transparent url(image-path('VUlogo_RGB_UBVU_NL_wit_tcm253-850633.svg')) no-repeat top left;
+      background: transparent url(VUlogo_RGB_UBVU_NL_wit_tcm253-850633.svg) no-repeat top left;
 
         background-size: contain;
         width: 400px;
@@ -64,7 +64,8 @@ body {
     font-weight: 400;
     padding-left: 5px;
     min-width: 800px;
-    color: rgb(0, 126, 204);
+  /* color: rgb(0, 126, 204); */
+  color: #443f3f;
 }
 
 #search-navbar .search-query-form {
@@ -300,4 +301,16 @@ th {
 
 #picture_data {
     margin-bottom: 30px;
+}
+
+a, .panel-title {
+  color: #d65050;
+}
+
+.pagination > li > a {
+  color: #d65050;
+}
+
+.pagination > .active > a {
+  background-color: #d65050;
 }
