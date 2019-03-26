@@ -96,7 +96,7 @@ module SheetsHelper
     metadata_fields = ["titel", "nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie"]
     #@base_series.metadata_fields.each do |field|
     metadata_fields.each do |field|
-      unless @sheet[field].nil?
+      unless @sheet[field].nil? || @sheet[field] == ''
         mdiv[field] = @sheet[field]
       end
     end
