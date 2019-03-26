@@ -17,7 +17,11 @@
   <div class="container">
     <div class="navbar-header">
       <%= link_to "", root_path, class: "navbar-brand" %>
-      <div class="header-title">Geoplaza Kaartseries Demo</div>
+      <% if Rails.env.development? %>
+        <div class="header-title">Geoplaza Kaartseries TEST</div>
+      <% else %>
+        <div class="header-title">Geoplaza Kaartseries</div>
+      <% end %>
     </div>
     <p class="navbar-text pull-right">
       <!--
