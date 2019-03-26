@@ -3,8 +3,9 @@
 <div class="col-md-12">
 
   <%= will_paginate @sheets %>
-  <%= link_to 'Download csv', search_path(@base_set, format: :csv, params: request.query_parameters), :class => "btn btn-primary pull-right" %>
-  <%= link_to 'Download docx', search_path(@base_set, format: :docx, params: request.query_parameters), :class => "btn btn-primary pull-right" %>
+  <%= link_to 'csv', search_path(@base_set, format: :csv, params: request.query_parameters), :class => "btn btn-primary pull-right" %>
+  <%= link_to 'docx', search_path(@base_set, format: :docx, params: request.query_parameters), :class => "btn btn-primary pull-right" %>
+  <%= link_to 'json', search_path(@base_set, format: :json, params: request.query_parameters), :class => "btn btn-primary pull-right" %>
   [<%= @search.total %> bladen]<br>
   <table class="table table-striped table-bordered fixed-headers">
     <thead>
