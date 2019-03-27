@@ -169,13 +169,22 @@ class SheetsController < ApplicationController
         params[:sort] = 'set,display_title asc'
         @search = do_search(params)
         @sheets = @search.results
+        headers["Content-Disposition"] = "attachment; filename=\"sheets-#{Date.today}.docx\""
         render :search
       end
       format.json do
         params[:per_page] = 5000
         @search = do_search(params)
         @sheets = @search.results
-        render json: @sheets.to_json(include: [{copies: {include: [:electronic_versions, :provenance, :shelfmark]}}, :base_set])
+        render json: @sheets.to_json(include: [
+            {
+                copies:
+                    {
+                        include: [:electronic_versions, :provenance, :shelfmark]
+                    }
+            },
+            :base_set
+        ])
       end
     end
   end
