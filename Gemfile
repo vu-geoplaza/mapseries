@@ -84,3 +84,7 @@ gem 'openseadragon'
 # generate docx
 gem 'caracal'
 gem 'caracal-rails'
+
+gem 'rgeo'
+gem 'rgeo-geojson'
+gem "rgeo-proj4"

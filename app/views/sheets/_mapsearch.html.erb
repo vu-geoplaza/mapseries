@@ -1,0 +1,41 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapse-mapsearch">Bladindex geografisch</a>
+      </h4>
+    </div>
+    <div id="collapse-mapsearch" class="panel-collapse collapse <%= params[:fs][:from] == @first.to_s && params[:fs][:to] == @last.to_s ? '' : 'in' %>">
+      <div class="panel-body">
+        <div class="col-sm-5">
+          <div id="map" class="map" style="width: 100%; height: 600px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+    // geojson vector laag
+    // geojson laag moet in principe alle resultaten tonen
+    // click event moet een search filter zijn: alle bboxen waarbinnen de klik valt.
+
+    // on mouseover op de resultaten laat de box oplichten
+
+    // pop-out de kaartindex in een lightbox??
+
+    var map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            }),
+        ],
+        target: 'map',
+        view: new ol.View({
+            center: ol.proj.fromLonLat([5.634167, 52.243333]),
+            zoom: 7
+        })
+    });
+</script>

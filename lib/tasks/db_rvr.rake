@@ -1,5 +1,95 @@
 namespace :db do
   namespace :seed do
+    task :process_rvr_geojson => :environment do
+      require 'rgeo'
+      require 'rgeo/geo_json'
+      require 'rgeo/proj4'
+      # convert geojson to geometry
+      # run seed first!
+
+      #eerste herziening-3-6-gorssel
+
+      file = 'db/rvr/geojson/regio-json.csv'
+      the_list = {}
+      CSV.foreach(file, headers: :first_row, col_sep: ',') do |row|
+        the_list[row['json']] = row['regio']
+      end
+      puts the_list
+      puts RGeo::Geos.supported?
+      puts RGeo::CoordSys::Proj4.supported?
+
+      def get_geojson_files(path)
+        Dir.glob(path + '/**/*.geojson').each do |f|
+          yield f
+        end
+      end
+
+      path = 'db/rvr/geojson'
+      files_to_process = []
+      get_geojson_files(path) {|f| files_to_process << f}
+      puts 'beginnen maar'
+
+      wgs84_proj4 = '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'
+      wgs84_wkt = <<WKT
+  GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+      SPHEROID["WGS 84",6378137,298.257223563,
+        AUTHORITY["EPSG","7030"]],
+      AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0,
+      AUTHORITY["EPSG","8901"]],
+    UNIT["degree",0.01745329251994328,
+      AUTHORITY["EPSG","9122"]],
+    AUTHORITY["EPSG","4326"]]
+WKT
+
+      rd_wkt = <<WKT
+PROJCS["Amersfoort / RD New",
+    GEOGCS["Amersfoort",
+        DATUM["Amersfoort",
+            SPHEROID["Bessel 1841",6377397.155,299.1528128,
+                AUTHORITY["EPSG","7004"]],
+            TOWGS84[565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725],
+            AUTHORITY["EPSG","6289"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4289"]],
+    PROJECTION["Oblique_Stereographic"],
+    PARAMETER["latitude_of_origin",52.15616055555555],
+    PARAMETER["central_meridian",5.38763888888889],
+    PARAMETER["scale_factor",0.9999079],
+    PARAMETER["false_easting",155000],
+    PARAMETER["false_northing",463000],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AXIS["X",EAST],
+    AXIS["Y",NORTH],
+    AUTHORITY["EPSG","28992"]]
+WKT
+      rd_new_factory = RGeo::Geographic.spherical_factory(:srid => 28992, :proj4 => '+title=Amersfoort / RD New +proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +no_defs', :coord_sys => rd_wkt)
+      wgs84_factory = RGeo::Geographic.spherical_factory(:srid => 4326,
+                                                         :proj4 => wgs84_proj4, :coord_sys => wgs84_wkt)
+      files_to_process.each do |f|
+        json_str = File.read(f)
+        puts f
+        featurecollection = RGeo::GeoJSON.decode(json_str, geo_factory: wgs84_factory, json_parser: :json)
+        featurecollection.each do |feature|
+          regio_naam = the_list[f + '|' + feature['NAAM']]
+          puts f + '|' + feature['NAAM']
+          puts regio_naam
+
+          if Region.exists?({name: regio_naam})
+            region = Region.find_by({name: regio_naam})
+            #feature_rd = RGeo::Feature.cast feature.geometry, factory: rd_new_factory, project: true
+            #puts feature_rd.geometry.as_text
+            region.update({geom4326: feature.geometry})
+          end
+        end
+      end
+    end
+
     desc "Fill tables with rivierkaarten"
     task :process_rvr => :environment do
       require 'csv'
@@ -117,10 +207,11 @@ namespace :db do
           end
         end
 
-        regio = '%{se}-%{s}-%{nr}-%{ti}' % {:se => row['serie_editie'],
-                                            :s => row['serie'],
-                                            :nr => row['nr'],
-                                            :ti => row['titel']}
+        regio = '%{se}-%{s}-%{nr}-%{j}-%{ti}' % {:se => row['serie_editie'],
+                                                 :s => row['serie'],
+                                                 :nr => row['nr'],
+                                                 :ti => row['titel'],
+                                                 :j => row['jaar van uitgave']}
         #regio = row['serie_editie'] + '-' + row['serie'] + '-' + row['nr'] + '-' + row['titel']
         regio = regio.downcase
         unless Region.exists?({name: regio})

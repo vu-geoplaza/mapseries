@@ -26,6 +26,7 @@ class CreateBaseMetadata < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.text :polygon
       t.st_polygon :geom, srid: 28992
+      t.st_polygon :geom4326, srid: 4326
       t.timestamps
     end
 
