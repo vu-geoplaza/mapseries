@@ -16,6 +16,7 @@
       <% end %>
     </dl>
   </div>
+  <%= render 'boxviewer' %>
   <h2>Exemplaren</h2>
   <dl class="dl-horizontal  dl-invert copies_met">
     <% sheet_copy_helper.each do |k, v| %>
@@ -43,40 +44,5 @@
       <% end %>
     <% end %>
   </dl>
-  <div class="osviewer">
-    <% picture_tags, picture_data = sheet_picture_tags_helper %>
-    <%= openseadragon_picture_tag picture_tags, {data: {openseadragon: {sequenceMode: true, preserveViewport: true}}} %>
-  </div>
-  <div id="picture_data"></div>
+  <%= render 'osviewer' %>
 </div>
-<script>
-    (function ($) {
-        function show(num) {
-            const picture_data = <%= picture_data.to_json.html_safe %>;
-            const data = picture_data[num];
-            const html = data.url + '<br>' + data.library + ' (' + data.shelfmark + ')';
-            $('#picture_data').html(html);
-        }
-
-        function initPictureData() {
-            show(0);
-            const viewer = $('picture[data-openseadragon]').data('osdViewer');
-            viewer.addHandler('page', function (event) {
-                show(event.page)
-            });
-        }
-
-        var handler = 'ready';
-        if (typeof Turbolinks !== 'undefined' && Turbolinks.supported) {
-            // Turbolinks 5
-            if (Turbolinks.BrowserAdapter) {
-                handler = 'turbolinks:load';
-            } else {
-                // Turbolinks < 5
-                handler = 'page:load ready';
-            }
-        }
-        $(document).on(handler, initPictureData);
-    })(jQuery);
-
-</script>

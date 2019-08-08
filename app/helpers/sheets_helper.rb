@@ -1,4 +1,49 @@
 module SheetsHelper
+  require 'rgeo/geo_json'
+  require 'json'
+
+  def bbox_helper
+    data = {}
+    data['type'] = 'FeatureCollection'
+    data['name'] = 'bbox'
+    features = []
+    region = @sheet.base_sheet.region
+    unless region.geom4326.nil?
+      feature = {}
+      feature['type'] = 'Feature'
+      feature['properties'] = {}
+      feature['properties']['name'] = region.name.gsub("'", "") # escape single quotes
+      feature['properties']['id'] = region.id
+      geom_str = RGeo::GeoJSON.encode(region.geom4326)
+      feature['geometry'] = geom_str
+      features.append(feature)
+    end
+    data['features'] = features
+    return data.to_json
+  end
+
+  def map_helper
+    data = {}
+    data['type'] = 'FeatureCollection'
+    data['name'] = 'search_results'
+    features = []
+    @search.facet(:regions).rows.each do |row|
+      region = Region.find_by(:name => row.value)
+      unless region.geom4326.nil?
+        feature = {}
+        feature['type'] = 'Feature'
+        feature['properties'] = {}
+        feature['properties']['name'] = region.name.gsub("'", "") # escape single quotes
+        feature['properties']['id'] = region.id
+        geom_str = RGeo::GeoJSON.encode(region.geom4326)
+        feature['geometry'] = geom_str
+        features.append(feature)
+      end
+    end
+    data['features'] = features
+    return data.to_json
+  end
+
   def table_helper
     table = {}
     highlight = []
@@ -8,7 +53,6 @@ module SheetsHelper
 
     header[1], header[2], header[3], header[99] = 'jaar van uitgave', 'set', 'bladtitel', 'exemplaren'
     is_filled[1], is_filled[2], is_filled[3], is_filled[99] = true, true, true, true, true
-
     if policy(Sheet).update?
       header[100] = ''
       is_filled[100] = true

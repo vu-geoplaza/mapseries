@@ -1,0 +1,40 @@
+<h4>Afbeeldingen</h4>
+<div class="osviewer">
+  <% picture_tags, picture_data = sheet_picture_tags_helper %>
+  <%= openseadragon_picture_tag picture_tags, {data: {openseadragon: {sequenceMode: true, preserveViewport: true}}} %>
+</div>
+<div id="picture_data"></div>
+
+<script>
+    (function ($) {
+        function show(num) {
+            var picture_data = JSON.parse('<%= picture_data.to_json.html_safe %>');
+            var data = picture_data[num];
+            var html = data.url + '<br>' + data.library + ' (' + data.shelfmark + ')';
+            $('#picture_data').html(html);
+        }
+
+        function initPictureData() {
+            show(0);
+            var viewer = $('picture[data-openseadragon]').data('osdViewer');
+            if (typeof viewer !== 'undefined') {
+                viewer.addHandler('page', function (event) {
+                    show(event.page)
+                });
+            }
+        }
+
+        var handler = 'ready';
+        if (typeof Turbolinks !== 'undefined' && Turbolinks.supported) {
+            // Turbolinks 5
+            if (Turbolinks.BrowserAdapter) {
+                handler = 'turbolinks:load';
+            } else {
+                // Turbolinks < 5
+                handler = 'page:load ready';
+            }
+        }
+        $(document).on(handler, initPictureData);
+    })(jQuery);
+
+</script>

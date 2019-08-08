@@ -55,6 +55,9 @@ class Sheet < ApplicationRecord
     string :base_series do
       base_set.base_series.name
     end
+    string :regions do
+      base_sheet.region.name
+    end
   end
 
   def validate_pubdate
