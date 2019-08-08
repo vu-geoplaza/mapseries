@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "2e_herziening_serie2a_uitgave",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "07 stormpolder_5e uitg_1954" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5509563, 51.8884219 ], [ 4.603225, 51.8887824 ], [ 4.6027701, 51.9148675 ], [ 4.550471, 51.9145068 ], [ 4.5509563, 51.8884219 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "06 krimpen_4e uitg_1952" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.564577, 51.9144316 ], [ 4.5981096, 51.9146615 ], [ 4.5977884, 51.9329486 ], [ 4.5642422, 51.9327185 ], [ 4.564577, 51.9144316 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "05 ouderkerk_4e uitg_1952" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5977623, 51.9168137 ], [ 4.6399951, 51.9170897 ], [ 4.639593, 51.9412624 ], [ 4.5973375, 51.9409862 ], [ 4.5977623, 51.9168137 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "04 hitland_4e uitg_1952" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.627418, 51.941187 ], [ 4.6566071, 51.941372 ], [ 4.656277, 51.9616543 ], [ 4.6270747, 51.9614692 ], [ 4.627418, 51.941187 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "03 kortenoord_4e uitg_1952" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6216088, 51.9608983 ], [ 4.664702, 51.9611709 ], [ 4.6643009, 51.9860734 ], [ 4.6211838, 51.9858006 ], [ 4.6216088, 51.9608983 ] ] ] } }
+]
+}

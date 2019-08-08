@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "1e_herziening_serie8_1915-1924",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "06 groot hitland_1915" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6326694, 51.9423617 ], [ 4.6510164, 51.942478 ], [ 4.6507198, 51.9605636 ], [ 4.6323655, 51.9604473 ], [ 4.6326694, 51.9423617 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "07 ouderkerk_1924" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.611584, 51.9311019 ], [ 4.6408227, 51.9312912 ], [ 4.6406373, 51.942448 ], [ 4.6113914, 51.9422586 ], [ 4.611584, 51.9311019 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "08 capelle_1924" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.593557, 51.9196856 ], [ 4.6226929, 51.9198787 ], [ 4.6224994, 51.9312518 ], [ 4.5933561, 51.9310586 ], [ 4.593557, 51.9196856 ] ] ] } }
+]
+}

@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "1e_herziening_serie6",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "01 waalwijk_1882" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.0426279, 51.6787547 ], [ 5.1157689, 51.678947 ], [ 5.1153339, 51.7513776 ], [ 5.0420756, 51.7511849 ], [ 5.0426279, 51.6787547 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "03 geertruidenberg_1885" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.8546395, 51.6881444 ], [ 4.9277436, 51.688454 ], [ 4.9269181, 51.7695948 ], [ 4.8536827, 51.7692845 ], [ 4.8546395, 51.6881444 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "04 drimmelen_1886" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.78241, 51.6882899 ], [ 4.8554136, 51.6886441 ], [ 4.8545678, 51.7604828 ], [ 4.7814481, 51.7601278 ], [ 4.78241, 51.6882899 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "05 zwaluwe_1885" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.7099984, 51.6872327 ], [ 4.7831871, 51.687633 ], [ 4.782214, 51.7604002 ], [ 4.7089074, 51.759999 ], [ 4.7099984, 51.6872327 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "06 moerdijk_1885" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5939317, 51.6785031 ], [ 4.7107554, 51.6792362 ], [ 4.7099403, 51.7336976 ], [ 4.5929758, 51.7329634 ], [ 4.5939317, 51.6785031 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "19 klundert_1886" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5221685, 51.6602714 ], [ 4.5952386, 51.6607885 ], [ 4.5939665, 51.7333901 ], [ 4.5207791, 51.7328719 ], [ 4.5221685, 51.6602714 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "20 willemstad_1886" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.4207406, 51.6735738 ], [ 4.5229841, 51.6743731 ], [ 4.5219011, 51.7310132 ], [ 4.4195295, 51.7302127 ], [ 4.4207406, 51.6735738 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "21 ooltgensplaat_noord_1886" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.3045183, 51.7132457 ], [ 4.4213105, 51.7142668 ], [ 4.4203359, 51.7598285 ], [ 4.303426, 51.7588061 ], [ 4.3045183, 51.7132457 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "21 ooltgensplaat_zuid_1886" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.3049854, 51.668448 ], [ 4.4214869, 51.6694669 ], [ 4.4205182, 51.7148235 ], [ 4.3038998, 51.7138032 ], [ 4.3049854, 51.668448 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "23 den bommel_1886" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.2324513, 51.6948794 ], [ 4.3058435, 51.69558 ], [ 4.3041045, 51.7681872 ], [ 4.2305943, 51.7674852 ], [ 4.2324513, 51.6948794 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "02 capelle_s-grevelduins_2e uitg" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.9270585, 51.6829791 ], [ 5.0432126, 51.6833778 ], [ 5.0428018, 51.7373617 ], [ 4.926509, 51.7369624 ], [ 4.9270585, 51.6829791 ] ] ] } }
+]
+}

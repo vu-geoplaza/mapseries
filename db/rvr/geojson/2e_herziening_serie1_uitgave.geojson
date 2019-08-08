@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "2e_herziening_serie1_uitgave",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "01 lobith_4e uitg_1960" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 6.1135253, 51.8061085 ], [ 6.1861886, 51.805636 ], [ 6.1874612, 51.8772999 ], [ 6.1146823, 51.8777734 ], [ 6.1135253, 51.8061085 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "02 millingen_4e uitg_1961" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 6.041424, 51.8226021 ], [ 6.1140009, 51.8221749 ], [ 6.1151608, 51.8939397 ], [ 6.0424681, 51.8943678 ], [ 6.041424, 51.8226021 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "03 kekerdom_4e uitg_1961" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.9108233, 51.8413252 ], [ 6.041844, 51.8406674 ], [ 6.0426275, 51.894483 ], [ 5.91145, 51.8951418 ], [ 5.9108233, 51.8413252 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "06 dodewaard_4e uitg_1960" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.5624735, 51.8765532 ], [ 5.6798224, 51.8763193 ], [ 5.6801129, 51.9209157 ], [ 5.5626476, 51.9211499 ], [ 5.5624735, 51.8765532 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "07 leeuwen_4e uitg_1961" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.4464464, 51.8670427 ], [ 5.5630644, 51.8669258 ], [ 5.5632379, 51.9112309 ], [ 5.4465049, 51.9113479 ], [ 5.4464464, 51.8670427 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "08 tiel_4e uitg_1961" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.3740434, 51.8360836 ], [ 5.4465968, 51.8360692 ], [ 5.4466919, 51.907828 ], [ 5.3740227, 51.9078424 ], [ 5.3740434, 51.8360836 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "09 varik_4e uitg_1960" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.3104972, 51.7910234 ], [ 5.4261507, 51.7910418 ], [ 5.4261897, 51.8359903 ], [ 5.3104209, 51.8359718 ], [ 5.3104972, 51.7910234 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "10 zaltbommel_4e uitg_1960" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.188637, 51.7946451 ], [ 5.310298, 51.7947878 ], [ 5.3102215, 51.8396909 ], [ 5.1884393, 51.839548 ], [ 5.188637, 51.7946451 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "11 zuilichem_4e ged 5e uitg_1960" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.0726204, 51.7969772 ], [ 5.1885794, 51.7972307 ], [ 5.1883813, 51.8422034 ], [ 5.0723065, 51.8419495 ], [ 5.0726204, 51.7969772 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "12 gorinchem_5e uitg_1959" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.953405, 51.8051247 ], [ 5.0726797, 51.805505 ], [ 5.0723674, 51.8502433 ], [ 4.9529742, 51.8498625 ], [ 4.953405, 51.8051247 ] ] ] } }
+]
+}

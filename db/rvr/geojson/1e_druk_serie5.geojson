@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "1e_druk_serie5",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "01 lage zwaluwe_1858" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5942479, 51.6782904 ], [ 4.7103078, 51.6790187 ], [ 4.7094908, 51.7335745 ], [ 4.5932907, 51.732845 ], [ 4.5942479, 51.6782904 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "02 hooge zwaluwe_1858" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.7100497, 51.67871 ], [ 4.82609, 51.6793234 ], [ 4.8254141, 51.7337722 ], [ 4.709234, 51.7331577 ], [ 4.7100497, 51.67871 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "04 s-gravendeel_1858" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5936001, 51.7323851 ], [ 4.7108075, 51.7331201 ], [ 4.7099905, 51.7876279 ], [ 4.5926415, 51.7868918 ], [ 4.5936001, 51.7323851 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "05 lagenhof_1857" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.70941, 51.7327705 ], [ 4.82659, 51.7333895 ], [ 4.8259166, 51.7876052 ], [ 4.7085957, 51.7869852 ], [ 4.70941, 51.7327705 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "06 nieuwe dijk_1857" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.8259186, 51.7324052 ], [ 4.9425754, 51.7329057 ], [ 4.9420335, 51.7879067 ], [ 4.8252345, 51.7874054 ], [ 4.8259186, 51.7324052 ] ] ] } }
+]
+}

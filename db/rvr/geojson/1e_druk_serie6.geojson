@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "1e_druk_serie6",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "01 gouda_1860" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6218359, 51.9887806 ], [ 4.7383119, 51.9894805 ], [ 4.7376593, 52.0345344 ], [ 4.6210663, 52.0338336 ], [ 4.6218359, 51.9887806 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "02 nieuwerkerk_1860" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5926669, 51.943941 ], [ 4.7098182, 51.9446742 ], [ 4.7091408, 51.9895314 ], [ 4.5918724, 51.9887972 ], [ 4.5926669, 51.943941 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "03 ouderkerk_1860" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5422162, 51.8983573 ], [ 4.6590071, 51.8991391 ], [ 4.6582651, 51.944904 ], [ 4.5413553, 51.9441212 ], [ 4.5422162, 51.8983573 ] ] ] } }
+]
+}
