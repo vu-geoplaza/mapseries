@@ -3,7 +3,7 @@ class SheetsController < ApplicationController
 
   after_action :verify_authorized, except: [:query, :index, :search, :show]
 
-  helper_method :can_edit, :select_vals, :lib_select_vals
+  helper_method :can_edit, :select_vals, :lib_select_vals, :select_vals_nocount
 
   include Pundit
 
@@ -222,6 +222,13 @@ class SheetsController < ApplicationController
     r.sort
   end
 
+  def select_vals_nocount(f)
+    vals = []
+    @search.facet(f).rows.map do |row|
+      vals.append([row.value, row.value])
+    end
+    vals.sort
+  end
 
   def select_vals(f)
     vals = []
