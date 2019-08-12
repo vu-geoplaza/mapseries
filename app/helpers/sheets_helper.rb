@@ -155,6 +155,7 @@ module SheetsHelper
       unless c.shelfmark.oclcnr.nil?
         tmp['worldcat'] = '<a href="https://vu.on.worldcat.org/oclc/' + c.shelfmark.oclcnr + '" target="_blank" title="associated worldcat record">' + c.shelfmark.oclcnr + '</a>'
       end
+      #TODO should only be visible when logged in
       #unless c.phys_char.nil?
       #  tmp['fysieke kenmerken'] = c.phys_char
       #end
