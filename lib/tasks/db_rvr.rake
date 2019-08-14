@@ -301,7 +301,7 @@ WKT
           libub = Library.find_by(name: library_name, abbr: library_abbr)
         end
 
-        sm = 'NA'
+        sm = 'Onbekend'
         unless Shelfmark.exists?(shelfmark: sm, library_abbr: librws.abbr)
           shelfmarkrws = Shelfmark.create({shelfmark: sm, library_abbr: librws.abbr})
         else
@@ -309,7 +309,7 @@ WKT
         end
         pk = shelfmark[set_display_title.downcase]
         if pk.nil?
-          pk = 'NA'
+          pk = 'Onbekend'
         end
         unless Shelfmark.exists?(shelfmark: pk, library_abbr: libub.abbr)
           shelfmarkub = Shelfmark.create({shelfmark: pk, library_abbr: libub.abbr})
@@ -317,10 +317,10 @@ WKT
           shelfmarkub = Shelfmark.find_by({shelfmark: pk, library_abbr: libub.abbr})
         end
 
-        unless Provenance.exists?(name: 'NA', library_abbr: librws.abbr)
-          provenancerws = Provenance.create({name: 'NA', library_abbr: librws.abbr})
+        unless Provenance.exists?(name: '-', library_abbr: librws.abbr)
+          provenancerws = Provenance.create({name: '-', library_abbr: librws.abbr})
         else
-          provenancerws = Provenance.find_by({name: 'NA', library_abbr: librws.abbr})
+          provenancerws = Provenance.find_by({name: '-', library_abbr: librws.abbr})
         end
         rwsreponame = 'geodata rijkswaterstaat website'
         unless Repository.exists?(name: rwsreponame)
@@ -363,7 +363,7 @@ WKT
 
         # copy ubvu
         if row['provenance'].nil?
-          prov = 'NA'
+          prov = '-'
         else
           prov = row['provenance']
         end
