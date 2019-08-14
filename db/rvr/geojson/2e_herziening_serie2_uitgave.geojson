@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "2e_herziening_serie2_uitgave",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "07 rhenen_4e uitg_1961" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.4974573, 51.9222703 ], [ 5.5850832, 51.9221553 ], [ 5.5854, 51.993909 ], [ 5.497634, 51.9940242 ], [ 5.4974573, 51.9222703 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "16 stormpolder_5e uitg_1954" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5509883, 51.8883428 ], [ 4.6031007, 51.8887021 ], [ 4.6026458, 51.9147836 ], [ 4.5505031, 51.914424 ], [ 4.5509883, 51.8883428 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "18 rotterdam_4e uitg_2e ed_1936" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.4620243, 51.8884368 ], [ 4.5104426, 51.8888082 ], [ 4.5097396, 51.9248413 ], [ 4.4612825, 51.9244696 ], [ 4.4620243, 51.8884368 ] ] ] } }
+]
+}

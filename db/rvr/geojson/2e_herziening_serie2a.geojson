@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "2e_herziening_serie2a",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "02 moordrecht_4e uitg_1952" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6635783, 51.9748296 ], [ 4.706577, 51.9750862 ], [ 4.7062079, 51.9994014 ], [ 4.6631859, 51.9991446 ], [ 4.6635783, 51.9748296 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "03 kortenoord_1933" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6219584, 51.9611231 ], [ 4.6642882, 51.9613909 ], [ 4.6638908, 51.9860479 ], [ 4.6215378, 51.9857799 ], [ 4.6219584, 51.9611231 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "04 hitland_1933" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6274251, 51.941177 ], [ 4.6565692, 51.9413617 ], [ 4.6562385, 51.9616821 ], [ 4.6270812, 51.9614972 ], [ 4.6274251, 51.941177 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "05 ouderkerk_1933" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5977308, 51.916745 ], [ 4.639913, 51.9170208 ], [ 4.639509, 51.9413053 ], [ 4.597304, 51.9410294 ], [ 4.5977308, 51.916745 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "06 krimpen_1933" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5650814, 51.9145602 ], [ 4.597755, 51.9147842 ], [ 4.597439, 51.9327681 ], [ 4.5647523, 51.9325439 ], [ 4.5650814, 51.9145602 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "07 stormpolder_4e uitg_1933" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5510307, 51.8882544 ], [ 4.6032498, 51.8886145 ], [ 4.6027921, 51.9148628 ], [ 4.5505424, 51.9145024 ], [ 4.5510307, 51.8882544 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "01 gouda_3e uitg_1936" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6917255, 52.0131628 ], [ 4.6918619, 51.9992292 ], [ 4.7334589, 51.9994676 ], [ 4.7332154, 52.0134252 ], [ 4.6917255, 52.0131628 ] ] ] } }
+]
+}

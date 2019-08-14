@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "vassen1",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "13 hardinxveld_oost" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.8948966, 51.7991438 ], [ 4.9538254, 51.7993763 ], [ 4.9533929, 51.8443409 ], [ 4.8944053, 51.8441082 ], [ 4.8948966, 51.7991438 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "13 hardinxveld_west" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.8377566, 51.7987553 ], [ 4.9009696, 51.7990342 ], [ 4.9004812, 51.8442928 ], [ 4.8372047, 51.8440134 ], [ 4.8377566, 51.7987553 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "14 sliedrecht_oost" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.7796672, 51.7962911 ], [ 4.8379558, 51.7965784 ], [ 4.8374065, 51.8416435 ], [ 4.7790595, 51.8413558 ], [ 4.7796672, 51.7962911 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "14 sliedrecht_west" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.7217144, 51.7960341 ], [ 4.7803354, 51.796352 ], [ 4.7797311, 51.841223 ], [ 4.7210517, 51.8409048 ], [ 4.7217144, 51.7960341 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "15 dordrecht_oost" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6576172, 51.7841041 ], [ 4.7222435, 51.7844883 ], [ 4.7214418, 51.8388123 ], [ 4.6567376, 51.8384276 ], [ 4.6576172, 51.7841041 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "15 dordrecht_west" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.598848, 51.7837951 ], [ 4.663424, 51.7842113 ], [ 4.6625527, 51.8384546 ], [ 4.597899, 51.8380378 ], [ 4.598848, 51.7837951 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "15a alblasserdam_zuid" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5989843, 51.8379338 ], [ 4.6867568, 51.8384903 ], [ 4.6861939, 51.8746578 ], [ 4.5983509, 51.8741008 ], [ 4.5989843, 51.8379338 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "16 puttershoek_noord_1931" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5138035, 51.8192545 ], [ 4.5984319, 51.8198538 ], [ 4.5977983, 51.8560283 ], [ 4.5131019, 51.8554283 ], [ 4.5138035, 51.8192545 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "16 puttershoek_zuid_1931" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5148429, 51.7833432 ], [ 4.5989327, 51.7839384 ], [ 4.5983029, 51.8199558 ], [ 4.5141459, 51.8193599 ], [ 4.5148429, 51.7833432 ] ] ] } }
+]
+}

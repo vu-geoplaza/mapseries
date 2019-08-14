@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "vassen2",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "02 pannerden_noord" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.9971416, 51.8928362 ], [ 6.0701452, 51.8924343 ], [ 6.0706936, 51.9284998 ], [ 5.9976313, 51.9289021 ], [ 5.9971416, 51.8928362 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "02 pannerden_zuid" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.9969091, 51.8568915 ], [ 6.0694983, 51.856492 ], [ 6.0700463, 51.8926074 ], [ 5.9973988, 51.8930073 ], [ 5.9969091, 51.8568915 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "11 vianen_oost" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.0906384, 51.9601038 ], [ 5.1572914, 51.9602529 ], [ 5.1570372, 52.0098616 ], [ 5.0903104, 52.0097123 ], [ 5.0906384, 51.9601038 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "11 vianen_west" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.0261028, 51.9599649 ], [ 5.0951247, 51.9601565 ], [ 5.0948014, 52.0098035 ], [ 5.0257031, 52.0096117 ], [ 5.0261028, 51.9599649 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "12 ameide_oost" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.9667528, 51.9356963 ], [ 5.0267798, 51.9358955 ], [ 5.0263764, 51.9861216 ], [ 4.9662822, 51.985922 ], [ 4.9667528, 51.9356963 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "12 ameide_west" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.9075457, 51.9354687 ], [ 4.9671598, 51.9356968 ], [ 4.9666894, 51.9859433 ], [ 4.9070086, 51.985715 ], [ 4.9075457, 51.9354687 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "13 schoonhoven_oost" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.8442871, 51.9077241 ], [ 4.9074727, 51.9079989 ], [ 4.9069925, 51.9529489 ], [ 4.8437437, 51.9526737 ], [ 4.8442871, 51.9077241 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "13 schoonhoven_west" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.7807568, 51.9072546 ], [ 4.8446913, 51.9075671 ], [ 4.8441474, 51.9525893 ], [ 4.7801488, 51.9522763 ], [ 4.7807568, 51.9072546 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "14 lekkerkerk_oost" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.7182554, 51.8813921 ], [ 4.7816618, 51.881736 ], [ 4.7810555, 51.9267358 ], [ 4.7175857, 51.9263914 ], [ 4.7182554, 51.8813921 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "14 lekkerkerk_west" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.6545266, 51.8810288 ], [ 4.7186166, 51.881411 ], [ 4.7179514, 51.9261282 ], [ 4.6537976, 51.9257455 ], [ 4.6545266, 51.8810288 ] ] ] } }
+]
+}

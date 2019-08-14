@@ -1,0 +1,21 @@
+<label>
+  <h5>Kaartserie:
+    <% selected = params[:fs][:base_series] %>
+    <%= select_tag 'fs[base_series]', options_for_select(select_vals_nocount(:base_series).collect {|d| [d[0], d[1]]}, selected) %>
+  </h5>
+</label>
+
+<script>
+    $(function () {
+        $('select').on('change', function (e) {
+            if (e.target.id = 'fs_base_series') {
+                $(':input', '#form')
+                    .not(':button, :submit, :reset, #fs_base_series')
+                    .val('')
+                    .prop('checked', false);
+                //.prop('selected', false);
+            }
+            $('#form').submit();
+        });
+    });
+</script>

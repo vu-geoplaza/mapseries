@@ -3,28 +3,28 @@ class SheetsController < ApplicationController
 
   after_action :verify_authorized, except: [:query, :index, :search, :show]
 
-  helper_method :can_edit, :select_vals, :lib_select_vals
+  helper_method :can_edit, :select_vals, :lib_select_vals, :select_vals_nocount
 
   include Pundit
 
   def show
     @sheet = Sheet.find(params[:id])
-    ids=[]
+    ids = []
     # would be better to do this once and store it in the session cache
     unless session[:search_params].nil?
       sp = session[:search_params]
       sp['per_page'] = 10000 # "all"
-      search=do_search(sp)
+      search = do_search(sp)
       search.hits.each do |h|
         ids.push(h.stored(:id))
       end
     end
     @previous_id = false
     @next_id = false
-    unless ids.count==0
+    unless ids.count == 0
       index = ids.find_index(params[:id].to_i)
       unless index.nil?
-        @previous_id = index > 0 ? ids[index - 1]:false
+        @previous_id = index > 0 ? ids[index - 1] : false
         @next_id = ids[index + 1]
       end
     end
@@ -51,8 +51,6 @@ class SheetsController < ApplicationController
       @base_series = @base_sheet.base_series
       @sheets = @base_sheet.sheets.order(:edition, :display_title)
     end
-    logger.debug '*****************************'
-    logger.debug @sheets.count
     respond_to do |format|
       format.html
       format.csv {send_data to_csv, filename: "sheets-#{Date.today}.csv"}
@@ -69,6 +67,7 @@ class SheetsController < ApplicationController
 
   # GET /sheets/1/edit
   def edit
+
     @sheet = Sheet.find(params[:id])
     logger.debug '>>>>>>> controller edit'
     logger.debug @sheet.base_sheet.base_series_abbr
@@ -105,9 +104,10 @@ class SheetsController < ApplicationController
     params[:fs][:repository] ||= []
     params[:fs][:shelfmark] ||= []
     params[:fs][:provenance] ||= []
-    params[:fs][:base_series] ||= 'Waterstaatskaarten'
+    params[:fs][:base_series] ||= 'Rivierkaarten'
     params[:fs][:base_title] ||= ''
     params[:fs][:base_set] ||= []
+    params[:fs][:lonlat] ||= ''
     @search = do_search(params)
     respond_to do |format|
       format.json {render :json => ['base_series' => facet_vals(:base_series),
@@ -133,10 +133,11 @@ class SheetsController < ApplicationController
     params[:fs][:repository] ||= []
     params[:fs][:shelfmark] ||= []
     params[:fs][:provenance] ||= []
-    params[:fs][:base_series] ||= 'Waterstaatskaarten'
+    params[:fs][:base_series] ||= 'Rivierkaarten'
     params[:fs][:base_title] ||= ''
     params[:fs][:base_set] ||= []
     params[:sort] ||= 'set,display_title asc'
+    params[:fs][:lonlat] ||= ''
 
     @base_series = BaseSeries.find_by({name: params[:fs][:base_series]})
 
@@ -183,7 +184,12 @@ class SheetsController < ApplicationController
                         include: [:electronic_versions, :provenance, :shelfmark]
                     }
             },
-            :base_set
+            :base_set,
+            {
+                base_sheet: {
+                    include: :region
+                }
+            }
         ])
       end
     end
@@ -216,12 +222,19 @@ class SheetsController < ApplicationController
     r.sort
   end
 
+  def select_vals_nocount(f)
+    vals = []
+    @search.facet(f).rows.map do |row|
+      vals.append([row.value, row.value])
+    end
+    vals.sort
+  end
 
   def select_vals(f)
     vals = []
     @search.facet(f).rows.map do |row|
-      logger.debug(row.value)
-      logger.debug(@base_series.abbr)
+      #logger.debug(row.value)
+      #logger.debug(@base_series.abbr)
       if row.value.split('^').count > 1 # effe uit
         #  PV: do not return values for facets belonging to a different series
         # Allows us to show 0-count facets whilst hiding irrelevant facets
@@ -279,22 +292,42 @@ class SheetsController < ApplicationController
     end
   end
 
+  def get_regions_by_lonlat(lonlat_str)
+    # st_contains query
+    #POINT(-117.18757899999991 33.709771000000046)
+    lon = lonlat_str.split(',')[0]
+    lat = lonlat_str.split(',')[1]
+    point = "POINT(#{lon} #{lat})"
+    #SELECT name FROM public.regions WHERE ST_Contains(geom4326,ST_GeometryFromText('POINT(6.088806157931686 52.323086035437996)', 4326))
+    res = ActiveRecord::Base.connection.execute("SELECT name FROM public.regions WHERE st_contains(geom4326, ST_GeometryFromText('" + point + "', 4326))")
+    regions = ['dummy'] # return nothing
+    res.each do |h|
+      logger.debug h['name']
+      regions.append(h['name'])
+    end
+    return regions
+  end
+
   def do_search(params)
     # might be better to move this to a search Model, also decouples search from the sheets
-    Sheet.search do
+    unless params['fs']['lonlat'] == ''
+      regions = get_regions_by_lonlat(params['fs']['lonlat'])
+      logger.debug regions
+    end
+    @search = Sheet.search do
       fulltext params['fs']['q']
       unless params['fs'].nil?
-        logger.debug 'hee'
+        unless params['fs']['lonlat'] == ''
+          with(:regions, regions)
+        end
         unless params['fs']['base_series'].empty?
           with(:base_series, params['fs']['base_series'])
           logger.debug 'ho'
         end
         unless params['fs']['library'].empty?
           with(:libraries, params['fs']['library'])
-          logger.debug 'ho'
         end
         unless params['fs']['library_ex'].empty?
-          logger.debug 'hoera'
           without(:libraries, params['fs']['library_ex'])
         end
         unless params['fs']['shelfmark'].empty?
@@ -352,6 +385,7 @@ class SheetsController < ApplicationController
       facet :repositories, :minimum_count => 0
       facet :base_sets, :minimum_count => 0
       facet :shelfmarks, :minimum_count => 0
+      facet :regions, :limit => 5000 # I need all of them to build the map
       facet :pubdate
 
       paginate :page => params['page'] || 1, :per_page => params['per_page'] || 50

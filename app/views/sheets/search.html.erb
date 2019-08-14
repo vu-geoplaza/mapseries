@@ -1,3 +1,23 @@
-<%= render 'searchform' %>
+<%= form_tag search_path, :id => 'form', :method => :get do %>
+  <div class="field row">
+    <div class="col-lg-3">
+      <%= render 'searchseries' %>
+    </div>
+    <div class="col-lg-9">
+      <%= render 'searchtext' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2">
+      <%= render 'searchform' %>
+    </div>
+    <div class="col-lg-10">
+      <% unless params[:fs][:base_series] == 'Waterstaatskaarten' %>
+        <%= render 'mapsearch' %>
+      <% end %>
+      <%= render 'searchsort' %>
+      <%= render 'sheets_table' %>
+    </div>
+  </div>
+<% end %>
 
-<%= render 'sheets_table' %>

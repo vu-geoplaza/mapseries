@@ -1,0 +1,138 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapse-mapsearch">Bladindex geografisch</a>
+      </h4>
+    </div>
+    <div id="collapse-mapsearch" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="col-md-6">
+          <div id="map" class="map" style="width: 100%; height: 500px;"></div>
+        </div>
+        <div class="col-md-6">
+          <label>
+            <h5>Klik op de kaart om een locatie te kiezen</h5>
+            <%= hidden_field :fs, :lonlat, :value => params[:fs][:lonlat] %>
+            <a id="clear">Clear</a>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+
+    // geojson vector laag
+    // geojson laag moet in principe alle resultaten tonen
+    // click event moet een search filter zijn: alle bboxen waarbinnen de klik valt.
+
+    // on mouseover op de resultaten laat de box oplichten
+
+    // pop-out de kaartindex in een lightbox??
+
+
+    $('#clear').click(function () {
+        $('#fs_lonlat').val('');
+        $('#form').submit();
+    });
+    (function ($) {
+        function displayMap() {
+            $('#map').html('');
+            var map = null;
+            var geojson = JSON.parse('<%= map_helper.html_safe %>');
+            var point_str = '<%= params[:fs][:lonlat] %>';
+
+            var styleFunction = function (feature) {
+                return new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: 'rgb(214, 80, 80)',
+                        width: 2
+                    }),
+                    fill: new ol.style.Fill({
+                        color: 'rgb(214, 80, 80, 0.1)'
+                    }),
+                    text: new ol.style.Text({
+                        text: feature.get('name'),
+                        font: '12px Arial',
+                        stroke: new ol.style.Stroke({color: 'white', width: 3}),
+                        offsetY: 16
+                    })
+                })
+            };
+
+
+            var map = new ol.Map({
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                target: 'map',
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([5.634167, 52.243333]),
+                    zoom: 7
+                })
+            });
+
+            if (geojson.features.length > 0) {
+                var vectorSource = new ol.source.Vector({
+                    features: (new ol.format.GeoJSON()).readFeatures(geojson, {
+                        dataProjection: 'EPSG:4326',
+                        featureProjection: 'EPSG:3857'
+                    })
+                });
+                var vectorLayer = new ol.layer.Vector({
+                    source: vectorSource,
+                    style: styleFunction
+                });
+                map.addLayer(vectorLayer);
+                map.getView().fit(vectorSource.getExtent(), map.getSize());
+            }
+
+
+            if (point_str !== '') {
+                var markerFeatures = [new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.transform([parseFloat(point_str.split(',')[0]), parseFloat(point_str.split(',')[1])], 'EPSG:4326', 'EPSG:3857')),
+                    name: 'location',
+                })];
+                var markerSource = new ol.source.Vector({
+                    features: markerFeatures //add an array of features
+                });
+                var iconStyle = new ol.style.Style({
+                    image: new ol.style.Circle({
+                        radius: 7,
+                        fill: new ol.style.Fill({color: 'red'}),
+                        stroke: new ol.style.Stroke({
+                            color: 'black', width: 2
+                        })
+                    })
+                });
+                var markerLayer = new ol.layer.Vector({
+                    source: markerSource,
+                    style: iconStyle
+                });
+                map.addLayer(markerLayer);
+            }
+            map.on('click', function (evt) {
+                $('#fs_lonlat').val(ol.proj.toLonLat(evt.coordinate));
+                $('#form').submit();
+            });
+        }
+
+        var handler = 'ready';
+        if (typeof Turbolinks !== 'undefined' && Turbolinks.supported) {
+            // Turbolinks 5
+            if (Turbolinks.BrowserAdapter) {
+                handler = 'turbolinks:load';
+            } else {
+                // Turbolinks < 5
+                handler = 'page:load ready';
+            }
+        }
+        $(document).on(handler, displayMap);
+    })(jQuery);
+</script>

@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "2e_herziening_serie4_1950_1961",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "04 brummen_4e uitg_1961" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 6.1131831, 52.055469 ], [ 6.2298833, 52.0546916 ], [ 6.2307319, 52.0997013 ], [ 6.1139142, 52.1004797 ], [ 6.1131831, 52.055469 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "05 zutphen_4e uitg_1961" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 6.162725, 52.100142 ], [ 6.2392523, 52.0996135 ], [ 6.240626, 52.1715287 ], [ 6.1639753, 52.1720583 ], [ 6.162725, 52.100142 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "06 gorssel_4e uitg_1960" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 6.1338536, 52.1722213 ], [ 6.2072582, 52.1717339 ], [ 6.2085834, 52.2436642 ], [ 6.1350602, 52.2441527 ], [ 6.1338536, 52.1722213 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "11 zwolle_4e ged_3e_uitg_1950" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.9878534, 52.4873695 ], [ 6.120524, 52.4866231 ], [ 6.1214267, 52.5409313 ], [ 5.9885928, 52.5416789 ], [ 5.9878534, 52.4873695 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "11a hasselt_3e uitg_1951" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 6.0534876, 52.5412295 ], [ 6.1418952, 52.5407001 ], [ 6.1431267, 52.6125428 ], [ 6.0545748, 52.6130732 ], [ 6.0534876, 52.5412295 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "11b zwartsluis_3e ged_4e uitg_1951" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.9643803, 52.613577 ], [ 6.0976513, 52.6128548 ], [ 6.0985229, 52.6667825 ], [ 5.9650885, 52.6675059 ], [ 5.9643803, 52.613577 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "11c zwartemeer_2e ged_4e uitg_1959" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.8462042, 52.6004789 ], [ 5.9645338, 52.5999627 ], [ 5.9652423, 52.6539266 ], [ 5.8467676, 52.6544436 ], [ 5.8462042, 52.6004789 ] ] ] } }
+]
+}

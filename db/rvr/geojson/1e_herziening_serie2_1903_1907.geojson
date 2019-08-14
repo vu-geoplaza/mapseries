@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "1e_herziening_serie2_1903_1907",
+"features": [
+{ "type": "Feature", "properties": { "NAAM": "17 krimpen ad lek_2e uitg_1907" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.5351577, 51.8761973 ], [ 4.6512371, 51.8769819 ], [ 4.6504975, 51.9221516 ], [ 4.5343014, 51.921366 ], [ 4.5351577, 51.8761973 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "18 rotterdam_2e uitg_1904" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.4189895, 51.8854795 ], [ 4.5345344, 51.886375 ], [ 4.5337139, 51.9296171 ], [ 4.4180578, 51.9287205 ], [ 4.4189895, 51.8854795 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "19 vlaardingen_2e uitg_1906" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.3026267, 51.8832606 ], [ 4.4189131, 51.8842767 ], [ 4.4180798, 51.922957 ], [ 4.3016933, 51.9219398 ], [ 4.3026267, 51.8832606 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "20 maassluis_2e uitg_1903" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.2152983, 51.8884719 ], [ 4.3031048, 51.889315 ], [ 4.3021293, 51.9297444 ], [ 4.2142439, 51.9289003 ], [ 4.2152983, 51.8884719 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "21 de lier_2e uitg_1906" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.141278, 51.9281898 ], [ 4.2579879, 51.9293689 ], [ 4.2567318, 51.9792779 ], [ 4.1398922, 51.9780971 ], [ 4.141278, 51.9281898 ] ] ] } },
+{ "type": "Feature", "properties": { "NAAM": "22 hoek van holland_2e uitg_1906" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 4.0694101, 51.9603172 ], [ 4.1407673, 51.9610952 ], [ 4.1398059, 51.9956809 ], [ 4.0683937, 51.9949022 ], [ 4.0694101, 51.9603172 ] ] ] } }
+]
+}

@@ -1,0 +1,76 @@
+<dl class="dl-horizontal  dl-invert">
+  <h4 id="boxinfo">Bladgrenzen</h4>
+  <div id="boxmap" class="map" style="width: 100%; height: 300px;"></div>
+  <span id="polygon"></span>
+</dl>
+
+
+<script>
+    (function ($) {
+        function showMap() {
+            var geojson = JSON.parse('<%= bbox_helper.html_safe %>');
+            var styleFunction = function (feature) {
+                return new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: 'rgb(214, 80, 80)',
+                        width: 2
+                    }),
+                    fill: new ol.style.Fill({
+                        color: 'rgb(214, 80, 80, 0.1)'
+                    }),
+                    text: new ol.style.Text({
+                        text: feature.get('name'),
+                        font: '12px Arial',
+                        stroke: new ol.style.Stroke({color: 'white', width: 3}),
+                        offsetY: 16
+                    })
+                })
+            };
+
+            var map = new ol.Map({
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    })
+                ],
+                target: 'boxmap',
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([5.634167, 52.243333]),
+                    zoom: 7
+                })
+            });
+
+            if (geojson.features.length > 0) {
+                var vectorSource = new ol.source.Vector({
+                    features: (new ol.format.GeoJSON()).readFeatures(geojson, {
+                        dataProjection: 'EPSG:4326',
+                        featureProjection: 'EPSG:3857'
+                    })
+                });
+                var vectorLayer = new ol.layer.Vector({
+                    source: vectorSource,
+                    style: styleFunction
+                });
+                map.addLayer(vectorLayer);
+                map.getView().fit(vectorSource.getExtent(), map.getSize());
+                $('#polygon').html(JSON.stringify(geojson.features[0].geometry.coordinates));
+            } else {
+                $('#boxmap').hide();
+                $('#boxinfo').html('Geen bladgrenzen beschikbaar');
+            }
+        }
+
+        var handler = 'ready';
+        if (typeof Turbolinks !== 'undefined' && Turbolinks.supported) {
+            // Turbolinks 5
+            if (Turbolinks.BrowserAdapter) {
+                handler = 'turbolinks:load';
+            } else {
+                // Turbolinks < 5
+                handler = 'page:load ready';
+            }
+        }
+        $(document).on(handler, showMap());
+    })(jQuery);
+
+</script>

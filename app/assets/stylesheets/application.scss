@@ -186,6 +186,11 @@ table .absorbing-column {
  *= require 'blacklight_advanced_search'
 
 */
+
+.label-text {
+  font-size: 0.8em;
+}
+
 .field input[type="checkbox"] + .label-text:before {
     content: "\f096";
     font-family: "FontAwesome";
@@ -203,7 +208,6 @@ table .absorbing-column {
 
 .field input[type="checkbox"]:checked + .label-text:before {
     content: "\f14a";
-    color: #2980b9;
     animation: effect 250ms ease-in;
 }
 
