@@ -256,7 +256,7 @@ class SheetsController < ApplicationController
   end
 
   def to_csv
-    headers = ["jaar van uitgave", "editie", "display_title"]
+    headers = ["db_id", "jaar van uitgave", "editie", "display_title"]
     fields = @base_series.metadata_fields
     fields.each do |field|
       headers.append(field)
@@ -275,7 +275,7 @@ class SheetsController < ApplicationController
           end
         end
 
-        row = [year, ed.edition, ed.display_title]
+        row = [ed.id, year, ed.edition, ed.display_title]
         fields.each do |f|
           row.append(ed[f])
         end
