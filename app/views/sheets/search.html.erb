@@ -1,12 +1,24 @@
 <%= form_tag search_path, :id => 'form', :method => :get do %>
-  <div class="field row">
-    <div class="col-lg-3">
-      <%= render 'searchseries' %>
-    </div>
-    <div class="col-lg-9">
-      <%= render 'searchtext' %>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse-zoek">Zoeken</a>
+        </h4>
+      </div>
+      <div id="collapse-zoek" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <div class="col-lg-3">
+            <%= render 'searchseries' %>
+          </div>
+          <div class="col-lg-9">
+            <%= render 'searchtext' %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-2">
       <%= render 'searchform' %>
@@ -20,4 +32,3 @@
     </div>
   </div>
 <% end %>
-
