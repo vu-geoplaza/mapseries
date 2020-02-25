@@ -176,6 +176,9 @@ module SheetsHelper
         unless e.repository_url.nil?
           te['url'] = link_to e.repository_url, e.repository_url
         end
+        unless e.iiif_id.nil?
+          te['iiif id'] = e.iiif_id
+        end
         unless e.ogc_web_service.nil?
           te['url'] = link_to e.ogc_web_service.url, e.ogc_web_service.url
           te['ogc services'] = e.ogc_web_service.services.join(', ')
@@ -206,6 +209,14 @@ module SheetsHelper
           # TODO: move this conversion to a config file
           local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
           picture_tags.append([e.id => {type: 'image', url: local_url}])
+          data = {}
+          data['shelfmark'] = c.shelfmark.shelfmark
+          data['library'] = c.shelfmark.library.name
+          data['url'] = e.repository_url
+          picture_data.append(data)
+        elsif e.service_type = 'iiif'
+          #iiif_id = e.iiif_id.gsub('http://objects.library.uu.nl', '/uu/')
+          picture_tags.append(e.iiif_id + '/info.json')
           data = {}
           data['shelfmark'] = c.shelfmark.shelfmark
           data['library'] = c.shelfmark.library.name
