@@ -1,47 +1,36 @@
 <div id="header-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#user-util-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="user-util-collapse">
-        <!-- uncomment for user menu -->
-        <%#= render :partial => '/user_util_links' %>
-      </div>
-    </div>
-    <!-- END .content -->
-  </div>
+      <div class="row">
+        <div class="col-md-5 col-sm-8 col-xs-12">
+          <% if Rails.env.development? %>
+            <%= link_to '<img class="site-logo" src="https://geoplaza.vu.nl/cms/wp-content/uploads/2018/10/VUlogo_Wit_RGB_mettekst_tcm289-835563.svg" alt="Geoplaza"><h1 class="header-title">Geoplaza Kaartseries TEST</h1>'.html_safe, root_path, class: "" %>
+          <% else %>
+            <%= link_to '<img class="site-logo" src="https://geoplaza.vu.nl/cms/wp-content/uploads/2018/10/VUlogo_Wit_RGB_mettekst_tcm289-835563.svg" alt="Geoplaza"><h1 class="header-title">Geoplaza Kaartseries</h1>'.html_safe, root_path, class: "" %>
+          <% end %>
+          <!-- uncomment for user menu -->
+          <%#= render :partial => '/user_util_links' %>
+        </div>
 
-  <div class="container">
-    <div class="navbar-header">
-      <%= link_to "", root_path, class: "navbar-brand" %>
-      <% if Rails.env.development? %>
-        <div class="header-title">Geoplaza Kaartseries TEST</div>
-      <% else %>
-        <div class="header-title">Geoplaza Kaartseries</div>
-      <% end %>
-    </div>
-    <p class="navbar-text pull-right">
-      <%= link_to 'Geoplaza home', 'https://geoplaza.vu.nl/', :class => 'navbar-link' %>
-      |
-      <%= link_to 'About', 'https://geoplaza.vu.nl/cms/data/kaartseries-database/', :class => 'navbar-link' %>
-      <!--
+
+        <p class="navbar-text pull-right">
+          <%= link_to 'Geoplaza home', 'https://geoplaza.vu.nl/', :class => 'navbar-link' %>
+          |
+          <%= link_to 'About', 'https://geoplaza.vu.nl/cms/data/kaartseries-database/', :class => 'navbar-link' %>
+          <!--
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
       <% end %>
       -->
-    </p>
+        </p>
+      </div>
+    </div>
   </div>
-
-
 
 </div>
 
