@@ -1,16 +1,16 @@
 namespace :db do
   namespace :seed do
-    desc "Add ubuu waterstaatskaarten copies"
-    task :process_wsk_ubuu => :environment do
+    desc "Add ubu waterstaatskaarten copies"
+    task :process_wsk_ubu => :environment do
       require 'csv'
       library_name = "Universiteitsbibliotheek Utrecht"
-      library_abbr = "ubuu"
+      library_abbr = "ubu"
       unless Library.exists?(abbr: library_abbr)
         library = Library.create(name: library_name, abbr: library_abbr)
       else
         library = Library.find_by(name: library_name, abbr: library_abbr)
       end
-      repo_name = 'UBUU Bijzondere Collecties'
+      repo_name = 'UBU Bijzondere Collecties'
       unless Repository.exists?(name: repo_name)
         repository = Repository.create({
                                            base_url: 'http://bc.library.uu.nl/nl',
@@ -107,12 +107,12 @@ namespace :db do
   end
   namespace :droplib do
     desc "Delete uu copies from database"
-    task :ubuu => :environment do
-      library = library.find('ubuu')
+    task :ubu => :environment do
+      library = Library.find('ubu')
       provenances = library.provenances
       shelfmarks = library.shelfmarks
       repositories = library.repositories
-      copies = library.find('ubuu').copies
+      copies = library.copies
       # 1. delete electronic_versions
       copies.each do |copy|
         copy.electronic_versions.destroy_all
