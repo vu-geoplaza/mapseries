@@ -1,5 +1,5 @@
 <div class="row navigate">
-  <%= link_to 'Back', search_path(session[:search_params]) %>
+  <%= link_to 'Back to search results', search_path(session[:search_params]) %>
   <br>
   <%= @previous_id ? link_to('Previous', sheet_path(@previous_id)) : 'Previous' %> |
   <%= @next_id ? link_to('Next', sheet_path(@next_id)) : 'Next' %>
@@ -45,4 +45,8 @@
     <% end %>
   </dl>
   <%= render 'osviewer' %>
+</div>
+<div class="row navigate">
+  <%= @previous_id ? link_to('Previous', sheet_path(@previous_id)) : 'Previous' %> |
+  <%= @next_id ? link_to('Next', sheet_path(@next_id)) : 'Next' %>
 </div>
