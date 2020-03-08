@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200224154339) do
+ActiveRecord::Schema.define(version: 20200304093617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20200224154339) do
     t.integer  "shelfmark_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.text     "volgnummer"
     t.index ["provenance_id"], name: "index_copies_on_provenance_id", using: :btree
     t.index ["sheet_id"], name: "index_copies_on_sheet_id", using: :btree
     t.index ["shelfmark_id"], name: "index_copies_on_shelfmark_id", using: :btree
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 20200224154339) do
     t.integer  "copy_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.text "iiif_id"
+    t.text     "iiif_id"
     t.index ["copy_id"], name: "index_electronic_versions_on_copy_id", using: :btree
     t.index ["ogc_web_service_id"], name: "index_electronic_versions_on_ogc_web_service_id", using: :btree
     t.index ["repository_id"], name: "index_electronic_versions_on_repository_id", using: :btree
@@ -121,7 +122,7 @@ ActiveRecord::Schema.define(version: 20200224154339) do
     t.geometry "geom",       limit: {:srid=>28992, :type=>"st_polygon"}
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
-    t.geometry "geom4326", limit: {:srid => 4326, :type => "st_polygon"}
+    t.geometry "geom4326",   limit: {:srid=>4326, :type=>"st_polygon"}
   end
 
   create_table "repositories", force: :cascade do |t|
@@ -163,8 +164,8 @@ ActiveRecord::Schema.define(version: 20200224154339) do
     t.text     "opmerkingen"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.text "auteurs"
-    t.text "metingen"
+    t.text     "auteurs"
+    t.text     "metingen"
     t.index ["base_set_id"], name: "index_sheets_on_base_set_id", using: :btree
     t.index ["base_sheet_id"], name: "index_sheets_on_base_sheet_id", using: :btree
   end
