@@ -126,7 +126,7 @@ namespace :db do
       # 5. delete repositories
       repositories.destroy_all
       # [6. delete library] might leave in to avoid deleting users
-      # library.destroy
+      library.destroy
     end
   end
 end

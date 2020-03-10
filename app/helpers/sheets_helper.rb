@@ -100,8 +100,8 @@ module SheetsHelper
       #custom fields and headers
       col = 5
       #metadata_fields=["nummer","uitgever","verkend","herzien","bewerkt","uitgave","bijgewerkt","opname_jaar","basis_jaar","basis","schaal","bewerker","reproductie","editie","waterstaatskaart","bijkaart_we","bijkaart_hw"]
-      metadata_fields = ["nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie", "opmerkingen"]
-      #@base_series.metadata_fields.each do |field|
+      metadata_fields = ["nummer", "uitgever", "verkend", "gegraveerd", "herzien", "ged_herzien", "bewerkt", "stempel", "uitgave", "bijgewerkt", "omgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie", "opmerkingen"]
+      #@base_series.metadata_fields.each do |field| #? why did I stop doing this?
       metadata_fields.each do |field|
         column[col] = ed[field]
         header[col] = field
@@ -120,7 +120,7 @@ module SheetsHelper
       if @sheet.pubdate_exact
         year = @sheet.pubdate.year
       else
-        year = '[' + @sheet.pubdate.year.to_s + ']'
+        year = "[#{ @sheet.pubdate.year }]"
       end
     end
 
@@ -137,7 +137,7 @@ module SheetsHelper
     end
 
     #'Jaar van Uitgave' => year
-    metadata_fields = ["titel", "nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie"]
+    metadata_fields = ["nummer", "uitgever", "verkend", "gegraveerd", "herzien", "ged_herzien", "bewerkt", "stempel", "uitgave", "bijgewerkt", "omgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie", "opmerkingen"]
     #@base_series.metadata_fields.each do |field|
     metadata_fields.each do |field|
       unless @sheet[field].nil? || @sheet[field] == ''
@@ -221,6 +221,8 @@ module SheetsHelper
         elsif e.service_type == 'iiif'
           #iiif_id = e.iiif_id.gsub('http://objects.library.uu.nl', '/uu/')
           picture_tags.append(e.iiif_id + '/info.json')
+        elsif e.service_type == 'deepzoom'
+          picture_tags.append(e.deepzoom_id)
         end
       end
     end

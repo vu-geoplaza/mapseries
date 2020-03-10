@@ -3,6 +3,24 @@ namespace :db do
     desc "Add tmk series and copies"
     task :process_tmk_kadaster => :environment do
       require 'csv'
+      library_name = "Kadaster"
+      library_abbr = "kad"
+      unless Library.exists?(abbr: library_abbr)
+        library = Library.create(name: library_name, abbr: library_abbr)
+      else
+        library = Library.find_by(name: library_name, abbr: library_abbr)
+      end
+      repo_name = 'UBVU Beeldbank'
+      unless Repository.exists?(name: repo_name)
+        repository = Repository.create({
+                                           base_url: 'http://imagebase.ubvu.vu.nl',
+                                           name: repo_name,
+                                           library_abbr: library_abbr
+                                       })
+      else
+        repository = Repository.find_by(name: repo_name)
+      end
+
       series_name = 'Topographisch Militaire Kaart'
       series_abbr = 'tmk'
 
@@ -16,18 +34,26 @@ namespace :db do
         bs = BaseSeries.find(series_abbr)
       end
       n = 0
-      file = 'db/tmk/bb2.csv'
+      file = 'db/tmk/ubvu_bb_kadaster.csv'
       CSV.foreach(file, encoding: "bom|utf-8", headers: :first_row, col_sep: ',') do |row|
+        puts("start row: #{row['Titel']}")
         nummer = row['Bladnummer']
         if nummer.nil?
-          nummer='0'
+          nummer = '0'
         end
-        titel = row['Titel'].split(', ')[0].split(' ')[1]
+        vnr = nummer.to_s.rjust(2, "0")
+        if row['Titel'].split(', ').length > 1
+          tmp = row['Titel'].split(', ')[0].split(' ')
+          titel = tmp[1, 10].join(' ')
+        else
+          titel = row['Titel']
+        end
 
-        pubyear = row['Uitgave'].to_s
-        exact = true;
-        if pubyear.nil?
-          exact = false;
+
+        pubyear = row['uitgave'].to_s
+        exact = true
+        if pubyear.nil? or pubyear == ''
+          exact = false
           pubyear = [
               row['gegraveerd'].to_s.last(4).to_i,
               row['bewerkt'].to_s.last(4).to_i,
@@ -39,8 +65,19 @@ namespace :db do
               row['Stempel'].to_s.last(4).to_i
           ].max.to_s
         end
+        if (pubyear.nil? or pubyear == '' or pubyear == '0') and vnr == '00'
+          puts('Get date from titel!')
+          pubyear = row['Titel'].last(4)
+          exact = false
+        end
+        if pubyear.nil? or pubyear == '' or pubyear == '0'
+          puts("Get date from opmerkingen #{row['opmerkingen']}!")
+          pubyear = row['opmerkingen'].last(4)
+          exact = false
+        end
 
-        regio = 'tmk-%{nummer}' # halfbladen niet vergeten --> 24, 36 (3 varianten?)
+        regio = "tmk-#{nummer}" # halfbladen niet vergeten --> 24, 36 (3 varianten?)
+        puts("regio: #{regio}")
         regio = regio.downcase
         unless Region.exists?({name: regio})
           region = Region.create({name: regio})
@@ -62,11 +99,12 @@ namespace :db do
           set = BaseSet.find_by({display_title: set_display_title, base_series_abbr: bs.abbr})
         end
 
-        vnr = nummer.to_s.rjust(2, "0")
-        display_title = '%{vnr} %{titel}'
-        puts(pubyear)
-        pubdate=Date.strptime(pubyear, '%Y')
-        unless bsh.sheets.exists?({display_title: bsh.title, pubdate: pubdate})
+
+        display_title = "#{vnr} #{titel}"
+        pubdate = Date.strptime(pubyear, '%Y')
+        puts(pubdate)
+        puts(display_title)
+        unless bsh.sheets.exists?({display_title: display_title, pubdate: pubdate})
           sheet = bsh.sheets.create({pubdate: pubdate,
                                      edition: 'NA',
                                      pubdate_exact: exact,
@@ -82,7 +120,7 @@ namespace :db do
                                      ged_herzien: row['ged.herzien'],
                                      stempel: row['Stempel'],
                                      uitgave: row['uitgave'],
-                                     opmerkingen: row['Editievermelding'],
+                                     opmerkingen: row['opmerkingen'],
                                      base_set: set
                                     })
           if !sheet.valid?
@@ -96,8 +134,86 @@ namespace :db do
           sheet = bsh.sheets.find_by({display_title: display_title, pubdate: pubdate})
         end
 
+        # Add copy, shelfmark & provenance unknown
+        ocn = '898205445'
+        unless BibliographicMetadatum.exists?(oclcnr: ocn)
+          bm = BibliographicMetadatum.create({oclcnr: ocn})
+        else
+          bm = BibliographicMetadatum.find_by({oclcnr: ocn})
+        end
 
+        sm = 'NA'
+        unless Shelfmark.exists?(shelfmark: sm, library_abbr: library_abbr)
+          shelfmark = Shelfmark.create({
+                                           shelfmark: sm,
+                                           library_abbr: library_abbr,
+                                           oclcnr: ocn
+                                       })
+        else
+          shelfmark = Shelfmark.find_by({shelfmark: sm, library_abbr: library_abbr})
+        end
+        pr = 'NA'
+        unless Provenance.exists?(name: pr, library_abbr: library_abbr)
+          provenance = Provenance.create({name: pr, library_abbr: library_abbr})
+        else
+          provenance = Provenance.find_by({name: pr, library_abbr: library_abbr})
+        end
+
+        unless Copy.exists?({csv_row: file + '|' + n.to_s}) # make sure we don't enter the same row twice
+          copy = Copy.create({
+                                 csv_row: file + '|' + n.to_s,
+                                 sheet: sheet,
+                                 description: 'Alleen scan, lokatie origineel onbekend',
+                                 provenance: provenance,
+                                 phys_char: '',
+                                 stamps: '',
+                                 shelfmark: shelfmark})
+        else
+          copy = Copy.find_by({csv_row: file + '|' + n.to_s})
+        end
+        if !copy.valid?
+          puts copy.errors.full_messagese
+          exit
+        end
+
+        # Add iiif imagebase electronic version
+        url = row['Reference URL']
+        #http://cdm21033.contentdm.oclc.org/digital/iiif/krt/3152
+        iiif_id = "https://cdm21033.contentdm.oclc.org/digital/iiif/krt/#{row['CONTENTdm number']}"
+        local_id = "ubvuid:#{row['UBVU-ID']}"
+        # native openseadragon?
+
+        # http://imagebase.ubvu.vu.nl/deepzoom/31_1924_files/8/0_0.jpg
+        deepzoom_id = "https://cdm21033.contentdm.oclc.org/#{row['zoomnr']}_files"
+        #TODO: add deepzoom to table and check openseadragon config
+        unless ElectronicVersion.exists?({repository_url: url})
+          ev = ElectronicVersion.create({
+                                            repository_url: url,
+                                            repository: repository,
+                                            local_id: local_id,
+                                            iiif_id: iiif_id,
+                                            service_type: 'iiif',
+                                            copy: copy
+                                        })
+        end
+        # Add Dans electronic version
+        n = n + 1
       end
+    end
+  end
+  namespace :del do
+    desc "Add tmk series and copies"
+    task :delete_tmk => :environment do
+      base_sets = BaseSet.where({base_series_abbr: 'tmk'})
+      base_sheets = BaseSheet.where({base_series_abbr: 'tmk'})
+      # drop sheets
+      base_sheets.each do |bs|
+        bs.sheets.destroy_all
+      end
+      # drop base_sets
+      base_sets.destroy_all
+      # drop base_sheets
+      base_sheets.destroy_all
     end
   end
 end
