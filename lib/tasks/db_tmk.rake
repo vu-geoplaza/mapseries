@@ -10,15 +10,31 @@ namespace :db do
       else
         library = Library.find_by(name: library_name, abbr: library_abbr)
       end
+      unless Library.exists?(abbr: 'dans')
+        library = Library.create(name: 'DANS', abbr: 'dans')
+      else
+        library = Library.find_by(name: 'DANS', abbr: 'dans')
+      end
       repo_name = 'UBVU Beeldbank'
       unless Repository.exists?(name: repo_name)
         repository = Repository.create({
                                            base_url: 'http://imagebase.ubvu.vu.nl',
                                            name: repo_name,
-                                           library_abbr: library_abbr
+                                           library_abbr: 'ubvu'
                                        })
       else
         repository = Repository.find_by(name: repo_name)
+      end
+
+      dans_repo_name = 'DANS Easy'
+      unless Repository.exists?(name: dans_repo_name)
+        dans_repository = Repository.create({
+                                                base_url: 'https://easy.dans.knaw.nl/',
+                                                name: dans_repo_name,
+                                                library_abbr: 'dans'
+                                            })
+      else
+        dans_repository = Repository.find_by(name: dans_repo_name)
       end
 
       series_name = 'Topographisch Militaire Kaart'
@@ -183,20 +199,28 @@ namespace :db do
         local_id = "ubvuid:#{row['UBVU-ID']}"
         # native openseadragon?
 
-        # http://imagebase.ubvu.vu.nl/deepzoom/31_1924_files/8/0_0.jpg
-        deepzoom_id = "https://cdm21033.contentdm.oclc.org/#{row['zoomnr']}_files"
+        # http://imagebase.ubvu.vu.nl/deepzoom/31_1924
+        dzi = "https://cdm21033.contentdm.oclc.org/deepzoom/#{row['zoomnr']}"
         #TODO: add deepzoom to table and check openseadragon config
         unless ElectronicVersion.exists?({repository_url: url})
           ev = ElectronicVersion.create({
                                             repository_url: url,
                                             repository: repository,
                                             local_id: local_id,
-                                            iiif_id: iiif_id,
-                                            service_type: 'iiif',
+                                            dzi: dzi,
+                                            service_type: 'deepzoom',
                                             copy: copy
                                         })
         end
-        # Add Dans electronic version
+        url = 'https://doi.org/10.17026/dans-zrx-wz6e'
+        unless ElectronicVersion.exists?({repository_url: url, copy: copy})
+          ev = ElectronicVersion.create({
+                                            repository_url: url,
+                                            repository: dans_repository,
+                                            service_type: 'dataset',
+                                            copy: copy
+                                        })
+        end
         n = n + 1
       end
     end

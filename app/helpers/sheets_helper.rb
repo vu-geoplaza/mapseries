@@ -182,6 +182,12 @@ module SheetsHelper
         unless e.iiif_id.nil?
           te['iiif id'] = e.iiif_id
         end
+        unless e.local_id.nil?
+          te['local id'] = e.local_id
+        end
+        unless e.dzi.nil?
+          te['dzi'] = e.dzi
+        end
         unless e.ogc_web_service.nil?
           te['url'] = link_to e.ogc_web_service.url, e.ogc_web_service.url
           te['ogc services'] = e.ogc_web_service.services.join(', ')
@@ -222,7 +228,9 @@ module SheetsHelper
           #iiif_id = e.iiif_id.gsub('http://objects.library.uu.nl', '/uu/')
           picture_tags.append(e.iiif_id + '/info.json')
         elsif e.service_type == 'deepzoom'
-          picture_tags.append(e.deepzoom_id)
+          # dzi doesn't play well with cross-origin, but iiif does?
+          # TODO: move this conversion to a config file
+          picture_tags.append(e.dzi.gsub('https://cdm21033.contentdm.oclc.org', ''))
         end
       end
     end
