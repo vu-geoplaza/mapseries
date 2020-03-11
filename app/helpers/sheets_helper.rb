@@ -29,15 +29,17 @@ module SheetsHelper
     features = []
     @search.facet(:regions).rows.each do |row|
       region = Region.find_by(:name => row.value)
-      unless region.geom4326.nil?
-        feature = {}
-        feature['type'] = 'Feature'
-        feature['properties'] = {}
-        feature['properties']['name'] = region.name.gsub("'", "") # escape single quotes
-        feature['properties']['id'] = region.id
-        geom_str = RGeo::GeoJSON.encode(region.geom4326)
-        feature['geometry'] = geom_str
-        features.append(feature)
+      unless region.nil?
+        unless region.geom4326.nil?
+          feature = {}
+          feature['type'] = 'Feature'
+          feature['properties'] = {}
+          feature['properties']['name'] = region.name.gsub("'", "") # escape single quotes
+          feature['properties']['id'] = region.id
+          geom_str = RGeo::GeoJSON.encode(region.geom4326)
+          feature['geometry'] = geom_str
+          features.append(feature)
+        end
       end
     end
     data['features'] = features
@@ -214,23 +216,25 @@ module SheetsHelper
     picture_data = []
     @sheet.copies.each do |c|
       c.electronic_versions.each do |e|
-        data = {}
-        data['shelfmark'] = c.shelfmark.shelfmark
-        data['library'] = c.shelfmark.library.name
-        data['repo'] = e.repository.name
-        data['url'] = e.repository_url
-        picture_data.append(data)
-        if e.service_type == 'image_url'
-          # TODO: move this conversion to a config file
-          local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
-          picture_tags.append([e.id => {type: 'image', url: local_url}])
-        elsif e.service_type == 'iiif'
-          #iiif_id = e.iiif_id.gsub('http://objects.library.uu.nl', '/uu/')
-          picture_tags.append(e.iiif_id + '/info.json')
-        elsif e.service_type == 'deepzoom'
-          # dzi doesn't play well with cross-origin, but iiif does?
-          # TODO: move this conversion to a config file
-          picture_tags.append(e.dzi.gsub('https://cdm21033.contentdm.oclc.org', ''))
+        if ['image_url', 'iiif', 'deepzoom'].include? e.service_type
+          data = {}
+          data['shelfmark'] = c.shelfmark.shelfmark
+          data['library'] = c.shelfmark.library.name
+          data['repo'] = e.repository.name
+          data['url'] = e.repository_url
+          picture_data.append(data)
+          if e.service_type == 'image_url'
+            # TODO: move this conversion to a config file
+            local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
+            picture_tags.append([e.id => {type: 'image', url: local_url}])
+          elsif e.service_type == 'iiif'
+            #iiif_id = e.iiif_id.gsub('http://objects.library.uu.nl', '/uu/')
+            picture_tags.append(e.iiif_id + '/info.json')
+          elsif e.service_type == 'deepzoom'
+            # dzi doesn't play well with cross-origin, but iiif does?
+            # TODO: move this conversion to a config file
+            picture_tags.append(e.dzi.gsub('https://cdm21033.contentdm.oclc.org', ''))
+          end
         end
       end
     end
