@@ -266,7 +266,7 @@ namespace :db do
             AUTHORITY["EPSG","9122"]],
           AUTHORITY["EPSG","4326"]]
 WKT
-
+      #comment
       wgs84_factory = RGeo::Geographic.spherical_factory(:srid => 4326,
                                                          :proj4 => wgs84_proj4, :coord_sys => wgs84_wkt)
       json_str = File.read('db/tmk/tmk_dans_4326.geojson')
