@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200304093617) do
+ActiveRecord::Schema.define(version: 20200311074146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 20200304093617) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.text     "iiif_id"
+    t.text     "local_id"
+    t.text     "dzi"
     t.index ["copy_id"], name: "index_electronic_versions_on_copy_id", using: :btree
     t.index ["ogc_web_service_id"], name: "index_electronic_versions_on_ogc_web_service_id", using: :btree
     t.index ["repository_id"], name: "index_electronic_versions_on_repository_id", using: :btree
@@ -166,6 +168,10 @@ ActiveRecord::Schema.define(version: 20200304093617) do
     t.datetime "updated_at",                      null: false
     t.text     "auteurs"
     t.text     "metingen"
+    t.text     "stempel"
+    t.text     "gegraveerd"
+    t.text     "ged_herzien"
+    t.text     "omgewerkt"
     t.index ["base_set_id"], name: "index_sheets_on_base_set_id", using: :btree
     t.index ["base_sheet_id"], name: "index_sheets_on_base_sheet_id", using: :btree
   end

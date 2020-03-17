@@ -269,7 +269,6 @@ WKT
                                      schaal: row['schaal'],
                                      metingen: row['jaar metingen'], # add column
                                      auteurs: row['auteurs'], # add column
-
                                      opmerkingen: row['Opmerkingen PV'],
                                      base_set: set
                                     })

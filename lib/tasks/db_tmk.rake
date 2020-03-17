@@ -1,6 +1,47 @@
 namespace :db do
   namespace :seed do
     desc "Add tmk series and copies"
+    task :process_tmk_ubvu => :environment do
+      library = Library.find_by( abbr: 'ubvu')
+      repo_name = 'UBVU Beeldbank'
+      unless Repository.exists?(name: repo_name)
+        repository = Repository.create({
+                                           base_url: 'http://imagebase.ubvu.vu.nl',
+                                           name: repo_name,
+                                           library_abbr: 'ubvu'
+                                       })
+      else
+        repository = Repository.find_by(name: repo_name)
+      end
+      # Add copy, shelfmark & provenance unknown
+      ocn = '1090254512'
+      unless BibliographicMetadatum.exists?(oclcnr: ocn)
+        bm = BibliographicMetadatum.create({oclcnr: ocn})
+      else
+        bm = BibliographicMetadatum.find_by({oclcnr: ocn})
+      end
+
+      sm = 'LL.09779gk: 162/od/1888'
+      unless Shelfmark.exists?(shelfmark: sm, library_abbr: library_abbr)
+        shelfmark = Shelfmark.create({
+                                         shelfmark: sm,
+                                         library_abbr: library_abbr,
+                                         oclcnr: ocn
+                                     })
+      else
+        shelfmark = Shelfmark.find_by({shelfmark: sm, library_abbr: library_abbr})
+      end
+      pr = 'NA'
+      unless Provenance.exists?(name: pr, library_abbr: library_abbr)
+        provenance = Provenance.create({name: pr, library_abbr: library_abbr})
+      else
+        provenance = Provenance.find_by({name: pr, library_abbr: library_abbr})
+      end
+
+    end
+  end
+  namespace :seed do
+    desc "Add tmk series and copies"
     task :process_tmk_kadaster => :environment do
       require 'csv'
       library_name = "Kadaster"
@@ -281,6 +322,27 @@ WKT
           region.update({geom4326: feature.geometry})
         end
       end
+    end
+  end
+  namespace :del do
+    desc "Add tmk series and copies"
+    task :delete_tmk => :environment do
+      base_sets = BaseSet.where({base_series_abbr: 'tmk'})
+      base_sheets = BaseSheet.where({base_series_abbr: 'tmk'})
+      # drop sheets
+      base_sheets.each do |bs|
+        bs.sheets.each do |sh|
+          sh.copies.each do |cp|
+            cp.electronic_versions.destroy_all
+          end
+          sh.copies.destroy_all
+        end
+        bs.sheets.destroy_all
+      end
+      # drop base_sets
+      base_sets.destroy_all
+      # drop base_sheets
+      base_sheets.destroy_all
     end
   end
 end
