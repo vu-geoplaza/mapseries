@@ -13,7 +13,7 @@ namespace :db do
       repo_name = 'UBU Bijzondere Collecties'
       unless Repository.exists?(name: repo_name)
         repository = Repository.create({
-                                           base_url: 'http://bc.library.uu.nl/nl',
+                                           base_url: 'https://bc.library.uu.nl/nl',
                                            name: repo_name,
                                            library_abbr: library_abbr
                                        })
@@ -87,7 +87,7 @@ namespace :db do
           url = row['url']
           if match = url.match(/.*#page\/(.*)\.jpg.*/i)
             id = match.captures[0]
-            iiif_id = 'http://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer' + id + '.jp2'
+            iiif_id = 'https://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer' + id + '.jp2'
           end
           unless ElectronicVersion.exists?({repository_url: url})
             ev = ElectronicVersion.create({
