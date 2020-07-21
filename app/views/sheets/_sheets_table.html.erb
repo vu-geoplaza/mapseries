@@ -15,7 +15,11 @@
     <tr>
       <% header.each_with_index do |value, colnum| %>
         <% if filled[colnum] %>
-          <th><%= value %></th>
+          <% if colnum < 4 or colnum == 99 %>
+            <th><%= value %></th>
+          <% else %>
+            <th class="hidden-xs hidden-sm"><%= value %></th>
+          <% end %>
         <% end %>
       <% end %>
     </tr>
@@ -25,9 +29,11 @@
       <tr class="">
         <% table[sheet_id].each_with_index do |value, colnum| %>
           <% if filled[colnum] %>
-            <td>
-              <%= value %>
-            </td>
+            <% if colnum < 4 or colnum == 99 %>
+              <td><%= value %></td>
+            <% else %>
+              <td class="hidden-xs hidden-sm"><%= value %></td>
+            <% end %>
           <% end %>
         <% end %>
       </tr>
