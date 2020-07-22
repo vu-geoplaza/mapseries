@@ -169,7 +169,7 @@ module SheetsHelper
         tmp['opmerkingen'] = c.description
       end
       unless c.volgnummer.nil?
-        tmp['volgnummer ubuu'] = c.volgnummer
+        tmp['volgnummer ubu'] = c.volgnummer
       end
       tmp['bronbestand'] = c.csv_row
 
