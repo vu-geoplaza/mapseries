@@ -25,7 +25,7 @@
 @import 'jquery-ui/slider.css';
 @import 'jquery-ui/theme.css';
 @import 'font-awesome.css';
-
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 .osviewer {
     height: 600px;
@@ -38,7 +38,8 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /**font-family: Arial, Helvetica, sans-serif;*/
+  font-family: Raleway;
   font-size: 16px;
 }
 
@@ -111,8 +112,9 @@ body {
 }
 
 .btn-primary {
-    background-color: rgb(221, 75, 57);
+    background-color: rgb(0, 92, 159);
     border-color: rgb(204, 204, 204);
+    border-radius: 0;
 }
 
 .category-block {
@@ -331,19 +333,19 @@ th {
 }
 
 a, .panel-title {
-  color: #d65050;
+  color: rgb(59, 104, 160);
 }
 
 .pagination > li > a {
-  color: #d65050;
+  color: rgb(59, 104, 160);
 }
 
 .pagination > .active > a {
-  background-color: #d65050;
+  background-color: rgb(59, 104, 160);
 }
 
 .navbar-inverse .navbar-link {
-  color: #d65050;
+  color: rgb(59, 104, 160);
 }
 
 .navbar-inverse .navbar-link:hover {
@@ -352,4 +354,19 @@ a, .panel-title {
 
 .navigate {
   padding-left: 15px;
+}
+
+.panel-heading .accordion-toggle:after {
+  /* symbol for "opening" panels */
+  font-family: FontAwesome;
+  content: "\f077";
+  float: right;
+  color: grey;
+  font-weight: bolder;
+
+}
+.panel-heading .accordion-toggle.collapsed:after {
+  /* symbol for "collapsed" panels */
+
+  content: "\f078";
 }
