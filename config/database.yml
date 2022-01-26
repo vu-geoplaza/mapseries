@@ -28,7 +28,7 @@ test:
 production:
   adapter: postgis
   encoding: unicode
-  database: mapseries_production
+  database: <%= ENV["DB_NAME"] %>
   username: <%= ENV["DB_USER"] %>
   password: <%= ENV["DB_PW"] %>
-  host: localhost
+  host: <%= ENV["DB_HOST"] %>

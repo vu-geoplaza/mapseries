@@ -26,8 +26,8 @@ Rails.application.configure do
   # Default Mailer Host
   #Rails.application.routes.default_url_options[:host] = 'pvsge081.labs.vu.nl'
   # prevent host header injection
-  config.action_controller.default_url_options = {host: "discovery.labs.vu.nl"}
-  config.action_mailer.default_url_options = {host: "discovery.labs.vu.nl"}
+  config.action_controller.default_url_options = {host: ENV["SITE_NAME"]}
+  config.action_mailer.default_url_options = {host: ENV["SITE_NAME"]}
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
