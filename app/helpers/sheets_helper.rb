@@ -29,15 +29,17 @@ module SheetsHelper
     features = []
     @search.facet(:regions).rows.each do |row|
       region = Region.find_by(:name => row.value)
-      unless region.geom4326.nil?
-        feature = {}
-        feature['type'] = 'Feature'
-        feature['properties'] = {}
-        feature['properties']['name'] = region.name.gsub("'", "") # escape single quotes
-        feature['properties']['id'] = region.id
-        geom_str = RGeo::GeoJSON.encode(region.geom4326)
-        feature['geometry'] = geom_str
-        features.append(feature)
+      unless region.nil?
+        unless region.geom4326.nil?
+          feature = {}
+          feature['type'] = 'Feature'
+          feature['properties'] = {}
+          feature['properties']['name'] = region.name.gsub("'", "") # escape single quotes
+          feature['properties']['id'] = region.id
+          geom_str = RGeo::GeoJSON.encode(region.geom4326)
+          feature['geometry'] = geom_str
+          features.append(feature)
+        end
       end
     end
     data['features'] = features
@@ -100,8 +102,8 @@ module SheetsHelper
       #custom fields and headers
       col = 5
       #metadata_fields=["nummer","uitgever","verkend","herzien","bewerkt","uitgave","bijgewerkt","opname_jaar","basis_jaar","basis","schaal","bewerker","reproductie","editie","waterstaatskaart","bijkaart_we","bijkaart_hw"]
-      metadata_fields = ["nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie", "opmerkingen"]
-      #@base_series.metadata_fields.each do |field|
+      metadata_fields = ["nummer", "uitgever", "verkend", "gegraveerd", "herzien", "ged_herzien", "bewerkt", "stempel", "uitgave", "bijgewerkt", "omgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie", "opmerkingen"]
+      #@base_series.metadata_fields.each do |field| #? why did I stop doing this?
       metadata_fields.each do |field|
         column[col] = ed[field]
         header[col] = field
@@ -120,7 +122,7 @@ module SheetsHelper
       if @sheet.pubdate_exact
         year = @sheet.pubdate.year
       else
-        year = '[' + @sheet.pubdate.year.to_s + ']'
+        year = "[#{ @sheet.pubdate.year }]"
       end
     end
 
@@ -137,7 +139,7 @@ module SheetsHelper
     end
 
     #'Jaar van Uitgave' => year
-    metadata_fields = ["titel", "nummer", "uitgever", "verkend", "herzien", "bewerkt", "uitgave", "bijgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie"]
+    metadata_fields = ["nummer", "uitgever", "verkend", "gegraveerd", "herzien", "ged_herzien", "bewerkt", "stempel", "uitgave", "bijgewerkt", "omgewerkt", "opname_jaar", "basis_jaar", "basis", "schaal", "bewerker", "reproductie", "auteurs", "metingen", "editie", "opmerkingen"]
     #@base_series.metadata_fields.each do |field|
     metadata_fields.each do |field|
       unless @sheet[field].nil? || @sheet[field] == ''
@@ -153,7 +155,7 @@ module SheetsHelper
       tmp = {}
       tmp['plaatskenmerk'] = c.shelfmark.shelfmark
       unless c.shelfmark.oclcnr.nil?
-        tmp['worldcat'] = '<a href="https://vu.on.worldcat.org/oclc/' + c.shelfmark.oclcnr + '" target="_blank" title="associated worldcat record">' + c.shelfmark.oclcnr + '</a>'
+        tmp['worldcat'] = '<a href="https://worldcat.org/oclc/' + c.shelfmark.oclcnr + '" target="_blank" title="associated worldcat record">' + c.shelfmark.oclcnr + '</a>'
       end
       #TODO should only be visible when logged in
       #unless c.phys_char.nil?
@@ -166,6 +168,9 @@ module SheetsHelper
       unless c.description.nil?
         tmp['opmerkingen'] = c.description
       end
+      unless c.volgnummer.nil?
+        tmp['volgnummer ubuu'] = c.volgnummer
+      end
       tmp['bronbestand'] = c.csv_row
 
       c.electronic_versions.each do |e|
@@ -175,6 +180,15 @@ module SheetsHelper
         te['repository'] = e.repository.name
         unless e.repository_url.nil?
           te['url'] = link_to e.repository_url, e.repository_url
+        end
+        unless e.iiif_id.nil?
+          te['iiif id'] = e.iiif_id
+        end
+        unless e.local_id.nil?
+          te['local id'] = e.local_id
+        end
+        unless e.dzi.nil?
+          te['dzi'] = e.dzi
         end
         unless e.ogc_web_service.nil?
           te['url'] = link_to e.ogc_web_service.url, e.ogc_web_service.url
@@ -202,15 +216,25 @@ module SheetsHelper
     picture_data = []
     @sheet.copies.each do |c|
       c.electronic_versions.each do |e|
-        if e.service_type == 'image_url'
-          # TODO: move this conversion to a config file
-          local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
-          picture_tags.append([e.id => {type: 'image', url: local_url}])
+        if ['image_url', 'iiif', 'deepzoom'].include? e.service_type
           data = {}
           data['shelfmark'] = c.shelfmark.shelfmark
           data['library'] = c.shelfmark.library.name
+          data['repo'] = e.repository.name
           data['url'] = e.repository_url
           picture_data.append(data)
+          if e.service_type == 'image_url'
+            # TODO: move this conversion to a config file
+            local_url = e.repository_url.gsub('https://www.rijkswaterstaat.nl/apps/geoservices/geodata/dmc/', '/rws/')
+            picture_tags.append([e.id => {type: 'image', url: local_url}])
+          elsif e.service_type == 'iiif'
+            #iiif_id = e.iiif_id.gsub('http://objects.library.uu.nl', '/uu/')
+            picture_tags.append(e.iiif_id + '/info.json')
+          elsif e.service_type == 'deepzoom'
+            # dzi doesn't play well with cross-origin, but iiif does?
+            # TODO: move this conversion to a config file
+            picture_tags.append(e.dzi.gsub('https://cdm21033.contentdm.oclc.org', ''))
+          end
         end
       end
     end

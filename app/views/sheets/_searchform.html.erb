@@ -72,10 +72,10 @@
               </label>
             </div>
           <% end %>
-
+          <hr>
           <h5>Bladen behorende bij signatuur:</h5>
           <% lib_select_vals(:shelfmarks).each do |lib, val| %>
-            <h6><%= lib %>:</h6>
+            <h6><i><%= Library.find(lib).name %>:</i></h6>
             <% val.each do |d| %>
               <div class="form-check">
                 <label>
@@ -86,10 +86,10 @@
               </div>
             <% end %>
           <% end %>
-
+          <hr>
           <h5>Bladen met provenance:</h5>
           <% lib_select_vals(:provenances).each do |lib, val| %>
-            <h6><%= lib %>:</h6>
+            <h6><i><%= Library.find(lib).name %>:</i></h6>
             <% val.each do |d| %>
               <div class="form-check">
                 <label>
@@ -100,7 +100,7 @@
               </div>
             <% end %>
           <% end %>
-
+          <hr>
           <h5>Digitale versie aanwezig in repository van:</h5>
           <% select_vals(:repositories).each do |d| %>
             <div class="form-check">
