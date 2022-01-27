@@ -15,7 +15,7 @@ RUN apt-get update \
     && apt-get install -y htop \
     && addgroup -g $APP_GROUP_GID -S $APP_GROUP && \
     && adduser -S -s /sbin/nologin -u $APP_USER_UID -G $APP_GROUP $APP_USER && \
-    && chown $APP_USER:$APP_GROUP /usr/src/app
+    && chown $APP_USER:$APP_GROUP /usr/src/app \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
