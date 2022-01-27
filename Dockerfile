@@ -1,7 +1,7 @@
 FROM ruby:2.7-buster
 
-ARG APP_USER=mapseries
-ARG APP_GROUP=mapseries
+ARG APP_USER=appuser
+ARG APP_GROUP=appgroup
 ARG APP_USER_UID=1000
 ARG APP_GROUP_GID=1000
 
@@ -13,8 +13,8 @@ RUN apt-get update \
     #for troubleshooting
     && apt-get install -y nano \
     && apt-get install -y htop \
-    && addgroup -g $APP_GROUP_GID -S $APP_GROUP && \
-    && adduser -S -s /sbin/nologin -u $APP_USER_UID -G $APP_GROUP $APP_USER && \
+    && addgroup -g $APP_GROUP_GID -S $APP_GROUP \
+    && adduser -S -s /sbin/nologin -u $APP_USER_UID -G $APP_GROUP $APP_USER \
     && chown $APP_USER:$APP_GROUP /usr/src/app \
     && rm -rf /var/lib/apt/lists/*
 
