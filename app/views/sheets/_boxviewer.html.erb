@@ -30,10 +30,7 @@
             var map = new ol.Map({
                 layers: [
                     new ol.layer.Tile({
-                        //source: new ol.source.OSM()
-                        source: new ol.source.XYZ({
-                            url: 'https://gpzmaps.labs.vu.nl/osm/{z}/{x}/{y}.png'
-                        })
+                        source: new ol.source.OSM()
                     })
                 ],
                 target: 'boxmap',
