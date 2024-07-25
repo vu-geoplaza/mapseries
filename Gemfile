@@ -7,15 +7,15 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7'
+gem 'rails', '< 7.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 4.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -53,7 +53,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap-sass', '~> 3.2.0'
 #gem 'sass-rails', '>= 3.2'
@@ -63,8 +63,6 @@ gem 'activerecord-postgis-adapter'
 gem 'json'
 
 gem 'best_in_place'
-
-gem 'rails-assets-openlayers', source: 'http://rails-assets.org'
 
 gem 'devise'
 gem 'pundit'
@@ -85,6 +83,6 @@ gem 'openseadragon'
 gem 'caracal'
 gem 'caracal-rails'
 
-gem 'rgeo'
-gem 'rgeo-geojson'
-gem "rgeo-proj4"
+#gem 'rgeo'
+#gem 'rgeo-geojson'
+#gem "rgeo-proj4"

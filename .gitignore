@@ -24,3 +24,4 @@
 /solr/development
 /solr/pids/development
 /public/assets
+.env

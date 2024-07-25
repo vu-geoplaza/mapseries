@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  solr:
+    container_name: ${SOLR_HOST}
+    restart: always
+    image: solr:8
+    environment:
+      SOLR_JAVA_MEM: "-Xms256m -Xmx256m"
+    #ports:
+    #  - "8985:8983"
+    volumes:
+      - /docker/solr/data:/var/solr/data
+      - /docker/solr/configsets:/opt/solr/server/solr/configsets
+    entrypoint:
+      - bash
+      - "-c"
+      - "precreate-core ${SOLR_CORE_MAPSERIES} /opt/solr/server/solr/configsets/${SOLR_CORE_MAPSERIES}; exec solr -f"
+
+  mapseries-app:
+    container_name: mapseries-app
+    restart: always
+    build:
+      context: ../mapseries
+      args:
+        - APP_USER_UID=${MAPSERIES_USER_UID}
+        - APP_USER_GID=${MAPSERIES_USER_GID}
+    user: ${MAPSERIES_USER_UID}:${MAPSERIES_USER_GID}
+    depends_on:
+      - mapseries-db
+      - solr
+    environment:
+      DB_USER: ${DB_USER_MAPSERIES}
+      DB_PW: ${DB_PW_MAPSERIES}
+      DB_HOST: ${DB_HOST_MAPSERIES}
+      DB_NAME: ${DB_NAME_MAPSERIES}
+      RAILS_ENV: production
+      RAILS_RELATIVE_URL_ROOT: /mapseries
+      #SITE_NAME: geoplaza.vu.nl
+      SITE_NAME: 127.0.0.1
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE_MAPSERIES}
+      SOLR_HOST: ${SOLR_HOST}
+      SOLR_CORE: ${SOLR_CORE_MAPSERIES}
+      #puma workers and threads
+      WEB_CONCURRENCY: 1
+      RAILS_MAX_THREADS: 5
+    volumes:
+      - /docker/mapseries/log:/usr/src/app/log
+      - .:/usr/src/app
+    ports:
+      - "127.0.0.1:3011:3000"
+
+  mapseries-db:
+    container_name: ${DB_HOST_MAPSERIES}
+    image: postgis/postgis:11-2.5-alpine
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_PASSWORD: ${DB_PW_MAPSERIES}
+      POSTGRES_USER: ${DB_USER_MAPSERIES}
+      POSTGRES_DB: ${DB_NAME_MAPSERIES}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./db/mapseries.sql:/docker-entrypoint-initdb.d/mapseries.sql
