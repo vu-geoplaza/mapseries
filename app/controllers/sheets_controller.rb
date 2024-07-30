@@ -1,11 +1,12 @@
 class SheetsController < ApplicationController
   require 'csv'
+  require 'will_paginate/view_helpers/action_view'
 
   after_action :verify_authorized, except: [:query, :index, :search, :show]
 
   helper_method :can_edit, :select_vals, :lib_select_vals, :select_vals_nocount
 
-  include Pundit
+  include Pundit::Authorization
 
   def show
     @sheet = Sheet.find(params[:id])

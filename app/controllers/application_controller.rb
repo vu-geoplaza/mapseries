@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   helper Openseadragon::OpenseadragonHelper
   protect_from_forgery with: :exception
-  include Pundit
+  include Pundit::Authorization
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 

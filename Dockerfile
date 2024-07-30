@@ -3,11 +3,10 @@ FROM ruby:3.2-bullseye
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         postgresql-client \
+    && apt-get install -y proj-bin libproj-dev \
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     #for troubleshooting
-    && apt-get install -y nano \
-    && apt-get install -y htop \
     && adduser -disabled-password appuser \
     && mkdir /usr/src/app \
     && chown appuser /usr/src/app \

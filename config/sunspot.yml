@@ -9,10 +9,10 @@ production:
 
 development:
   solr:
-    hostname: localhost
+    hostname: <%= ENV["SOLR_HOST"] %>
     port: 8983
     log_level: INFO
-    path: /solr/mapseries
+    path: /solr/<%= ENV["SOLR_CORE"] %>
 
 test:
   solr:
