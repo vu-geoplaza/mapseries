@@ -10,8 +10,8 @@ services:
     ports:
       - "8985:8983"
     volumes:
-      - /docker/solr_ms/data:/var/solr/data
-      - /docker/solr_ms/configsets:/opt/solr/server/solr/configsets
+      - /home/peer/docker_data/solr_ms/data:/var/solr/data
+      - /home/peer/docker_data/solr_ms/configsets:/opt/solr/server/solr/configsets
     entrypoint:
       - bash
       - "-c"
@@ -45,7 +45,7 @@ services:
       WEB_CONCURRENCY: 1
       RAILS_MAX_THREADS: 5
     volumes:
-      - /docker/mapseries/log:/usr/src/app/log
+      - /home/peer/docker_data/mapseries/log:/usr/src/app/log
       - .:/usr/src/app
     ports:
       - "127.0.0.1:3011:3000"
